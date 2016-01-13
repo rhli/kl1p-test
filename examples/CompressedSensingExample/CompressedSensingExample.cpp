@@ -23,7 +23,11 @@ void kl1p::CreateGaussianSignal(klab::UInt32 size, klab::UInt32 sparsity, klab::
 	out.fill(0.0);
 
 	std::vector<klab::TArrayElement<klab::DoubleReal> > indices;
+<<<<<<< HEAD
     for(klab::UInt32 i=0; i<size; ++i)
+=======
+    for(klab::UInt32 i=0; i<size; ++i)
+>>>>>>> dev
         indices.push_back(klab::TArrayElement<klab::DoubleReal>(i, klab::KRandom::Instance().generateDoubleReal(0.0, 1.0)));
 
     std::partial_sort(indices.begin(), indices.begin()+klab::Min(size, sparsity), indices.end(), std::greater<klab::TArrayElement<klab::DoubleReal> >());
@@ -73,7 +77,7 @@ void kl1p::RunExample()
 		klab::UInt32 m = klab::UInt32(alpha*n);	// Number of cs-measurements.
 		klab::UInt32 k = klab::UInt32(rho*n);	// Sparsity of the signal x0 (number of non-zero elements).
 		klab::UInt64 seed = 0;					// Seed used for random number generation (0 if regenerate random numbers on each launch).
-		bool bWrite = false;					// Write signals to files ?
+		bool bWrite = true;					    // Write signals to files
 
 		// Initialize random seed if needed.
 		if(seed > 0)
@@ -94,11 +98,12 @@ void kl1p::RunExample()
 			kl1p::WriteToCSVFile(x0, "OriginalSignal.csv");	// Write x0 to a file.
 
 		// Create random gaussian i.i.d matrix A of size (m,n).
+        // Create Solver-Matrix
 		klab::TSmartPointer<kl1p::TOperator<klab::DoubleReal> > A = new kl1p::TNormalRandomMatrixOperator<klab::DoubleReal>(m, n, 0.0, 1.0);
 		A  = new kl1p::TScalingOperator<klab::DoubleReal>(A, 1.0/klab::Sqrt(klab::DoubleReal(m)));	// Pseudo-normalization of the matrix (required for AMP and EMBP solvers).
 
 		// Perform cs-measurements of size m.
-		arma::Col<klab::DoubleReal> y;
+		arma::Col<klab::DoubleReal> y;  // y is the result after compressed sensing
 		A->apply(x0, y);
 
 		klab::DoubleReal tolerance = 1e-3;	// Tolerance of the solution.
@@ -121,7 +126,8 @@ void kl1p::RunExample()
 		// Compute OMP.
 		std::cout<<"------------------------------"<<std::endl;
 		std::cout<<"[OMP] Start."<<std::endl;
-		timer.start();
+		timer.start();  // use timer to get run-time
+        // Create a Solver to get the result of OMP
 		kl1p::TOMPSolver<klab::DoubleReal> omp(tolerance);
 		omp.solve(y, A, k, x);
 		timer.stop();
