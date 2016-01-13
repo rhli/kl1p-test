@@ -40,7 +40,7 @@ void kl1p::CreateGaussianSignal(klab::UInt32 size, klab::UInt32 sparsity, klab::
 
 // ---------------------------------------------------------------------------------------------------- //
 
-void	kl1p::WriteToCSVFile(const arma::Col<klab::DoubleReal>& signal, const std::string& filePath)
+void kl1p::WriteToCSVFile(const arma::Col<klab::DoubleReal>& signal, const std::string& filePath)
 {
 	std::ofstream of(filePath.c_str());
 	if(of.is_open())
@@ -67,7 +67,7 @@ void kl1p::RunExample()
 		std::cout<<"from an underdetermined set of linear measurements y=A*x, "<<std::endl;
 		std::cout<<"where A is a random gaussian i.i.d sensing matrix."<<std::endl;
 
-		klab::UInt32 n = 256;					// Size of the original signal x0.
+		klab::UInt32 n = 1024;					// Size of the original signal x0.
 		klab::DoubleReal alpha = 0.5;			// Ratio of the cs-measurements.
 		klab::DoubleReal rho = 0.1;				// Ratio of the sparsity of the signal x0.
 		klab::UInt32 m = klab::UInt32(alpha*n);	// Number of cs-measurements.
@@ -87,8 +87,8 @@ void kl1p::RunExample()
 		std::cout<<"Random Seed="<<klab::KRandom::Instance().seed()<<std::endl;
 		std::cout<<"=============================="<<std::endl;
 
-		arma::Col<klab::DoubleReal> x0;					// Original signal x0 of size n.
-		kl1p::CreateGaussianSignal(n, k, 0.0, 1.0, x0);	// Create randomly the original signal x0.
+		arma::Col<klab::DoubleReal> x0;					 // Original signal x0 of size n.
+		kl1p::CreateGaussianSignal(n, k, 0.0, 1.0, x0);  // Create randomly the original signal x0.
 
 		if(bWrite)
 			kl1p::WriteToCSVFile(x0, "OriginalSignal.csv");	// Write x0 to a file.
@@ -107,16 +107,16 @@ void kl1p::RunExample()
 		klab::KTimer timer;
 
 		// Compute Basis-Pursuit.
-		std::cout<<"[BasisPursuit] Start."<<std::endl;
-		timer.start();
-		kl1p::TBasisPursuitSolver<klab::DoubleReal> bp(tolerance);
-		bp.solve(y, A, x);
-		timer.stop();
-		std::cout<<"[BasisPursuit] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
-			      <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
-				  <<"Iterations="<<bp.iterations()<<std::endl;
-		if(bWrite)
-			kl1p::WriteToCSVFile(x, "BasisPursuit-Signal.csv");	// Write solution to a file.
+		// std::cout<<"[BasisPursuit] Start."<<std::endl;
+		// timer.start();
+		// kl1p::TBasisPursuitSolver<klab::DoubleReal> bp(tolerance);
+		// bp.solve(y, A, x);
+		// timer.stop();
+		// std::cout<<"[BasisPursuit] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
+				  // <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
+				  // <<"Iterations="<<bp.iterations()<<std::endl;
+		// if(bWrite)
+			// kl1p::WriteToCSVFile(x, "BasisPursuit-Signal.csv");	// Write solution to a file.
 
 		// Compute OMP.
 		std::cout<<"------------------------------"<<std::endl;
@@ -132,83 +132,83 @@ void kl1p::RunExample()
 			kl1p::WriteToCSVFile(x, "OMP-Signal.csv");	// Write solution to a file.
 
 		// Compute ROMP.
-		std::cout<<"------------------------------"<<std::endl;
-		std::cout<<"[ROMP] Start."<<std::endl;
-		timer.start();
-		kl1p::TROMPSolver<klab::DoubleReal> romp(tolerance);
-		romp.solve(y, A, k, x);
-		timer.stop();
-		std::cout<<"[ROMP] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
-			      <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
-				  <<"Iterations="<<romp.iterations()<<std::endl;
-		if(bWrite)
-			kl1p::WriteToCSVFile(x, "ROMP-Signal.csv");	// Write solution to a file.
+		// std::cout<<"------------------------------"<<std::endl;
+		// std::cout<<"[ROMP] Start."<<std::endl;
+		// timer.start();
+		// kl1p::TROMPSolver<klab::DoubleReal> romp(tolerance);
+		// romp.solve(y, A, k, x);
+		// timer.stop();
+		// std::cout<<"[ROMP] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
+				  // <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
+				  // <<"Iterations="<<romp.iterations()<<std::endl;
+		// if(bWrite)
+			// kl1p::WriteToCSVFile(x, "ROMP-Signal.csv");	// Write solution to a file.
 
 		// Compute CoSaMP.
-		std::cout<<"------------------------------"<<std::endl;
-		std::cout<<"[CoSaMP] Start."<<std::endl;
-		timer.start();
-		kl1p::TCoSaMPSolver<klab::DoubleReal> cosamp(tolerance);
-		cosamp.solve(y, A, k, x);
-		timer.stop();
-		std::cout<<"[CoSaMP] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
-			      <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
-				  <<"Iterations="<<cosamp.iterations()<<std::endl;
-		if(bWrite)
-			kl1p::WriteToCSVFile(x, "CoSaMP-Signal.csv");	// Write solution to a file.
+		// std::cout<<"------------------------------"<<std::endl;
+		// std::cout<<"[CoSaMP] Start."<<std::endl;
+		// timer.start();
+		// kl1p::TCoSaMPSolver<klab::DoubleReal> cosamp(tolerance);
+		// cosamp.solve(y, A, k, x);
+		// timer.stop();
+		// std::cout<<"[CoSaMP] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
+				  // <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
+				  // <<"Iterations="<<cosamp.iterations()<<std::endl;
+		// if(bWrite)
+			// kl1p::WriteToCSVFile(x, "CoSaMP-Signal.csv");	// Write solution to a file.
 
 		// Compute Subspace-Pursuit.
-		std::cout<<"------------------------------"<<std::endl;
-		std::cout<<"[SubspacePursuit] Start."<<std::endl;
-		timer.start();
-		kl1p::TSubspacePursuitSolver<klab::DoubleReal> sp(tolerance);
-		sp.solve(y, A, k, x);
-		timer.stop();
-		std::cout<<"[SubspacePursuit] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
-			      <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
-				  <<"Iterations="<<sp.iterations()<<std::endl;
-		if(bWrite)
-			kl1p::WriteToCSVFile(x, "SubspacePursuit-Signal.csv");	// Write solution to a file.
+		// std::cout<<"------------------------------"<<std::endl;
+		// std::cout<<"[SubspacePursuit] Start."<<std::endl;
+		// timer.start();
+		// kl1p::TSubspacePursuitSolver<klab::DoubleReal> sp(tolerance);
+		// sp.solve(y, A, k, x);
+		// timer.stop();
+		// std::cout<<"[SubspacePursuit] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
+				  // <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
+				  // <<"Iterations="<<sp.iterations()<<std::endl;
+		// if(bWrite)
+			// kl1p::WriteToCSVFile(x, "SubspacePursuit-Signal.csv");	// Write solution to a file.
 
 		// Compute SL0.
-		std::cout<<"------------------------------"<<std::endl;
-		std::cout<<"[SL0] Start."<<std::endl;
-		timer.start();
-		kl1p::TSL0Solver<klab::DoubleReal> sl0(tolerance);
-		sl0.solve(y, A, x);
-		timer.stop();
-		std::cout<<"[SL0] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
-			      <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
-				  <<"Iterations="<<sl0.iterations()<<std::endl;
-		if(bWrite)
-			kl1p::WriteToCSVFile(x, "SL0-Signal.csv");	// Write solution to a file.
+		// std::cout<<"------------------------------"<<std::endl;
+		// std::cout<<"[SL0] Start."<<std::endl;
+		// timer.start();
+		// kl1p::TSL0Solver<klab::DoubleReal> sl0(tolerance);
+		// sl0.solve(y, A, x);
+		// timer.stop();
+		// std::cout<<"[SL0] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
+				  // <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
+				  // <<"Iterations="<<sl0.iterations()<<std::endl;
+		// if(bWrite)
+			// kl1p::WriteToCSVFile(x, "SL0-Signal.csv");	// Write solution to a file.
 
 		// Compute AMP.
-		std::cout<<"------------------------------"<<std::endl;
-		std::cout<<"[AMP] Start."<<std::endl;
-		timer.start();
-		kl1p::TAMPSolver<klab::DoubleReal> amp(tolerance);
-		amp.solve(y, A, x);
-		timer.stop();
-		std::cout<<"[AMP] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
-			      <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
-				  <<"Iterations="<<amp.iterations()<<std::endl;
-		if(bWrite)
-			kl1p::WriteToCSVFile(x, "AMP-Signal.csv");	// Write solution to a file.
+		// std::cout<<"------------------------------"<<std::endl;
+		// std::cout<<"[AMP] Start."<<std::endl;
+		// timer.start();
+		// kl1p::TAMPSolver<klab::DoubleReal> amp(tolerance);
+		// amp.solve(y, A, x);
+		// timer.stop();
+		// std::cout<<"[AMP] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
+				  // <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
+				  // <<"Iterations="<<amp.iterations()<<std::endl;
+		// if(bWrite)
+			// kl1p::WriteToCSVFile(x, "AMP-Signal.csv");	// Write solution to a file.
 
 		// Compute EMBP.
-		std::cout<<"------------------------------"<<std::endl;
-		std::cout<<"[EMBP] Start."<<std::endl;
-		timer.start();
-		kl1p::TEMBPSolver<klab::DoubleReal> embp(tolerance);
-		embp.enableHomogeneous(true);
-		embp.solve(y, A, k, x);
-		timer.stop();
-		std::cout<<"[EMBP] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
-			      <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
-				  <<"Iterations="<<embp.iterations()<<std::endl;
-		if(bWrite)
-			kl1p::WriteToCSVFile(x, "EMBP-Signal.csv");	// Write solution to a file.
+		// std::cout<<"------------------------------"<<std::endl;
+		// std::cout<<"[EMBP] Start."<<std::endl;
+		// timer.start();
+		// kl1p::TEMBPSolver<klab::DoubleReal> embp(tolerance);
+		// embp.enableHomogeneous(true);
+		// embp.solve(y, A, k, x);
+		// timer.stop();
+		// std::cout<<"[EMBP] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
+				  // <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
+				  // <<"Iterations="<<embp.iterations()<<std::endl;
+		// if(bWrite)
+			// kl1p::WriteToCSVFile(x, "EMBP-Signal.csv");	// Write solution to a file.
 
 
 		std::cout<<"------------------------------"<<std::endl;
