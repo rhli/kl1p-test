@@ -23,11 +23,7 @@ void kl1p::CreateGaussianSignal(klab::UInt32 size, klab::UInt32 sparsity, klab::
 	out.fill(0.0);
 
 	std::vector<klab::TArrayElement<klab::DoubleReal> > indices;
-<<<<<<< HEAD
     for(klab::UInt32 i=0; i<size; ++i)
-=======
-    for(klab::UInt32 i=0; i<size; ++i)
->>>>>>> dev
         indices.push_back(klab::TArrayElement<klab::DoubleReal>(i, klab::KRandom::Instance().generateDoubleReal(0.0, 1.0)));
 
     std::partial_sort(indices.begin(), indices.begin()+klab::Min(size, sparsity), indices.end(), std::greater<klab::TArrayElement<klab::DoubleReal> >());
