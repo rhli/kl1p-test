@@ -1,12 +1,12 @@
 // KL1p - A portable C++ compressed sensing library.
 // Copyright (c) 2011-2012 René Gebel
-// 
-// This file is part of the KL1p C++ library.
-// This library is distributed in the hope that it will be useful, 
-// but WITHOUT ANY WARRANTY of fitness for any purpose. 
 //
-// This library is free software; You can redistribute it and/or modify it 
-// under the terms of the GNU Lesser General Public License (LGPL) 
+// This file is part of the KL1p C++ library.
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY of fitness for any purpose.
+//
+// This library is free software; You can redistribute it and/or modify it
+// under the terms of the GNU Lesser General Public License (LGPL)
 // as published by the Free Software Foundation, either version 3 of the License,
 // or (at your option) any later version.
 // See http://www.opensource.org/licenses for more info.
@@ -28,10 +28,10 @@ template<class T>
 class TNormalRandomMatrixOperator : public TMatrixOperator<T>
 {
 public:
-    
+
     TNormalRandomMatrixOperator(klab::UInt32 m, klab::UInt32 n, const T& mean=klab::TTypeInfo<T>::ZERO, const T& deviation=klab::TTypeInfo<T>::UNIT, bool normalize=false);
     TNormalRandomMatrixOperator(const TNormalRandomMatrixOperator<T>& op);
-    virtual ~TNormalRandomMatrixOperator(); 
+    virtual ~TNormalRandomMatrixOperator();
 
     virtual bool    isZero();
     virtual T       sum();
@@ -96,16 +96,19 @@ _mean(mean), _deviation(deviation)
     arma::Mat<T>& mat = this->matrixReference();
 
     mat.set_size(m, n);
-    for(klab::UInt32 i=0; i<m; ++i)
-    {
-        for(klab::UInt32 j=0; j<n; ++j)
-            mat(i, j) = TNormalRandomMatrixOperatorSpecialisation<T>::GenerateNormalRandomNumber(klab::KRandom::Instance(), mean, deviation); 
-    }
+    // for(klab::UInt32 i=0; i<m; ++i)
+    // {
+        // for(klab::UInt32 j=0; j<n; ++j)
+            // mat(i, j) = TNormalRandomMatrixOperatorSpecialisation<T>::GenerateNormalRandomNumber(klab::KRandom::Instance(), mean, deviation);
+    // }
+
+    // mat.save("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/ssma.csv", arma::csv_ascii);
+    mat.load("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/sensingMatrix.csv", arma::csv_ascii);
 
     this->resize(m, n);
-	
-	if(normalize)
-		this->normalize();
+
+    if(normalize)
+        this->normalize();
 }
 
 // ---------------------------------------------------------------------------------------------------- //
@@ -215,7 +218,7 @@ inline std::complex<T> TNormalRandomMatrixOperatorSpecialisation<std::complex<T>
     T real = TNormalRandomMatrixOperatorSpecialisation<T>::GenerateNormalRandomNumber(random, mean.real(), deviation.real());
     T imag = TNormalRandomMatrixOperatorSpecialisation<T>::GenerateNormalRandomNumber(random, mean.imag(), deviation.imag());
 
-    return std::complex<T>(real, imag); 
+    return std::complex<T>(real, imag);
 }
 
 // ---------------------------------------------------------------------------------------------------- //
