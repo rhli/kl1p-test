@@ -26,5 +26,6 @@
 *.exe
 *.out
 
-# Folders
+# Others
+*.csv
 ./resources
