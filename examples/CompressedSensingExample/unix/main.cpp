@@ -6,12 +6,23 @@
 // About    : Using sensing matrix from a CSV file and test CS-algorithms
 // --------------------------------------------------------------------------------------
 
+#include <iostream>
+#include <string>
 #include "../CompressedSensingExample.h"
 
 using namespace kl1p;
+using std::string;
 
 // ---------------------------------------------------------------------------------------------------- //
 
+/**
+ * @brief main
+ *
+ * @param argc
+ * @param argv[]
+ *
+ * @return
+ */
 int main(int argc, char* argv[])
 {
     try
@@ -31,6 +42,7 @@ int main(int argc, char* argv[])
 		if(seed > 0)
 			klab::KRandom::Instance().setSeed(seed);
 
+        // Print signal informations
 		std::cout<<"=============================="<<std::endl;
 		std::cout<<"N="<<n<<" (signal size)"<<std::endl;
 		std::cout<<"M="<<m<<"="<<std::setprecision(5)<<(alpha*100.0)<<"% (number of measurements)"<<std::endl;
@@ -46,20 +58,34 @@ int main(int argc, char* argv[])
         if(bWrite)
             kl1p::WriteToCSVFile(x0, "/home/steve/src/cpp_src/kl1p_dev/csv_matrix/OriginalSignal.csv");
 
-        // TODO: Get sensing matrix from csv file
+        // Get sensing matrix from CSV file
+        // --------------------------------------------------------------------------------
+        // 1. resize the original sensingMatrix
+        string orginalMatrixFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/sensingMatrixOriginal.csv");
+        string resizedMatrixFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/sensingMatrixResized.csv");
 
-		// Create random gaussian i.i.d matrix A of size (m,n).
-        // Create Solver-Matrix
-        klab::TSmartPointer<kl1p::TOperator<klab::DoubleReal> > A = new kl1p::TMatrixFromCSV<klab::DoubleReal>(m, n);
+        std::cout<<"the orginalMatrixFile is:"<<orginalMatrixFile<<std::endl;
+        std::cout<<"the resizedMatrixFile is:"<<resizedMatrixFile<<std::endl;
+        // get orginal sensing matrix
+        arma::Mat<klab::DoubleReal> originalSenMatrix;
+        originalSenMatrix.load(orginalMatrixFile, arma::csv_ascii);
+        // resize matrix and save as resized matrix
+        originalSenMatrix.resize(m, n);
+        originalSenMatrix.save(resizedMatrixFile, arma::csv_ascii);
+
+        // 2. load matrix using TMatrixFromCSV(rows, cols, matrixFile)
+        klab::TSmartPointer<kl1p::TOperator<klab::DoubleReal> > A = new kl1p::TMatrixFromCSV<klab::DoubleReal>(m, n, resizedMatrixFile);
+        // --------------------------------------------------------------------------------
 
 		// Perform CS-measurements of size m.
-		arma::Col<klab::DoubleReal> y;  // y is the result after compressed sensing
+		arma::Col<klab::DoubleReal> y;      // y is the result after compressed sensing
 		A->apply(x0, y);
 
+        // TODO: definition of tolerance
 		klab::DoubleReal tolerance = 1e-5;	// Tolerance of the solution.
 		arma::Col<klab::DoubleReal> x;		// Will contain the solution of the reconstruction.
 
-		klab::KTimer timer;
+		klab::KTimer timer;                 // Timer to get run time
 
         /*
          * y = Ax ist the sensing equation
@@ -68,20 +94,25 @@ int main(int argc, char* argv[])
          *   x: the solution of reconstruction using omp
          * */
 
-		// compute OMP.
+		// Compute OMP.
 		std::cout<<"------------------------------"<<std::endl;
-		std::cout<<"[OMP] start."<<std::endl;
-		timer.start();  // use timer to get run-time
-        // create a Solver to get the result of OMP
+		std::cout<<"[OMP] start..."<<std::endl;
+		timer.start();
+        // Create a Solver to get the result of OMP
 		kl1p::TOMPSolver<klab::DoubleReal> omp(tolerance);
 		omp.solve(y, A, k, x);
 		timer.stop();
+        // Print result
 		std::cout<<"[OMP] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
 			      <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
 				  <<"Iterations="<<omp.iterations()<<std::endl;
 		std::cout<<"------------------------------"<<std::endl;
+
+        if(bWrite)
+            kl1p::WriteToCSVFile(x, "/home/steve/src/cpp_src/kl1p_dev/csv_matrix/OMP-Signal.csv");
     }
 
+    // Catch Exception
 	catch(klab::KException& e)
 	{
 		std::cout<<"ERROR! KLab exception : "<<klab::FormatExceptionToString(e)<<std::endl;

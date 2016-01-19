@@ -93,14 +93,11 @@ _mean(mean), _deviation(deviation)
     arma::Mat<T>& mat = this->matrixReference();
 
     mat.set_size(m, n);
-    // for(klab::UInt32 i=0; i<m; ++i)
-    // {
-        // for(klab::UInt32 j=0; j<n; ++j)
-            // mat(i, j) = TNormalRandomMatrixOperatorSpecialisation<T>::GenerateNormalRandomNumber(klab::KRandom::Instance(), mean, deviation);
-    // }
-
-    // mat.save("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/ssma.csv", arma::csv_ascii);
-    mat.load("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/sensingMatrix.csv", arma::csv_ascii);
+    for(klab::UInt32 i=0; i<m; ++i)
+    {
+        for(klab::UInt32 j=0; j<n; ++j)
+            mat(i, j) = TNormalRandomMatrixOperatorSpecialisation<T>::GenerateNormalRandomNumber(klab::KRandom::Instance(), mean, deviation);
+    }
 
     this->resize(m, n);
 

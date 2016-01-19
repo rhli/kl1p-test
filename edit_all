@@ -1,0 +1,2 @@
+#!/bin/bash
+nvim ./examples/CompressedSensingExample/CompressedSensingExample.cpp ./examples/CompressedSensingExample/unix/main.cpp ./libs/KL1p/include/MatrixFromCSV.h
