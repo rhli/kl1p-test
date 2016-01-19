@@ -50,6 +50,7 @@
 #include "UniformRandomOperator.h"
 #include "MatrixOperator.h"
 #include "NormalRandomMatrixOperator.h"
+#include "MatrixFromCSV.h"
 #include "UniformRandomMatrixOperator.h"
 #include "AdditionOperator.h"
 #include "SubtractionOperator.h"

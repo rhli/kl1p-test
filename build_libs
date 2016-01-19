@@ -1,2 +1,0 @@
-#!/bin/bash
-sh ./build/unix/UnixMakefile_x64_Make.sh

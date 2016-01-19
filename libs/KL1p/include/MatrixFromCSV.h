@@ -26,15 +26,20 @@ class TMatrixFromCSV : public TMatrixOperator<T>
 public:
 
     TMatrixFromCSV(klab::UInt32 m, klab::UInt32 n);
+    TMatrixFromCSV(const TMatrixFromCSV<T>& op);
     virtual ~TMatrixFromCSV();
 
+private:
+
+    TMatrixFromCSV();
+    TMatrixFromCSV<T>&     operator=(const TMatrixFromCSV<T>& op);
 };
 
 // ---------------------------------------------------------------------------------------------------- //
 
 // funktion load Matrix from CSV file
 template<class T>
-inline TMatrixFromCSV<T>::TMatrixFromCSV(klab::UInt32 m, klab::UInt32 n) : TMatrixOperator<T>(op)
+inline TMatrixFromCSV<T>::TMatrixFromCSV(klab::UInt32 m, klab::UInt32 n) : TMatrixOperator<T>()
 {
     arma::Mat<T>& mat = this->matrixReference();
 
@@ -43,10 +48,13 @@ inline TMatrixFromCSV<T>::TMatrixFromCSV(klab::UInt32 m, klab::UInt32 n) : TMatr
     mat.load("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/sensingMatrix.csv", arma::csv_ascii);
 
     this->resize(m, n);
-
-    if(normalize)
-        this->normalize();
 }
+
+// ---------------------------------------------------------------------------------------------------- //
+//
+template<class T>
+inline TMatrixFromCSV<T>::TMatrixFromCSV(const TMatrixFromCSV<T>& op) : TMatrixOperator<T>(op)
+{}
 
 // ---------------------------------------------------------------------------------------------------- //
 

@@ -1567,6 +1567,8 @@ MatrixOperator.h
 ../../../../libs/KL1p/include/MatrixOperator.h
 NormalRandomMatrixOperator.h
 ../../../../libs/KL1p/include/NormalRandomMatrixOperator.h
+MatrixFromCSV.h
+../../../../libs/KL1p/include/MatrixFromCSV.h
 UniformRandomMatrixOperator.h
 ../../../../libs/KL1p/include/UniformRandomMatrixOperator.h
 AdditionOperator.h
@@ -1641,6 +1643,10 @@ SL0Solver.h
 ../../../../libs/KL1p/include/SL0Solver.h
 EMBPSolver.h
 ../../../../libs/KL1p/include/EMBPSolver.h
+
+../../../../libs/KL1p/include/MatrixFromCSV.h
+MatrixOperator.h
+../../../../libs/KL1p/include/MatrixOperator.h
 
 ../../../../libs/KL1p/include/MatrixOperator.h
 Operator.h
