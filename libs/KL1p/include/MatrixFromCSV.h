@@ -46,10 +46,11 @@ inline TMatrixFromCSV<T>::TMatrixFromCSV(klab::UInt32 m, klab::UInt32 n, string 
 {
     arma::Mat<T>& mat = this->matrixReference();
     // init matrix size -> N * N
-    mat.set_size(n, n);
+    mat.set_size(m, n);
     // load matrix
     mat.load(file_name, arma::csv_ascii);
-    mat.save("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/sensingMatrix_used.csv", arma::csv_ascii);
+    // save the matrix for check
+    mat.save("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/sensingMatrixUsed.csv", arma::csv_ascii);
     // resize matrix
     this->resize(m, n);
 }

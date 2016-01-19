@@ -59,10 +59,23 @@ int main(int argc, char* argv[])
             kl1p::WriteToCSVFile(x0, "/home/steve/src/cpp_src/kl1p_dev/csv_matrix/OriginalSignal.csv");
 
         // Get sensing matrix from CSV file
-        string file_name("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/sensingMatrix.csv");
-        std::cout<<"the file_name is:"<<file_name<<std::endl;
-        // TMatrixFromCSV(rows, cols, file_name)
-        klab::TSmartPointer<kl1p::TOperator<klab::DoubleReal> > A = new kl1p::TMatrixFromCSV<klab::DoubleReal>(m, n, file_name);
+        // --------------------------------------------------------------------------------
+        // 1. resize the original sensingMatrix
+        string orginalMatrixFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/sensingMatrixOriginal.csv");
+        string resizedMatrixFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/sensingMatrixResized.csv");
+
+        std::cout<<"the orginalMatrixFile is:"<<orginalMatrixFile<<std::endl;
+        std::cout<<"the resizedMatrixFile is:"<<resizedMatrixFile<<std::endl;
+        // get orginal sensing matrix
+        arma::Mat<klab::DoubleReal> originalSenMatrix;
+        originalSenMatrix.load(orginalMatrixFile, arma::csv_ascii);
+        // resize matrix and save as resized matrix
+        originalSenMatrix.resize(m, n);
+        originalSenMatrix.save(resizedMatrixFile, arma::csv_ascii);
+
+        // 2. load matrix using TMatrixFromCSV(rows, cols, matrixFile)
+        klab::TSmartPointer<kl1p::TOperator<klab::DoubleReal> > A = new kl1p::TMatrixFromCSV<klab::DoubleReal>(m, n, resizedMatrixFile);
+        // --------------------------------------------------------------------------------
 
 		// Perform CS-measurements of size m.
 		arma::Col<klab::DoubleReal> y;      // y is the result after compressed sensing
@@ -94,6 +107,9 @@ int main(int argc, char* argv[])
 			      <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
 				  <<"Iterations="<<omp.iterations()<<std::endl;
 		std::cout<<"------------------------------"<<std::endl;
+
+        if(bWrite)
+            kl1p::WriteToCSVFile(x, "/home/steve/src/cpp_src/kl1p_dev/csv_matrix/OMP-Signal.csv");
     }
 
     // Catch Exception
