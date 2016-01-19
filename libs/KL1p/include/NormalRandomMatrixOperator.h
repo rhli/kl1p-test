@@ -16,9 +16,6 @@
 
 #include "MatrixOperator.h"
 
-
-
-
 namespace kl1p
 {
 
