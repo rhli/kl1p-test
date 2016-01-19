@@ -14,7 +14,10 @@
 #ifndef KL1P_MATRIXFROMCSV_H
 #define KL1P_MATRIXFROMCSV_H
 
+#include <string>
 #include "MatrixOperator.h"
+
+using std::string;
 
 namespace kl1p
 {
@@ -25,7 +28,7 @@ class TMatrixFromCSV : public TMatrixOperator<T>
 {
 public:
 
-    TMatrixFromCSV(klab::UInt32 m, klab::UInt32 n);
+    TMatrixFromCSV(klab::UInt32 m, klab::UInt32 n, string file_name);
     TMatrixFromCSV(const TMatrixFromCSV<T>& op);
     virtual ~TMatrixFromCSV();
 
@@ -37,16 +40,17 @@ private:
 
 // ---------------------------------------------------------------------------------------------------- //
 
-// funktion load Matrix from CSV file
+// Funktion load sensing matrix from a CSV file
 template<class T>
-inline TMatrixFromCSV<T>::TMatrixFromCSV(klab::UInt32 m, klab::UInt32 n) : TMatrixOperator<T>()
+inline TMatrixFromCSV<T>::TMatrixFromCSV(klab::UInt32 m, klab::UInt32 n, string file_name) : TMatrixOperator<T>()
 {
     arma::Mat<T>& mat = this->matrixReference();
-
-    mat.set_size(m, n);
-
-    mat.load("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/sensingMatrix.csv", arma::csv_ascii);
-
+    // init matrix size -> N * N
+    mat.set_size(n, n);
+    // load matrix
+    mat.load(file_name, arma::csv_ascii);
+    mat.save("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/sensingMatrix_used.csv", arma::csv_ascii);
+    // resize matrix
     this->resize(m, n);
 }
 
