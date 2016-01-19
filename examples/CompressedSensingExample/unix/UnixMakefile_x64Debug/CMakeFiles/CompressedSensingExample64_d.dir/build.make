@@ -60,15 +60,15 @@ include CMakeFiles/CompressedSensingExample64_d.dir/flags.make
 CMakeFiles/CompressedSensingExample64_d.dir/CompressedSensingExample.cpp.o: CMakeFiles/CompressedSensingExample64_d.dir/flags.make
 CMakeFiles/CompressedSensingExample64_d.dir/CompressedSensingExample.cpp.o: ../../CompressedSensingExample.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/steve/src/cpp_src/kl1p_dev/examples/CompressedSensingExample/unix/UnixMakefile_x64Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CompressedSensingExample64_d.dir/CompressedSensingExample.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CompressedSensingExample64_d.dir/CompressedSensingExample.cpp.o -c /home/steve/src/cpp_src/kl1p_dev/examples/CompressedSensingExample/CompressedSensingExample.cpp
+	/usr/sbin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CompressedSensingExample64_d.dir/CompressedSensingExample.cpp.o -c /home/steve/src/cpp_src/kl1p_dev/examples/CompressedSensingExample/CompressedSensingExample.cpp
 
 CMakeFiles/CompressedSensingExample64_d.dir/CompressedSensingExample.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CompressedSensingExample64_d.dir/CompressedSensingExample.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/steve/src/cpp_src/kl1p_dev/examples/CompressedSensingExample/CompressedSensingExample.cpp > CMakeFiles/CompressedSensingExample64_d.dir/CompressedSensingExample.cpp.i
+	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/steve/src/cpp_src/kl1p_dev/examples/CompressedSensingExample/CompressedSensingExample.cpp > CMakeFiles/CompressedSensingExample64_d.dir/CompressedSensingExample.cpp.i
 
 CMakeFiles/CompressedSensingExample64_d.dir/CompressedSensingExample.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CompressedSensingExample64_d.dir/CompressedSensingExample.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/steve/src/cpp_src/kl1p_dev/examples/CompressedSensingExample/CompressedSensingExample.cpp -o CMakeFiles/CompressedSensingExample64_d.dir/CompressedSensingExample.cpp.s
+	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/steve/src/cpp_src/kl1p_dev/examples/CompressedSensingExample/CompressedSensingExample.cpp -o CMakeFiles/CompressedSensingExample64_d.dir/CompressedSensingExample.cpp.s
 
 CMakeFiles/CompressedSensingExample64_d.dir/CompressedSensingExample.cpp.o.requires:
 
@@ -84,15 +84,15 @@ CMakeFiles/CompressedSensingExample64_d.dir/CompressedSensingExample.cpp.o.provi
 CMakeFiles/CompressedSensingExample64_d.dir/unix/main.cpp.o: CMakeFiles/CompressedSensingExample64_d.dir/flags.make
 CMakeFiles/CompressedSensingExample64_d.dir/unix/main.cpp.o: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/steve/src/cpp_src/kl1p_dev/examples/CompressedSensingExample/unix/UnixMakefile_x64Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CompressedSensingExample64_d.dir/unix/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CompressedSensingExample64_d.dir/unix/main.cpp.o -c /home/steve/src/cpp_src/kl1p_dev/examples/CompressedSensingExample/unix/main.cpp
+	/usr/sbin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CompressedSensingExample64_d.dir/unix/main.cpp.o -c /home/steve/src/cpp_src/kl1p_dev/examples/CompressedSensingExample/unix/main.cpp
 
 CMakeFiles/CompressedSensingExample64_d.dir/unix/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CompressedSensingExample64_d.dir/unix/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/steve/src/cpp_src/kl1p_dev/examples/CompressedSensingExample/unix/main.cpp > CMakeFiles/CompressedSensingExample64_d.dir/unix/main.cpp.i
+	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/steve/src/cpp_src/kl1p_dev/examples/CompressedSensingExample/unix/main.cpp > CMakeFiles/CompressedSensingExample64_d.dir/unix/main.cpp.i
 
 CMakeFiles/CompressedSensingExample64_d.dir/unix/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CompressedSensingExample64_d.dir/unix/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/steve/src/cpp_src/kl1p_dev/examples/CompressedSensingExample/unix/main.cpp -o CMakeFiles/CompressedSensingExample64_d.dir/unix/main.cpp.s
+	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/steve/src/cpp_src/kl1p_dev/examples/CompressedSensingExample/unix/main.cpp -o CMakeFiles/CompressedSensingExample64_d.dir/unix/main.cpp.s
 
 CMakeFiles/CompressedSensingExample64_d.dir/unix/main.cpp.o.requires:
 
