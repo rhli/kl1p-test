@@ -40,8 +40,14 @@ private:
 
 // ---------------------------------------------------------------------------------------------------- //
 
-// Funktion load sensing matrix from a CSV file
 template<class T>
+/**
+ * @brief Load sensing matrix from a CSV file
+ *
+ * @para klab::UInt32
+ * @para klab::UInt32
+ * @para string file_namem
+ */
 inline TMatrixFromCSV<T>::TMatrixFromCSV(klab::UInt32 m, klab::UInt32 n, string file_name) : TMatrixOperator<T>()
 {
     arma::Mat<T>& mat = this->matrixReference();

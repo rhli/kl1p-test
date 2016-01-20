@@ -1645,6 +1645,8 @@ EMBPSolver.h
 ../../../../libs/KL1p/include/EMBPSolver.h
 
 ../../../../libs/KL1p/include/MatrixFromCSV.h
+string
+-
 MatrixOperator.h
 ../../../../libs/KL1p/include/MatrixOperator.h
 
@@ -2863,6 +2865,10 @@ KL1pInclude.h
 -
 
 /home/steve/src/cpp_src/kl1p_dev/examples/CompressedSensingExample/unix/main.cpp
+iostream
+-
+string
+-
 ../CompressedSensingExample.h
 /home/steve/src/cpp_src/kl1p_dev/examples/CompressedSensingExample/CompressedSensingExample.h
 
