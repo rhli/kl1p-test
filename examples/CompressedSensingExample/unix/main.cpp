@@ -44,8 +44,11 @@ int main(int argc, char* argv[])
 		std::cout<<"Random Seed="<<klab::KRandom::Instance().seed()<<std::endl;
 		std::cout<<"=============================="<<std::endl;
 
-        // run test functions
-        testCSAlgorithm(m, n, k, 0);
+        // Loop for test with different parameters
+        for(m=1 ; m<=125 ; m++) {
+            // Run test functions
+            testCSAlgorithm(m, n, k, 0);
+        }
 
     }
 

@@ -17,6 +17,15 @@ using namespace kl1p;
 
 // ---------------------------------------------------------------------------------------------------- //
 
+/**
+ * @brief Create Gaussian Signal with mean, sigmal and sparsity
+ *
+ * @param size
+ * @param sparsity
+ * @param mean
+ * @param sigma
+ * @param out
+ */
 void kl1p::CreateGaussianSignal(klab::UInt32 size, klab::UInt32 sparsity, klab::DoubleReal mean, klab::DoubleReal sigma, arma::Col<klab::DoubleReal>& out)
 {
 	out.set_size(size);
@@ -40,6 +49,12 @@ void kl1p::CreateGaussianSignal(klab::UInt32 size, klab::UInt32 sparsity, klab::
 
 // ---------------------------------------------------------------------------------------------------- //
 
+/**
+ * @brief Write arma:Col vector to a CVS file
+ * *
+ * @param signal
+ * @param filePath
+ */
 void kl1p::WriteToCSVFile(const arma::Col<klab::DoubleReal>& signal, const std::string& filePath)
 {
 	std::ofstream of(filePath.c_str());
@@ -58,6 +73,9 @@ void kl1p::WriteToCSVFile(const arma::Col<klab::DoubleReal>& signal, const std::
 
 // ---------------------------------------------------------------------------------------------------- //
 
+/**
+ * @brief run some algorithm implemented in lib
+ */
 void kl1p::RunExample()
 {
 	try
