@@ -1,12 +1,12 @@
 // KSci - A portable C++ numerical analysis library.
 // Copyright (c) 2011-2012 René Gebel
-// 
-// This file is part of the KSci C++ library.
-// This library is distributed in the hope that it will be useful, 
-// but WITHOUT ANY WARRANTY of fitness for any purpose. 
 //
-// This library is free software; You can redistribute it and/or modify it 
-// under the terms of the GNU Lesser General Public License (LGPL) 
+// This file is part of the KSci C++ library.
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY of fitness for any purpose.
+//
+// This library is free software; You can redistribute it and/or modify it
+// under the terms of the GNU Lesser General Public License (LGPL)
 // as published by the Free Software Foundation, either version 3 of the License,
 // or (at your option) any later version.
 // See http://www.opensource.org/licenses for more info.
@@ -438,7 +438,7 @@ inline klab::UInt32 TLeastSquareSystemSolverSpecialization<T, TCol, TOperator>::
 
         TCol cs = rhoBar * invRho;
         TCol sn = beta * invRho;
-        TCol theta = sn * alpha;  
+        TCol theta = sn * alpha;
         TCol phi = cs * phiBar;
         TCol tau = sn * phi;
 
@@ -452,7 +452,7 @@ inline klab::UInt32 TLeastSquareSystemSolverSpecialization<T, TCol, TOperator>::
 
         if(useSE)
         {
-            for(klab::UInt32 i=0; i<n; ++i) 
+            for(klab::UInt32 i=0; i<n; ++i)
             {
                 TCol wi = w[i];
                 x[i] = t1*wi + x[i];
@@ -465,7 +465,7 @@ inline klab::UInt32 TLeastSquareSystemSolverSpecialization<T, TCol, TOperator>::
         }
         else
         {
-            for(klab::UInt32 i=0; i<n; ++i) 
+            for(klab::UInt32 i=0; i<n; ++i)
             {
                 TCol wi = w[i];
                 x[i] = t1*wi + x[i];
@@ -485,14 +485,14 @@ inline klab::UInt32 TLeastSquareSystemSolverSpecialization<T, TCol, TOperator>::
             maxDx = iterations;
         }
 
-        TCol delta  =  sn2 * rho; 
+        TCol delta  =  sn2 * rho;
         TCol gamBar = -cs2 * rho;
         ThrowTraceExceptionIf(KZeroNormLeastSquareException, gamBar==klab::TTypeInfo<TCol>::ZERO);
         TCol invGamBar = klab::TTypeInfo<TCol>::UNIT / gamBar;
 
         TCol rhs   = phi - delta*z;
         TCol zBar  = rhs * invGamBar;
-        xNorm      = klab::Sqrt(xNorm1*xNorm1 + zBar*zBar);  
+        xNorm      = klab::Sqrt(xNorm1*xNorm1 + zBar*zBar);
         TCol gamma = klab::Sqrt(gamBar*gamBar + theta*theta);
         ThrowTraceExceptionIf(KZeroNormLeastSquareException, gamma==klab::TTypeInfo<TCol>::ZERO);
         TCol invGamma = klab::TTypeInfo<TCol>::UNIT / gamma;
@@ -532,7 +532,7 @@ inline klab::UInt32 TLeastSquareSystemSolverSpecialization<T, TCol, TOperator>::
 
         if(useSE)
         {
-            TCol t = rNorm / klab::Sqrt(static_cast<TCol>(m-n));      
+            TCol t = rNorm / klab::Sqrt(static_cast<TCol>(m-n));
             for(klab::UInt32 i=0; i<n; ++i)
                 se[i] = t * klab::Sqrt(se[i]);
         }

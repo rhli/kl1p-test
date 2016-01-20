@@ -46,7 +46,7 @@ void kl1p::WriteToCSVFile(const arma::Col<klab::DoubleReal>& signal, const std::
 	if(of.is_open())
 	{
 		for(klab::UInt32 i=0; i<signal.n_rows; ++i)
-			of<<i<<";"<<signal[i]<<std::endl;
+			of<<signal[i]<<std::endl;
 
 		of.close();
 	}
