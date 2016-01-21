@@ -1,2 +1,0 @@
-#!/bin/bash
-nvim ./libs/KL1p/include/NormalRandomMatrixOperator.h
