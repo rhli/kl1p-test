@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <string>
+#include <time.h>
 #include "../CompressedSensingExample.h"
 
 using namespace kl1p;
@@ -51,6 +52,9 @@ int main(int argc, char* argv[])
 {
     try
     {
+        // measure runTime of programm
+        clock_t tStart = clock();
+
         std::cout<<"Start compressed algorithm test..."<<std::endl;
 
         // Print signal informations
@@ -62,7 +66,7 @@ int main(int argc, char* argv[])
 		std::cout<<"=============================="<<std::endl;
 
         // number of each round
-        klab::UInt32 i = 10;
+        klab::UInt32 i = 30;
 
         // Loop for test with different parameters
         for(m=125 ; m<=125 ; m++) {
@@ -70,10 +74,10 @@ int main(int argc, char* argv[])
             testCSAlgorithm(i, m, n, k, 0);
             // TODO: Calc Statistics
         }
-
         std::cout<<"the current m is: "<<m<<std::endl;
         std::cout<<"the number of round is: "<<i<<std::endl;
-
+        klab::DoubleReal runTimeProgramm =klab::DoubleReal((clock() - tStart)/CLOCKS_PER_SEC);
+        std::cout<<"the run time of the programm is: "<<runTimeProgramm<<"s"<<std::endl;
     }
 
     // Catch Exception
