@@ -10,7 +10,7 @@
 #include <iostream>
 #include <string>
 #include <time.h>
-#include "../CompressedSensingExample.h"
+#include "CompressedSensingExample.h"
 
 using namespace kl1p;
 using std::string;
@@ -218,5 +218,4 @@ void writeMatrixToCSVFile(arma::mat writeMatrix, string file_name)
 	{
 		std::cout<<"ERROR! Unable to open file \""<<file_name<<"\" !"<<std::endl;
 	}
-
 }
