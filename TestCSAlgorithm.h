@@ -13,18 +13,22 @@
 #include <KL1pInclude.h>
 #include "CreatSignal.h"
 #include "MatrixIO.h"
+#include "DataProc.h"
+
+// Init struct to return results
+struct resultStruct {
+    klab::DoubleReal run_time_mean;
+    klab::DoubleReal run_time_std;
+    klab::DoubleReal mse_mean;
+    klab::DoubleReal mse_std;
+    klab::DoubleReal success_mean;
+    klab::DoubleReal success_std;
+};
 
 namespace kl1p
 {
-void testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt32 m, klab::UInt32 n, klab::UInt32 k, klab::UInt64 seed);
+    resultStruct testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt32 m, klab::UInt32 n, klab::UInt32 k, klab::UInt64 seed);
 }
-
-// Init file locations
-string OriginalSignalFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/OriginalSignal.csv");
-string OMPSignalFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/OMP_Signal.csv");
-string orginalMatrixFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/sensingMatrixOriginal.csv");
-string resizedMatrixFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/sensingMatrixResized.csv");
-string OMPRunTimeMatrixFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/OMP_RunTime.csv");
 
 // ---------------------------------------------------------------------------------------------------- //
 
@@ -38,12 +42,15 @@ string OMPRunTimeMatrixFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/OMP_Run
  * @param k
  * @param seed
  */
-void kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt32 m, klab::UInt32 n, klab::UInt32 k, klab::UInt64 seed)
+resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt32 m, klab::UInt32 n, klab::UInt32 k, klab::UInt64 seed)
 {
 
     // Initialize random seed if needed.
     if(seed > 0)
         klab::KRandom::Instance().setSeed(seed);
+
+    // Init struct for results
+    resultStruct resultArray;
 
     // Init vector for saving temp result
     arma::Col<klab::DoubleReal> runTimeTemp(i);
@@ -104,17 +111,40 @@ void kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt32 m, kl
 
                 // Add result to Vector
                 runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                mseTemp[j] = kl1p::CalcMSE(x, x0);
+                successTemp[j] = kl1p::CalcSuccess(x, x0);
                 break;
             }
-
-        }
-
-
-    }
+        }  // End switch
+    }  // End round loop
 
     // Calc Mean and Std
+    // ----------------------------------------------------------------------------------
+    // run time
     klab::DoubleReal runTimeMean = arma::mean(runTimeTemp);
+    klab::DoubleReal runTimeStd = arma::stddev(runTimeTemp);
+
+    // mse
+    klab::DoubleReal mseMean = arma::mean(mseTemp);
+    klab::DoubleReal mseStd = arma::stddev(mseTemp);
+
+    // success
+    klab::DoubleReal successMean = arma::mean(successTemp);
+    klab::DoubleReal successStd = arma::stddev(successTemp);
+    // ----------------------------------------------------------------------------------
+
+
     std::cout<<"the mean of run time is:" <<runTimeMean<<std::endl;
+
+    // Save results in Struct and return
+    resultArray.run_time_mean = runTimeMean;
+    resultArray.run_time_std = runTimeStd;
+    resultArray.mse_mean = mseMean;
+    resultArray.mse_std = mseStd;
+    resultArray.success_mean = successMean;
+    resultArray.success_std = successStd;
+
+    return resultArray;
 }
 
 #endif /* TESTCSALGORITHM_H */
