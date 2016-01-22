@@ -13,6 +13,7 @@
 #include <KL1pInclude.h>
 #include "CreatSignal.h"
 #include "MatrixIO.h"
+#include "DataProc.h"
 
 // Init struct to return results
 struct resultStruct {
@@ -110,20 +111,38 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
 
                 // Add result to Vector
                 runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                mseTemp[j] = kl1p::CalcMSE(x, x0);
+                successTemp[j] = kl1p::CalcSuccess(x, x0);
                 break;
             }
         }  // End switch
     }  // End round loop
 
     // Calc Mean and Std
+    // ----------------------------------------------------------------------------------
+    // run time
     klab::DoubleReal runTimeMean = arma::mean(runTimeTemp);
     klab::DoubleReal runTimeStd = arma::stddev(runTimeTemp);
+
+    // mse
+    klab::DoubleReal mseMean = arma::mean(mseTemp);
+    klab::DoubleReal mseStd = arma::stddev(mseTemp);
+
+    // success
+    klab::DoubleReal successMean = arma::mean(successTemp);
+    klab::DoubleReal successStd = arma::stddev(successTemp);
+    // ----------------------------------------------------------------------------------
+
 
     std::cout<<"the mean of run time is:" <<runTimeMean<<std::endl;
 
     // Save results in Struct and return
     resultArray.run_time_mean = runTimeMean;
     resultArray.run_time_std = runTimeStd;
+    resultArray.mse_mean = mseMean;
+    resultArray.mse_std = mseStd;
+    resultArray.success_mean = successMean;
+    resultArray.success_std = successStd;
 
     return resultArray;
 }

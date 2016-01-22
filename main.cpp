@@ -12,6 +12,7 @@
 #include "MatrixIO.h"
 #include "CreatSignal.h"
 #include "TestCSAlgorithm.h"
+#include "DataProc.h"
 
 using namespace kl1p;
 using std::string;
@@ -42,6 +43,7 @@ int main(int argc, char* argv[])
 {
     try
     {
+
         // Measure runTime of programm
         klab::DoubleReal programmRuntime = 0;
         klab::KTimer programmTimer;
@@ -58,17 +60,22 @@ int main(int argc, char* argv[])
 		std::cout<<"=============================="<<std::endl;
 
         // number of each round
-        klab::UInt32 i = 5;
+        klab::UInt32 i = 10;
 
         // Loop for test with different parameters
-        for(m=120 ; m<=125 ; m++) {
+        for(m=1 ; m<=125 ; m++) {
             // Run test functions
             resultArray = kl1p::testCSAlgorithm(flag, i, m, n, k, 0);
 
             // Add result in results matrix
             runTimeMeanMat.at(m-1, k-1) = resultArray.run_time_mean;
-            std::cout<<resultArray.run_time_mean<<"   "<<runTimeMeanMat.at(m, k)<<std::endl;
-            // runTimeStdMat.at(m, k) = resultArray.run_time_std;
+            runTimeStdMat.at(m-1, k-1) = resultArray.run_time_std;
+
+            mseMeanMat.at(m-1, k-1) = resultArray.mse_mean;
+            mseStdMat.at(m-1, k-1) = resultArray.mse_std;
+
+            successMeanMat.at(m-1, k-1) = resultArray.success_mean;
+            successStdMat.at(m-1, k-1) = resultArray.success_std;
         }
 
         std::cout<<"the current m is: "<<m<<std::endl;
@@ -76,6 +83,13 @@ int main(int argc, char* argv[])
 
         // Write results matrix to CSV file
         kl1p::WriteMatrixToCSVFile(runTimeMeanMat, OMPRunTimeMeanMatrixFile);
+        kl1p::WriteMatrixToCSVFile(runTimeStdMat, OMPRunTimeStdMatrixFile);
+
+        kl1p::WriteMatrixToCSVFile(mseMeanMat, OMPMSEMeanMatrixFile);
+        kl1p::WriteMatrixToCSVFile(mseStdMat, OMPMSEStdMatrixFile);
+
+        kl1p::WriteMatrixToCSVFile(successMeanMat, OMPSuccessMeanMatrixFile);
+        kl1p::WriteMatrixToCSVFile(successStdMat, OMPSuccessStdMatrixFile);
 
         programmTimer.stop();
         programmRuntime = klab::DoubleReal(programmTimer.durationInMilliseconds());

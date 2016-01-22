@@ -26,6 +26,11 @@ string OMPSignalFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/OMP_Signal.csv
 string orginalMatrixFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/sensingMatrixOriginal.csv");
 string resizedMatrixFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/sensingMatrixResized.csv");
 string OMPRunTimeMeanMatrixFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/OMP_RunTimeMean.csv");
+string OMPRunTimeStdMatrixFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/OMP_RunTimeStd.csv");
+string OMPMSEMeanMatrixFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/OMP_MSEMean.csv");
+string OMPMSEStdMatrixFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/OMP_MSEStd.csv");
+string OMPSuccessMeanMatrixFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/OMP_SuccessMean.csv");
+string OMPSuccessStdMatrixFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/OMP_SuccessStd.csv");
 
 // -------------------------------------------------------------------------------------------------------------------- //
 
