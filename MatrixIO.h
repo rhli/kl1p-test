@@ -20,6 +20,13 @@ void WriteColToCSVFile(const arma::Col<klab::DoubleReal>& signal, const std::str
 void WriteMatrixToCSVFile(const arma::Mat<klab::DoubleReal> writeMatrix, const std::string filePath);
 }
 
+// Init file locations
+string OriginalSignalFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/OriginalSignal.csv");
+string OMPSignalFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/OMP_Signal.csv");
+string orginalMatrixFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/sensingMatrixOriginal.csv");
+string resizedMatrixFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/sensingMatrixResized.csv");
+string OMPRunTimeMeanMatrixFile("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/OMP_RunTimeMean.csv");
+
 // -------------------------------------------------------------------------------------------------------------------- //
 
 /**
