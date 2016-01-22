@@ -1,2 +1,2 @@
 # kl1p_test
-Some tests of Compressed Sensing algorithm using cpp KL1p_Lib
+Some tests of compressed sensing algorithm using KL1p: a portable C++ framework for CS
