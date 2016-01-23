@@ -1,9 +1,21 @@
-# the compiler to use
-CC=g++
+# The compiler to use g++ or clang++
+# CC = g++++
+CC = clang++
 
-# compiling options
-CFLAGS=-c -Wall
+# Compiling options
+# ---------------------------------------------------------
+CFLAGS = -c -Wall
 
+ifeq ($(BUILD), debug)   
+# "Debug" build - no optimization, and debugging symbols
+CFLAGS += -O0 -g
+else
+# "Release" build - optimization, and no debug symbols
+CFLAGS += -O2 -s -DNDEBUG
+endif
+# ---------------------------------------------------------
+
+# Compiling rules
 all: csTest
 
 csTest: main.o
