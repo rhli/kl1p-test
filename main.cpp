@@ -43,7 +43,6 @@ int main(int argc, char* argv[])
 {
     try
     {
-
         // Measure runTime of programm
         klab::DoubleReal programmRuntime = 0;
         klab::KTimer programmTimer;
@@ -60,10 +59,10 @@ int main(int argc, char* argv[])
 		std::cout<<"=============================="<<std::endl;
 
         // number of each round
-        klab::UInt32 i = 10;
+        klab::UInt32 i = 100;
 
         // Loop for test with different parameters
-        for(m=1 ; m<=125 ; m++) {
+        for(m=20 ; m<=125 ; m++) {
             // Run test functions
             resultArray = kl1p::testCSAlgorithm(flag, i, m, n, k, 0);
 
