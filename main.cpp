@@ -23,7 +23,7 @@ using std::string;
 // Init parameters
 klab::UInt32 n = 250;	 // Size of the original signal x0.
 klab::UInt32 m = 125;	 // Number of cs-measurements.
-klab::UInt32 k = 50;     // Sparsity of the signal x0 (number of non-zero elements).
+klab::UInt32 k = 30;     // Sparsity of the signal x0 (number of non-zero elements).
 klab::UInt64 seed = 0;	 // Seed used for random number generation (0 if regenerate random numbers on each launch).
 klab::UInt32 flag = 1;   // Flag for using different Algorithms, default: OMP
                          // 1 -> OMP, 2 -> ROMP
@@ -78,7 +78,7 @@ int main(int argc, char* argv[])
         klab::UInt32 i = 1;
 
         // Loop for test with different parameters
-        for(m=120 ; m<=125 ; m++) {
+        for(m=1 ; m<=125 ; m++) {
             // Run test functions
             resultArray = kl1p::testCSAlgorithm(flag, i, m, n, k, 0);
 

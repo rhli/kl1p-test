@@ -1,4 +1,4 @@
-# Install script for directory: /home/steve/src/cpp_src/kl1p_dev/libs/KLab/main
+# Install script for directory: /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/steve/src/cpp_src/kl1p_dev/libs/KLab/main/unix/UnixMakefile_x64Release/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

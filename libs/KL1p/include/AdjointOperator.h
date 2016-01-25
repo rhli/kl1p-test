@@ -1,12 +1,12 @@
 // KL1p - A portable C++ compressed sensing library.
 // Copyright (c) 2011-2012 René Gebel
-//
+// 
 // This file is part of the KL1p C++ library.
-// This library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY of fitness for any purpose.
+// This library is distributed in the hope that it will be useful, 
+// but WITHOUT ANY WARRANTY of fitness for any purpose. 
 //
-// This library is free software; You can redistribute it and/or modify it
-// under the terms of the GNU Lesser General Public License (LGPL)
+// This library is free software; You can redistribute it and/or modify it 
+// under the terms of the GNU Lesser General Public License (LGPL) 
 // as published by the Free Software Foundation, either version 3 of the License,
 // or (at your option) any later version.
 // See http://www.opensource.org/licenses for more info.
@@ -28,7 +28,7 @@ template<class T, class TOut=T, class TOp=TOperator<T, TOut> >
 class TAdjointOperator : public TProxyOperator<T, TOut, TOp>
 {
 public:
-
+    
     TAdjointOperator(klab::TSmartPointer<TOp> op);
     TAdjointOperator(const TAdjointOperator<T, TOut, TOp>& op);
     virtual ~TAdjointOperator();
@@ -127,7 +127,7 @@ template<class T, class TOut, class TOp>
 inline void TAdjointOperator<T, TOut, TOp>::apply(const arma::Col<T>& in, arma::Col<TOut>& out)
 {
     ThrowTraceExceptionIf(KNullOperatorException, this->_op==0);
-    ThrowTraceExceptionIf(KIncompatibleSizeOperatorException, in.n_rows!=this->n());
+    ThrowTraceExceptionIf(KIncompatibleSizeOperatorException, in.n_rows!=this->n());   
 
     this->_op->applyAdjoint(in, out);
 }
@@ -138,7 +138,7 @@ template<class T, class TOut, class TOp>
 inline void TAdjointOperator<T, TOut, TOp>::applyAdjoint(const arma::Col<TOut>& in, arma::Col<T>& out)
 {
     ThrowTraceExceptionIf(KNullOperatorException, this->_op==0);
-    ThrowTraceExceptionIf(KIncompatibleSizeOperatorException, in.n_rows!=this->m());
+    ThrowTraceExceptionIf(KIncompatibleSizeOperatorException, in.n_rows!=this->m());   
 
     this->_op->apply(in, out);
 }
@@ -150,7 +150,7 @@ inline void TAdjointOperator<T, TOut, TOp>::column(klab::UInt32 i, arma::Col<TOu
 {
     ThrowTraceExceptionIf(KNullOperatorException, this->_op==0);
     ThrowTraceExceptionIf(KOutOfBoundOperatorException, i>=this->n());
-
+    
     this->_op->columnAdjoint(i, out);
 }
 
@@ -161,7 +161,7 @@ inline void TAdjointOperator<T, TOut, TOp>::columnAdjoint(klab::UInt32 i, arma::
 {
     ThrowTraceExceptionIf(KNullOperatorException, this->_op==0);
     ThrowTraceExceptionIf(KOutOfBoundOperatorException, i>=this->m());
-
+    
     this->_op->column(i, out);
 }
 

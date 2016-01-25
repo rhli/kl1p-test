@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/steve/src/cpp_src/kl1p_dev/libs/KLab/main
+CMAKE_SOURCE_DIR = /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/steve/src/cpp_src/kl1p_dev/libs/KLab/main/unix/UnixMakefile_x64Release
+CMAKE_BINARY_DIR = /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release
 
 # Include any dependencies generated for this target.
 include CMakeFiles/KLab64.dir/depend.make
@@ -57,212 +57,212 @@ include CMakeFiles/KLab64.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/KLab64.dir/flags.make
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.o: CMakeFiles/KLab64.dir/flags.make
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.o: /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/steve/src/cpp_src/kl1p_dev/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.o"
-	/usr/sbin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.o -c /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.o: CMakeFiles/KLab64.dir/flags.make
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.o: /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.o"
+	/usr/sbin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.o -c /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.i"
-	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp > CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.i
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.i"
+	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp > CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.i
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.s"
-	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.s
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.s"
+	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.s
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.o.requires:
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.o.requires:
 
-.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.o.requires
+.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.o.requires
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.o.provides: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.o.requires
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.o.provides.build
-.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.o.provides
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.o.provides: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.o.requires
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.o.provides.build
+.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.o.provides
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.o.provides.build: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.o
-
-
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.o: CMakeFiles/KLab64.dir/flags.make
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.o: /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/steve/src/cpp_src/kl1p_dev/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.o"
-	/usr/sbin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.o -c /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp
-
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.i"
-	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp > CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.i
-
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.s"
-	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.s
-
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.o.requires:
-
-.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.o.requires
-
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.o.provides: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.o.requires
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.o.provides.build
-.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.o.provides
-
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.o.provides.build: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.o
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.o.provides.build: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.o
 
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.o: CMakeFiles/KLab64.dir/flags.make
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.o: /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/steve/src/cpp_src/kl1p_dev/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.o"
-	/usr/sbin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.o -c /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.o: CMakeFiles/KLab64.dir/flags.make
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.o: /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.o"
+	/usr/sbin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.o -c /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.i"
-	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp > CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.i
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.i"
+	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp > CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.i
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.s"
-	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.s
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.s"
+	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.s
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.o.requires:
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.o.requires:
 
-.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.o.requires
+.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.o.requires
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.o.provides: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.o.requires
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.o.provides.build
-.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.o.provides
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.o.provides: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.o.requires
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.o.provides.build
+.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.o.provides
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.o.provides.build: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.o
-
-
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.o: CMakeFiles/KLab64.dir/flags.make
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.o: /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/steve/src/cpp_src/kl1p_dev/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.o"
-	/usr/sbin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.o -c /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp
-
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.i"
-	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp > CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.i
-
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.s"
-	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.s
-
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.o.requires:
-
-.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.o.requires
-
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.o.provides: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.o.requires
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.o.provides.build
-.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.o.provides
-
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.o.provides.build: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.o
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.o.provides.build: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.o
 
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.o: CMakeFiles/KLab64.dir/flags.make
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.o: /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/steve/src/cpp_src/kl1p_dev/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.o"
-	/usr/sbin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.o -c /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.o: CMakeFiles/KLab64.dir/flags.make
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.o: /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.o"
+	/usr/sbin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.o -c /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.i"
-	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp > CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.i
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.i"
+	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp > CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.i
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.s"
-	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.s
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.s"
+	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.s
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.o.requires:
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.o.requires:
 
-.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.o.requires
+.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.o.requires
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.o.provides: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.o.requires
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.o.provides.build
-.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.o.provides
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.o.provides: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.o.requires
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.o.provides.build
+.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.o.provides
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.o.provides.build: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.o
-
-
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.o: CMakeFiles/KLab64.dir/flags.make
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.o: /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/steve/src/cpp_src/kl1p_dev/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.o"
-	/usr/sbin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.o -c /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp
-
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.i"
-	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp > CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.i
-
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.s"
-	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.s
-
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.o.requires:
-
-.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.o.requires
-
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.o.provides: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.o.requires
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.o.provides.build
-.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.o.provides
-
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.o.provides.build: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.o
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.o.provides.build: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.o
 
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.o: CMakeFiles/KLab64.dir/flags.make
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.o: /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/steve/src/cpp_src/kl1p_dev/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.o"
-	/usr/sbin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.o -c /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.o: CMakeFiles/KLab64.dir/flags.make
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.o: /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.o"
+	/usr/sbin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.o -c /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.i"
-	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp > CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.i
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.i"
+	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp > CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.i
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.s"
-	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.s
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.s"
+	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.s
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.o.requires:
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.o.requires:
 
-.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.o.requires
+.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.o.requires
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.o.provides: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.o.requires
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.o.provides.build
-.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.o.provides
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.o.provides: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.o.requires
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.o.provides.build
+.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.o.provides
 
-CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.o.provides.build: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.o
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.o.provides.build: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.o
+
+
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.o: CMakeFiles/KLab64.dir/flags.make
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.o: /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.o"
+	/usr/sbin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.o -c /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp
+
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.i"
+	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp > CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.i
+
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.s"
+	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.s
+
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.o.requires:
+
+.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.o.requires
+
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.o.provides: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.o.requires
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.o.provides.build
+.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.o.provides
+
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.o.provides.build: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.o
+
+
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.o: CMakeFiles/KLab64.dir/flags.make
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.o: /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.o"
+	/usr/sbin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.o -c /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp
+
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.i"
+	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp > CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.i
+
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.s"
+	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.s
+
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.o.requires:
+
+.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.o.requires
+
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.o.provides: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.o.requires
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.o.provides.build
+.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.o.provides
+
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.o.provides.build: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.o
+
+
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.o: CMakeFiles/KLab64.dir/flags.make
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.o: /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.o"
+	/usr/sbin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.o -c /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp
+
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.i"
+	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp > CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.i
+
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.s"
+	/usr/sbin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp -o CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.s
+
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.o.requires:
+
+.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.o.requires
+
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.o.provides: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.o.requires
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.o.provides.build
+.PHONY : CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.o.provides
+
+CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.o.provides.build: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.o
 
 
 # Object files for target KLab64
 KLab64_OBJECTS = \
-"CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.o" \
-"CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.o" \
-"CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.o" \
-"CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.o" \
-"CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.o" \
-"CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.o" \
-"CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.o"
+"CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.o" \
+"CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.o" \
+"CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.o" \
+"CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.o" \
+"CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.o" \
+"CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.o" \
+"CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.o"
 
 # External object files for target KLab64
 KLab64_EXTERNAL_OBJECTS =
 
-/home/steve/src/cpp_src/kl1p_dev/bin/unix/libKLab64.a: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.o
-/home/steve/src/cpp_src/kl1p_dev/bin/unix/libKLab64.a: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.o
-/home/steve/src/cpp_src/kl1p_dev/bin/unix/libKLab64.a: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.o
-/home/steve/src/cpp_src/kl1p_dev/bin/unix/libKLab64.a: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.o
-/home/steve/src/cpp_src/kl1p_dev/bin/unix/libKLab64.a: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.o
-/home/steve/src/cpp_src/kl1p_dev/bin/unix/libKLab64.a: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.o
-/home/steve/src/cpp_src/kl1p_dev/bin/unix/libKLab64.a: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.o
-/home/steve/src/cpp_src/kl1p_dev/bin/unix/libKLab64.a: CMakeFiles/KLab64.dir/build.make
-/home/steve/src/cpp_src/kl1p_dev/bin/unix/libKLab64.a: CMakeFiles/KLab64.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/steve/src/cpp_src/kl1p_dev/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library /home/steve/src/cpp_src/kl1p_dev/bin/unix/libKLab64.a"
+/home/steve/src/cpp_src/kl1p_dev/kl1p_src/bin/unix/libKLab64.a: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.o
+/home/steve/src/cpp_src/kl1p_dev/kl1p_src/bin/unix/libKLab64.a: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.o
+/home/steve/src/cpp_src/kl1p_dev/kl1p_src/bin/unix/libKLab64.a: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.o
+/home/steve/src/cpp_src/kl1p_dev/kl1p_src/bin/unix/libKLab64.a: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.o
+/home/steve/src/cpp_src/kl1p_dev/kl1p_src/bin/unix/libKLab64.a: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.o
+/home/steve/src/cpp_src/kl1p_dev/kl1p_src/bin/unix/libKLab64.a: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.o
+/home/steve/src/cpp_src/kl1p_dev/kl1p_src/bin/unix/libKLab64.a: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.o
+/home/steve/src/cpp_src/kl1p_dev/kl1p_src/bin/unix/libKLab64.a: CMakeFiles/KLab64.dir/build.make
+/home/steve/src/cpp_src/kl1p_dev/kl1p_src/bin/unix/libKLab64.a: CMakeFiles/KLab64.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library /home/steve/src/cpp_src/kl1p_dev/kl1p_src/bin/unix/libKLab64.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/KLab64.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/KLab64.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/KLab64.dir/build: /home/steve/src/cpp_src/kl1p_dev/bin/unix/libKLab64.a
+CMakeFiles/KLab64.dir/build: /home/steve/src/cpp_src/kl1p_dev/kl1p_src/bin/unix/libKLab64.a
 
 .PHONY : CMakeFiles/KLab64.dir/build
 
-CMakeFiles/KLab64.dir/requires: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Timer.cpp.o.requires
-CMakeFiles/KLab64.dir/requires: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/StringUtil.cpp.o.requires
-CMakeFiles/KLab64.dir/requires: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/BitArray.cpp.o.requires
-CMakeFiles/KLab64.dir/requires: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Random.cpp.o.requires
-CMakeFiles/KLab64.dir/requires: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/Exception.cpp.o.requires
-CMakeFiles/KLab64.dir/requires: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/TypeUtil.cpp.o.requires
-CMakeFiles/KLab64.dir/requires: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/libs/KLab/src/DateTime.cpp.o.requires
+CMakeFiles/KLab64.dir/requires: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.o.requires
+CMakeFiles/KLab64.dir/requires: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.o.requires
+CMakeFiles/KLab64.dir/requires: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.o.requires
+CMakeFiles/KLab64.dir/requires: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.o.requires
+CMakeFiles/KLab64.dir/requires: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.o.requires
+CMakeFiles/KLab64.dir/requires: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.o.requires
+CMakeFiles/KLab64.dir/requires: CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.o.requires
 
 .PHONY : CMakeFiles/KLab64.dir/requires
 
@@ -271,6 +271,6 @@ CMakeFiles/KLab64.dir/clean:
 .PHONY : CMakeFiles/KLab64.dir/clean
 
 CMakeFiles/KLab64.dir/depend:
-	cd /home/steve/src/cpp_src/kl1p_dev/libs/KLab/main/unix/UnixMakefile_x64Release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/steve/src/cpp_src/kl1p_dev/libs/KLab/main /home/steve/src/cpp_src/kl1p_dev/libs/KLab/main /home/steve/src/cpp_src/kl1p_dev/libs/KLab/main/unix/UnixMakefile_x64Release /home/steve/src/cpp_src/kl1p_dev/libs/KLab/main/unix/UnixMakefile_x64Release /home/steve/src/cpp_src/kl1p_dev/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles/KLab64.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles/KLab64.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/KLab64.dir/depend
 

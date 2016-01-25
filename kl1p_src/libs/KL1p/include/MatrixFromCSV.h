@@ -19,6 +19,8 @@
 
 using std::string;
 
+// ---------------------------------------------------------------------------------------------------- //
+
 namespace kl1p
 {
 
@@ -27,7 +29,7 @@ template<class T>
 class TMatrixFromCSV : public TMatrixOperator<T>
 {
 public:
-
+    // init functions
     TMatrixFromCSV(klab::UInt32 m, klab::UInt32 n, string file_name);
     TMatrixFromCSV(const TMatrixFromCSV<T>& op);
     virtual ~TMatrixFromCSV();
@@ -55,14 +57,12 @@ inline TMatrixFromCSV<T>::TMatrixFromCSV(klab::UInt32 m, klab::UInt32 n, string 
     mat.set_size(m, n);
     // load matrix
     mat.load(file_name, arma::csv_ascii);
-    // save the matrix for check
-    mat.save("/home/steve/src/cpp_src/kl1p_dev/csv_matrix/sensingMatrixUsed.csv", arma::csv_ascii);
     // resize matrix
     this->resize(m, n);
 }
 
 // ---------------------------------------------------------------------------------------------------- //
-//
+
 template<class T>
 inline TMatrixFromCSV<T>::TMatrixFromCSV(const TMatrixFromCSV<T>& op) : TMatrixOperator<T>(op)
 {}
@@ -75,6 +75,5 @@ inline TMatrixFromCSV<T>::~TMatrixFromCSV()
 
 // ---------------------------------------------------------------------------------------------------- //
 }  // end namespace
-
 
 #endif
