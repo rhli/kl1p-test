@@ -1,18 +1,21 @@
 // KL1p - A portable C++ compressed sensing library.
 // Copyright (c) 2011-2012 René Gebel
 // --------------------------------------------------------------------------------------
-// About  : Test for different CS-algorithms
+// About  : Main function for tests
 // Date   : 2016-01-22 09:10:38
-// Author : Xiang, Zuo
+// Author : Xiang,Zuo
 // Email  : xianglinks@gmail.com
 // --------------------------------------------------------------------------------------
 
 #include <iostream>
 #include <string>
-#include "MatrixIO.h"
+#include <stdlib.h>
+
+#include "Constants.h"
 #include "CreatSignal.h"
 #include "TestCSAlgorithm.h"
 #include "DataProc.h"
+#include "MatrixIO.h"
 
 using namespace kl1p;
 using std::string;
@@ -20,9 +23,9 @@ using std::string;
 // Init parameters
 klab::UInt32 n = 250;	 // Size of the original signal x0.
 klab::UInt32 m = 125;	 // Number of cs-measurements.
-klab::UInt32 k = 25;     // Sparsity of the signal x0 (number of non-zero elements).
+klab::UInt32 k = 50;     // Sparsity of the signal x0 (number of non-zero elements).
 klab::UInt64 seed = 0;	 // Seed used for random number generation (0 if regenerate random numbers on each launch).
-klab::UInt32 flag = 1;   // Flag for using different Algorithms
+klab::UInt32 flag = 1;   // Flag for using different Algorithms, default: OMP
                          // 1 -> OMP, 2 -> ROMP
 
 // Init struct and matrix for results
@@ -41,8 +44,21 @@ arma::Mat<klab::DoubleReal> successStdMat(m, k);
 
 int main(int argc, char* argv[])
 {
-    try
-    {
+    try {
+        // Choose algorithm using CLI
+        flag = atoi(argv[1]);
+        std::cout<<"Using algorithm: "<<algorithms[flag-1]<<std::endl;
+
+        // Get output CSV file names
+        RunTimeMeanMatrixFile += algorithms[flag-1] + CSVEndName;
+        RunTimeStdMatrixFile += algorithms[flag-1] + CSVEndName;
+
+        MSEMeanMatrixFile += algorithms[flag-1] + CSVEndName;
+        MSEStdMatrixFile += algorithms[flag-1] + CSVEndName;
+
+        SuccessMeanMatrixFile += algorithms[flag-1] + CSVEndName;
+        SuccessStdMatrixFile += algorithms[flag-1] + CSVEndName;
+
         // Measure runTime of programm
         klab::DoubleReal programmRuntime = 0;
         klab::KTimer programmTimer;
@@ -59,10 +75,10 @@ int main(int argc, char* argv[])
 		std::cout<<"=============================="<<std::endl;
 
         // number of each round
-        klab::UInt32 i = 100;
+        klab::UInt32 i = 1;
 
         // Loop for test with different parameters
-        for(m=20 ; m<=125 ; m++) {
+        for(m=120 ; m<=125 ; m++) {
             // Run test functions
             resultArray = kl1p::testCSAlgorithm(flag, i, m, n, k, 0);
 
@@ -77,22 +93,20 @@ int main(int argc, char* argv[])
             successStdMat.at(m-1, k-1) = resultArray.success_std;
         }
 
-        std::cout<<"the current m is: "<<m<<std::endl;
-        std::cout<<"the number of round is: "<<i<<std::endl;
-
         // Write results matrix to CSV file
-        kl1p::WriteMatrixToCSVFile(runTimeMeanMat, OMPRunTimeMeanMatrixFile);
-        kl1p::WriteMatrixToCSVFile(runTimeStdMat, OMPRunTimeStdMatrixFile);
+        kl1p::WriteMatrixToCSVFile(runTimeMeanMat, RunTimeMeanMatrixFile);
+        kl1p::WriteMatrixToCSVFile(runTimeStdMat, RunTimeStdMatrixFile);
 
-        kl1p::WriteMatrixToCSVFile(mseMeanMat, OMPMSEMeanMatrixFile);
-        kl1p::WriteMatrixToCSVFile(mseStdMat, OMPMSEStdMatrixFile);
+        kl1p::WriteMatrixToCSVFile(mseMeanMat, MSEMeanMatrixFile);
+        kl1p::WriteMatrixToCSVFile(mseStdMat, MSEStdMatrixFile);
 
-        kl1p::WriteMatrixToCSVFile(successMeanMat, OMPSuccessMeanMatrixFile);
-        kl1p::WriteMatrixToCSVFile(successStdMat, OMPSuccessStdMatrixFile);
+        kl1p::WriteMatrixToCSVFile(successMeanMat, SuccessMeanMatrixFile);
+        kl1p::WriteMatrixToCSVFile(successStdMat, SuccessStdMatrixFile);
 
         programmTimer.stop();
         programmRuntime = klab::DoubleReal(programmTimer.durationInMilliseconds());
-        std::cout<<"the rutime of programm is: "<<programmRuntime<<" ms"<<std::endl;
+        std::cout<<"Tests finished..."<<std::endl;
+        std::cout<<"The runtime of test programm is: "<<programmRuntime<<" ms"<<std::endl;
     }
 
     // Catch Exception
