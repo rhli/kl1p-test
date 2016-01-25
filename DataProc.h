@@ -1,12 +1,15 @@
+// --------------------------------------------------------------------------------------
+// About  : Functions to processing simulation results
+// Date   : 2016-01-19 10:34:23
+// Author : Xiang,Zuo
+// Email  : xianglinks@gmail.com
+// --------------------------------------------------------------------------------------
+
 #ifndef DATAPROC_H
 #define DATAPROC_H
 
-#include <iostream>
-#include <string>
 #include <cmath>
-#include "MatrixIO.h"
-#include "CreatSignal.h"
-#include "TestCSAlgorithm.h"
+#include <KL1pInclude.h>
 
 namespace kl1p
 {

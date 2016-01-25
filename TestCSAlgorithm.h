@@ -3,7 +3,7 @@
 // --------------------------------------------------------------------------------------
 // About  : Functions for testing different CS-algorithms
 // Date   : 2016-01-19 10:34:23
-// Author : Xiang, Zuo
+// Author : Xiang,Zuo
 // Email  : xianglinks@gmail.com
 // --------------------------------------------------------------------------------------
 
@@ -11,6 +11,8 @@
 #define TESTCSALGORITHM_H
 
 #include <KL1pInclude.h>
+
+#include "Constants.h"
 #include "CreatSignal.h"
 #include "MatrixIO.h"
 #include "DataProc.h"
@@ -63,22 +65,18 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
         arma::Col<klab::DoubleReal> x0;
         // Create original gauss random signal with mean=0, sigma=1 and sparsity=k, length=n
         kl1p::CreateGaussianSignal(n, k, 0.0, 1.0, x0);
-        // Save signal to a CSV file
-        kl1p::WriteColToCSVFile(x0, OriginalSignalFile);
 
         // Get sensing matrix from CSV file
         // --------------------------------------------------------------------------------
-
         // 1. resize the original sensingMatrix
         // get orginal sensing matrix
         arma::Mat<klab::DoubleReal> originalSenMatrix;
-        originalSenMatrix.load(orginalMatrixFile, arma::csv_ascii);
+        originalSenMatrix.load(sensingMatrixOriginalFile, arma::csv_ascii);
         // resize matrix and save as resized matrix
         originalSenMatrix.resize(m, n);
-        originalSenMatrix.save(resizedMatrixFile, arma::csv_ascii);
-
+        originalSenMatrix.save(sensingMatrixResizedFile, arma::csv_ascii);
         // 2. load matrix using TMatrixFromCSV(rows, cols, resizedMatrixFile)
-        klab::TSmartPointer<kl1p::TOperator<klab::DoubleReal> > A = new kl1p::TMatrixFromCSV<klab::DoubleReal>(m, n, resizedMatrixFile);
+        klab::TSmartPointer<kl1p::TOperator<klab::DoubleReal> > A = new kl1p::TMatrixFromCSV<klab::DoubleReal>(m, n, sensingMatrixResizedFile);
         // --------------------------------------------------------------------------------
 
         // Perform CS-measurements of size m.
@@ -92,22 +90,31 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
 
         // Use flag to run different Algorithms
         switch(flag) {
+            // 1.Apply OMP-Algorithm
             case 1: {
-                // Apply OMP-Algorithm
                 // --------------------------------------------------------------------------------
-                std::cout<<"------------------------------"<<std::endl;
-                std::cout<<"[OMP] start..."<<std::endl;
                 timer.start();
                 // Create a Solver to get the result of OMP(giving tolerance)
                 kl1p::TOMPSolver<klab::DoubleReal> omp(tolerance);
                 omp.solve(y, A, k, x);
                 timer.stop();
-                // Print results
-                std::cout<<"[OMP] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
-                          <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
-                          <<"Iterations="<<omp.iterations()<<std::endl;
-                std::cout<<"------------------------------"<<std::endl;
-                kl1p::WriteColToCSVFile(x, OMPSignalFile);
+
+                // Add result to Vector
+                runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                mseTemp[j] = kl1p::CalcMSE(x, x0);
+                successTemp[j] = kl1p::CalcSuccess(x, x0);
+                break;
+            }
+
+            // 2.Apply ROMP-Algorithm
+            case 2: {
+                // Apply OMP-Algorithm
+                // --------------------------------------------------------------------------------
+                timer.start();
+                // Create a Solver to get the result of OMP(giving tolerance)
+                kl1p::TROMPSolver<klab::DoubleReal> romp(tolerance);
+                romp.solve(y, A, k, x);
+                timer.stop();
 
                 // Add result to Vector
                 runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
@@ -132,9 +139,6 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
     klab::DoubleReal successMean = arma::mean(successTemp);
     klab::DoubleReal successStd = arma::stddev(successTemp);
     // ----------------------------------------------------------------------------------
-
-
-    std::cout<<"the mean of run time is:" <<runTimeMean<<std::endl;
 
     // Save results in Struct and return
     resultArray.run_time_mean = runTimeMean;
