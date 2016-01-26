@@ -78,20 +78,22 @@ int main(int argc, char* argv[])
         klab::UInt32 i = 1;
 
         // Loop for test with different parameters
-        for(m=1 ; m<=125 ; m++) {
-            // Run test functions
-            resultArray = kl1p::testCSAlgorithm(flag, i, m, n, k, 0);
+        for(klab::UInt32 a=1; a<=k; a++) {
+            for(klab::UInt32 b=1; b<=m; b++) {
+                // Run test functions
+                resultArray = kl1p::testCSAlgorithm(flag, i, b, n, a, 0);
 
-            // Add result in results matrix
-            runTimeMeanMat.at(m-1, k-1) = resultArray.run_time_mean;
-            runTimeStdMat.at(m-1, k-1) = resultArray.run_time_std;
+                // Add result in results matrix
+                runTimeMeanMat.at(b-1, a-1) = resultArray.run_time_mean;
+                runTimeStdMat.at(b-1, a-1) = resultArray.run_time_std;
 
-            mseMeanMat.at(m-1, k-1) = resultArray.mse_mean;
-            mseStdMat.at(m-1, k-1) = resultArray.mse_std;
+                mseMeanMat.at(b-1, a-1) = resultArray.mse_mean;
+                mseStdMat.at(b-1, a-1) = resultArray.mse_std;
 
-            successMeanMat.at(m-1, k-1) = resultArray.success_mean;
-            successStdMat.at(m-1, k-1) = resultArray.success_std;
-        }
+                successMeanMat.at(b-1, a-1) = resultArray.success_mean;
+                successStdMat.at(b-1, a-1) = resultArray.success_std;
+            }  // end m loop
+        }  //end k loop
 
         // Write results matrix to CSV file
         kl1p::WriteMatrixToCSVFile(runTimeMeanMat, RunTimeMeanMatrixFile);
