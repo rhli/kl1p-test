@@ -28,5 +28,5 @@
 
 # Others
 csTest
-*.csv
-/resources
+/csv_matrix
+
