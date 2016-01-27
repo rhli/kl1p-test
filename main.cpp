@@ -21,23 +21,15 @@ using namespace kl1p;
 using std::string;
 
 // Init parameters
-klab::UInt32 n = 250;	 // Size of the original signal x0.
-klab::UInt32 m = 125;	 // Number of cs-measurements.
-klab::UInt32 k = 30;     // Sparsity of the signal x0 (number of non-zero elements).
-klab::UInt64 seed = 0;	 // Seed used for random number generation (0 if regenerate random numbers on each launch).
-klab::UInt32 flag = 1;   // Flag for using different Algorithms, default: OMP
-                         // 1 -> OMP, 2 -> ROMP
-
-// Init struct and matrix for results
-resultStruct resultArray;
-
-arma::Mat<klab::DoubleReal> runTimeMeanMat(m, k);
-arma::Mat<klab::DoubleReal> mseMeanMat(m, k);
-arma::Mat<klab::DoubleReal> successMeanMat(m, k);
-
-arma::Mat<klab::DoubleReal> runTimeStdMat(m, k);
-arma::Mat<klab::DoubleReal> mseStdMat(m, k);
-arma::Mat<klab::DoubleReal> successStdMat(m, k);
+klab::UInt32 n = 250;	     // Size of the original signal x0.
+klab::UInt32 m_min = 1;	     // Number of cs-measurements minimum
+klab::UInt32 m_max = 125;	 // Number of cs-measurements maximum
+klab::UInt32 k_min = 1;      // Sparsity of the signal x0 (number of non-zero elements) minimum
+klab::UInt32 k_max = 30;     // Sparsity of the signal x0 (number of non-zero elements) maximum
+klab::UInt64 seed = 0;	     // Seed used for random number generation (0 if regenerate random numbers on each launch).
+klab::UInt32 i = 1;          // number of simulation for each round
+klab::UInt32 flag = 1;       // Flag for using different Algorithms, default: OMP
+                             // 1 -> OMP, 2 -> ROMP
 
 // Main function
 // -------------------------------------------------------------------------------------- //
@@ -45,9 +37,33 @@ arma::Mat<klab::DoubleReal> successStdMat(m, k);
 int main(int argc, char* argv[])
 {
     try {
-        // Choose algorithm using CLI
-        flag = atoi(argv[1]);
+        // Get parameters
+        std::cout<<"Input Parameters: "<<std::endl;
+        std::cout<<"Number of measurements -> m_min and m_max(split with space): "; std::cin>>m_min>>m_max;
+        std::cout<<"sparsity of signal -> k_min and k_max(split with space): "; std::cin>>k_min>>k_max;
+        std::cout<<"rounds for each simulation -> i = "; std::cin>>i;
+
+        std::cout<<"algorithms list: "<<std::endl;
+        klab::UInt32 numberOfList = sizeof(algorithms) / sizeof(algorithms[0]);
+        for(klab::UInt32 index_algo=0; index_algo<numberOfList; index_algo++) {
+            std::cout<<"["<<index_algo + 1<<"] "<<algorithms[index_algo] + "  ";
+        }
+        std::cout<<std::endl;
+
+        std::cout<<"Choose algorithm to test(input number): "; std::cin>>flag;
+
         std::cout<<"Using algorithm: "<<algorithms[flag-1]<<std::endl;
+
+        // Init struct and matrix for results
+        resultStruct resultArray;
+
+        arma::Mat<klab::DoubleReal> runTimeMeanMat(m_max, k_max);
+        arma::Mat<klab::DoubleReal> mseMeanMat(m_max, k_max);
+        arma::Mat<klab::DoubleReal> successMeanMat(m_max, k_max);
+
+        arma::Mat<klab::DoubleReal> runTimeStdMat(m_max, k_max);
+        arma::Mat<klab::DoubleReal> mseStdMat(m_max, k_max);
+        arma::Mat<klab::DoubleReal> successStdMat(m_max, k_max);
 
         // Get output CSV file names
         RunTimeMeanMatrixFile += algorithms[flag-1] + CSVEndName;
@@ -69,19 +85,20 @@ int main(int argc, char* argv[])
         // Print signal informations
 		std::cout<<"=============================="<<std::endl;
 		std::cout<<"N="<<n<<" (signal size)"<<std::endl;
-		std::cout<<"M="<<m<<"(number of measurements)"<<std::endl;
-		std::cout<<"K="<<k<<"(signal sparsity)"<<std::endl;
+        std::cout<<"M_min="<<m_min<<", "<<"M_max="<<m_max<<" (number of measurements)"<<std::endl;
+        std::cout<<"K_min="<<k_min<<", "<<"K_max="<<k_max<<" (sparsity of signal)"<<std::endl;
 		std::cout<<"Random Seed="<<klab::KRandom::Instance().seed()<<std::endl;
 		std::cout<<"=============================="<<std::endl;
 
-        // number of each round
-        klab::UInt32 i = 1;
+        // Init loop index
+        klab::UInt32 a;
+        klab::UInt32 b;
 
         // Loop for test with different parameters
-        for(klab::UInt32 a=1; a<=k; a++) {
-            for(klab::UInt32 b=1; b<=m; b++) {
+        for(a=k_min; a<=k_max; a++) {
+            for(b=m_min; b<=m_max; b++) {
                 // Run test functions
-                resultArray = kl1p::testCSAlgorithm(flag, i, b, n, a, 0);
+                resultArray = kl1p::testCSAlgorithm(flag, i, b, n, a, seed);
 
                 // Add result in results matrix
                 runTimeMeanMat.at(b-1, a-1) = resultArray.run_time_mean;
@@ -92,10 +109,22 @@ int main(int argc, char* argv[])
 
                 successMeanMat.at(b-1, a-1) = resultArray.success_mean;
                 successStdMat.at(b-1, a-1) = resultArray.success_std;
+
+                // Print debug information
+                std::cout<<"end loop with m="<<b<<", k="<<a<<std::endl;
             }  // end m loop
+            // Write temp-results matrix to CSV file
+            kl1p::WriteMatrixToCSVFile(runTimeMeanMat, RunTimeMeanMatrixFile);
+            kl1p::WriteMatrixToCSVFile(runTimeStdMat, RunTimeStdMatrixFile);
+
+            kl1p::WriteMatrixToCSVFile(mseMeanMat, MSEMeanMatrixFile);
+            kl1p::WriteMatrixToCSVFile(mseStdMat, MSEStdMatrixFile);
+
+            kl1p::WriteMatrixToCSVFile(successMeanMat, SuccessMeanMatrixFile);
+            kl1p::WriteMatrixToCSVFile(successStdMat, SuccessStdMatrixFile);
         }  //end k loop
 
-        // Write results matrix to CSV file
+        // Write final-results matrix to CSV file
         kl1p::WriteMatrixToCSVFile(runTimeMeanMat, RunTimeMeanMatrixFile);
         kl1p::WriteMatrixToCSVFile(runTimeStdMat, RunTimeStdMatrixFile);
 
@@ -105,10 +134,11 @@ int main(int argc, char* argv[])
         kl1p::WriteMatrixToCSVFile(successMeanMat, SuccessMeanMatrixFile);
         kl1p::WriteMatrixToCSVFile(successStdMat, SuccessStdMatrixFile);
 
+        // End test programm
         programmTimer.stop();
-        programmRuntime = klab::DoubleReal(programmTimer.durationInMilliseconds());
+        programmRuntime = klab::DoubleReal(programmTimer.durationInMilliseconds()) / 1000.0;
         std::cout<<"Tests finished..."<<std::endl;
-        std::cout<<"The runtime of test programm is: "<<programmRuntime<<" ms"<<std::endl;
+        std::cout<<"The runtime of test programm is: "<<programmRuntime<<" s"<<std::endl;
     }
 
     // Catch Exception
