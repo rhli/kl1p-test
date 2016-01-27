@@ -38,19 +38,28 @@ int main(int argc, char* argv[])
 {
     try {
         // Get parameters
-        std::cout<<"Input Parameters: "<<std::endl;
-        std::cout<<"Number of measurements -> m_min and m_max(split with space): "; std::cin>>m_min>>m_max;
-        std::cout<<"sparsity of signal -> k_min and k_max(split with space): "; std::cin>>k_min>>k_max;
-        std::cout<<"rounds for each simulation -> i = "; std::cin>>i;
-
-        std::cout<<"algorithms list: "<<std::endl;
-        klab::UInt32 numberOfList = sizeof(algorithms) / sizeof(algorithms[0]);
-        for(klab::UInt32 index_algo=0; index_algo<numberOfList; index_algo++) {
-            std::cout<<"["<<index_algo + 1<<"] "<<algorithms[index_algo] + "  ";
+        if(argc > 1) {
+            m_min = atoi(argv[1]);
+            m_max = atoi(argv[2]);
+            k_min = atoi(argv[3]);
+            k_max = atoi(argv[4]);
+            i = atoi(argv[5]);
+            flag = atoi(argv[6]);
         }
-        std::cout<<std::endl;
 
-        std::cout<<"Choose algorithm to test(input number): "; std::cin>>flag;
+        else {
+            std::cout<<"Input Parameters: "<<std::endl;
+            std::cout<<"Number of measurements -> m_min and m_max(split with space): "; std::cin>>m_min>>m_max;
+            std::cout<<"sparsity of signal -> k_min and k_max(split with space): "; std::cin>>k_min>>k_max;
+            std::cout<<"rounds for each simulation -> i = "; std::cin>>i;
+
+            std::cout<<"algorithms list: "<<std::endl;
+            klab::UInt32 numberOfList = sizeof(algorithms) / sizeof(algorithms[0]);
+            for(klab::UInt32 index_algo=0; index_algo<numberOfList; index_algo++) {
+                std::cout<<"["<<index_algo + 1<<"] "<<algorithms[index_algo] + "  ";
+            }
+            std::cout<<std::endl<<"Choose algorithm to test(input number): "; std::cin>>flag;
+        }
 
         std::cout<<"Using algorithm: "<<algorithms[flag-1]<<std::endl;
 
