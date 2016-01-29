@@ -97,6 +97,7 @@ int main(int argc, char* argv[])
         std::cout<<"M_min="<<m_min<<", "<<"M_max="<<m_max<<" (number of measurements)"<<std::endl;
         std::cout<<"K_min="<<k_min<<", "<<"K_max="<<k_max<<" (sparsity of signal)"<<std::endl;
 		std::cout<<"Random Seed="<<klab::KRandom::Instance().seed()<<std::endl;
+        std::cout<<"Number of rounds="<<i<<std::endl;
 		std::cout<<"=============================="<<std::endl;
 
         // Init loop index
