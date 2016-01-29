@@ -56,18 +56,16 @@ klab::DoubleReal kl1p::CalcMSE(arma::Col<klab::DoubleReal> vectorA, arma::Col<kl
  */
 klab::DoubleReal kl1p::CalcSuccess(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB)
 {
-    klab::DoubleReal success = 0;
+    klab::DoubleReal success = 1;  // init success as 1
 
     klab::UInt32 num_element = vectorA.n_rows;
 
     for(klab::UInt32 i=0; i<num_element; i++) {
-        if(vectorA.at(i) == 0 && vectorB.at(i) == 0)
-            success += 1;
-        if(vectorA.at(i) != 0 && vectorB.at(i) != 0)
-            success += 1;
+        if(vectorA.at(i) != 0 && vectorB.at(i) == 0)
+            success = 0;
+        if(vectorA.at(i) == 0 && vectorB.at(i) !=0 )
+            success = 0;
     }
-
-    success = success / num_element;
 
     return success;
 }

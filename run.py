@@ -33,14 +33,13 @@ def main():
                     file.write('')
                     file.close()
 
+        # init parameters
         m_min = int(input("input m_min: "))
         m_max = int(input("input m_max: "))
-
-        # init parameters
-        k_min = 1
-        k_max = 30
-        run_time = 1
-        algo_num = 1
+        k_min = int(input("input k_min: "))
+        k_max = int(input("input k_max: "))
+        run_time = int(input("input run_time: "))
+        algo_num = int(input("choose algorithm_num: "))
 
         # run test programm
         for m in range(m_min, m_max + 1, 1):
