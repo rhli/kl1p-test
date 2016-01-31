@@ -92,35 +92,51 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
         switch(flag) {
             // 1.Apply OMP-Algorithm
             case 1: {
-                // --------------------------------------------------------------------------------
-                timer.start();
-                // Create a Solver to get the result of OMP(giving tolerance)
-                kl1p::TOMPSolver<klab::DoubleReal> omp(tolerance);
-                omp.solve(y, A, k, x);
-                timer.stop();
+                try {
+                    timer.start();
+                    // Create a Solver to get the result of OMP(giving tolerance)
+                    kl1p::TOMPSolver<klab::DoubleReal> omp(tolerance);
+                    omp.solve(y, A, k, x);
+                    timer.stop();
 
-                // Add result to Vector
-                runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
-                mseTemp[j] = kl1p::CalcMSE(x, x0);
-                successTemp[j] = kl1p::CalcSuccess(x, x0);
-                break;
+                    // Add result to Vector
+                    runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                    mseTemp[j] = kl1p::CalcMSE(x, x0);
+                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    break;
+                }
+                // handle with exception when problem by solving matrix
+                catch(klab::KZeroNormLeastSquareException) {
+                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;
+                    runTimeTemp[j] = 0;
+                    mseTemp[j] = 1;
+                    successTemp[j] = 0;
+                    break;
+                }
             }
 
             // 2.Apply ROMP-Algorithm
             case 2: {
-                // Apply OMP-Algorithm
-                // --------------------------------------------------------------------------------
-                timer.start();
-                // Create a Solver to get the result of OMP(giving tolerance)
-                kl1p::TROMPSolver<klab::DoubleReal> romp(tolerance);
-                romp.solve(y, A, k, x);
-                timer.stop();
+                try {
+                    timer.start();
+                    // Create a Solver to get the result of OMP(giving tolerance)
+                    kl1p::TROMPSolver<klab::DoubleReal> romp(tolerance);
+                    romp.solve(y, A, k, x);
+                    timer.stop();
 
-                // Add result to Vector
-                runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
-                mseTemp[j] = kl1p::CalcMSE(x, x0);
-                successTemp[j] = kl1p::CalcSuccess(x, x0);
-                break;
+                    // Add result to Vector
+                    runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                    mseTemp[j] = kl1p::CalcMSE(x, x0);
+                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    break;
+                }
+                catch(klab::KZeroNormLeastSquareException) {
+                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;
+                    runTimeTemp[j] = 0;
+                    mseTemp[j] = 1;
+                    successTemp[j] = 0;
+                    break;
+                }
             }
         }  // End switch
     }  // End round loop
