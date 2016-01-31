@@ -99,8 +99,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     kl1p::TOMPSolver<klab::DoubleReal> omp(tolerance);
                     omp.solve(y, A, k, x);
                     timer.stop();
-
-                    // Add result to Vector
+                    // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
                     successTemp[j] = kl1p::CalcSuccess(x, x0);
@@ -108,10 +107,12 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                 }
                 // handle with exception when problem by solving matrix
                 catch(klab::KZeroNormLeastSquareException) {
-                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;
-                    runTimeTemp[j] = 0;
-                    mseTemp[j] = 1;
-                    successTemp[j] = 0;
+                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;  // print exception
+                    timer.stop();
+                    // Add result to temp vector
+                    runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                    mseTemp[j] = kl1p::CalcMSE(x, x0);
+                    successTemp[j] = kl1p::CalcSuccess(x, x0);
                     break;
                 }
             }
@@ -124,18 +125,19 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     kl1p::TROMPSolver<klab::DoubleReal> romp(tolerance);
                     romp.solve(y, A, k, x);
                     timer.stop();
-
-                    // Add result to Vector
+                    // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
                     successTemp[j] = kl1p::CalcSuccess(x, x0);
                     break;
                 }
                 catch(klab::KZeroNormLeastSquareException) {
-                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;
-                    runTimeTemp[j] = 0;
-                    mseTemp[j] = 1;
-                    successTemp[j] = 0;
+                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;  // print exception
+                    timer.stop();
+                    // Add result to temp vector
+                    runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                    mseTemp[j] = kl1p::CalcMSE(x, x0);
+                    successTemp[j] = kl1p::CalcSuccess(x, x0);
                     break;
                 }
             }
@@ -147,18 +149,19 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     kl1p::TCoSaMPSolver<klab::DoubleReal> cosamp(tolerance);
                     cosamp.solve(y, A, k, x);
                     timer.stop();
-
-                    // Add result to Vector
+                    // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
                     successTemp[j] = kl1p::CalcSuccess(x, x0);
                     break;
                 }
                 catch(klab::KZeroNormLeastSquareException) {
-                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;
-                    runTimeTemp[j] = 0;
-                    mseTemp[j] = 1;
-                    successTemp[j] = 0;
+                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;  // print exception
+                    timer.stop();
+                    // Add result to temp vector
+                    runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                    mseTemp[j] = kl1p::CalcMSE(x, x0);
+                    successTemp[j] = kl1p::CalcSuccess(x, x0);
                     break;
                 }
             }
@@ -170,18 +173,19 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                      kl1p::TSubspacePursuitSolver<klab::DoubleReal> sp(tolerance);
                      sp.solve(y, A, k, x);
                      timer.stop();
-
-                    // Add result to Vector
+                    // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
                     successTemp[j] = kl1p::CalcSuccess(x, x0);
                     break;
                 }
                 catch(klab::KZeroNormLeastSquareException) {
-                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;
-                    runTimeTemp[j] = 0;
-                    mseTemp[j] = 1;
-                    successTemp[j] = 0;
+                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;  // print exception
+                    timer.stop();
+                    // Add result to temp vector
+                    runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                    mseTemp[j] = kl1p::CalcMSE(x, x0);
+                    successTemp[j] = kl1p::CalcSuccess(x, x0);
                     break;
                 }
             }
@@ -193,18 +197,19 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     kl1p::TSL0Solver<klab::DoubleReal> sl0(tolerance);
                     sl0.solve(y, A, x);
                     timer.stop();
-
-                    // Add result to Vector
+                    // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
                     successTemp[j] = kl1p::CalcSuccess(x, x0);
                     break;
                 }
                 catch(klab::KZeroNormLeastSquareException) {
-                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;
-                    runTimeTemp[j] = 0;
-                    mseTemp[j] = 1;
-                    successTemp[j] = 0;
+                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;  // print exception
+                    timer.stop();
+                    // Add result to temp vector
+                    runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                    mseTemp[j] = kl1p::CalcMSE(x, x0);
+                    successTemp[j] = kl1p::CalcSuccess(x, x0);
                     break;
                 }
             }
@@ -216,8 +221,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     kl1p::TAMPSolver<klab::DoubleReal> amp(tolerance);
                     amp.solve(y, A, x);
                     timer.stop();
-
-                    // Add result to Vector
+                    // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
                     successTemp[j] = kl1p::CalcSuccess(x, x0);
@@ -239,18 +243,19 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     kl1p::TEMBPSolver<klab::DoubleReal> embp(tolerance);
                     embp.enableHomogeneous(true);
                     embp.solve(y, A, k, x);
-
-                    // Add result to Vector
+                    // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
                     successTemp[j] = kl1p::CalcSuccess(x, x0);
                     break;
                 }
                 catch(klab::KZeroNormLeastSquareException) {
-                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;
-                    runTimeTemp[j] = 0;
-                    mseTemp[j] = 1;
-                    successTemp[j] = 0;
+                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;  // print exception
+                    timer.stop();
+                    // Add result to temp vector
+                    runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                    mseTemp[j] = kl1p::CalcMSE(x, x0);
+                    successTemp[j] = kl1p::CalcSuccess(x, x0);
                     break;
                 }
             }
