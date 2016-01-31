@@ -90,7 +90,8 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
 
         // Use flag to run different Algorithms
         switch(flag) {
-            // 1.Apply OMP-Algorithm
+
+            // 1. Apply OMP
             case 1: {
                 try {
                     timer.start();
@@ -115,11 +116,11 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                 }
             }
 
-            // 2.Apply ROMP-Algorithm
+            // 2. Apply ROMP
             case 2: {
                 try {
                     timer.start();
-                    // Create a Solver to get the result of OMP(giving tolerance)
+                    // Create a Solver to get the result of ROMP(giving tolerance)
                     kl1p::TROMPSolver<klab::DoubleReal> romp(tolerance);
                     romp.solve(y, A, k, x);
                     timer.stop();
@@ -138,6 +139,122 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     break;
                 }
             }
+
+            // 3. Apply CoSaMP
+            case 3: {
+                try {
+                    timer.start();
+                    kl1p::TCoSaMPSolver<klab::DoubleReal> cosamp(tolerance);
+                    cosamp.solve(y, A, k, x);
+                    timer.stop();
+
+                    // Add result to Vector
+                    runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                    mseTemp[j] = kl1p::CalcMSE(x, x0);
+                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    break;
+                }
+                catch(klab::KZeroNormLeastSquareException) {
+                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;
+                    runTimeTemp[j] = 0;
+                    mseTemp[j] = 1;
+                    successTemp[j] = 0;
+                    break;
+                }
+            }
+
+            // 4. Apply Subspace-Pursuit
+            case 4: {
+                try {
+                     timer.start();
+                     kl1p::TSubspacePursuitSolver<klab::DoubleReal> sp(tolerance);
+                     sp.solve(y, A, k, x);
+                     timer.stop();
+
+                    // Add result to Vector
+                    runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                    mseTemp[j] = kl1p::CalcMSE(x, x0);
+                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    break;
+                }
+                catch(klab::KZeroNormLeastSquareException) {
+                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;
+                    runTimeTemp[j] = 0;
+                    mseTemp[j] = 1;
+                    successTemp[j] = 0;
+                    break;
+                }
+            }
+
+            // 5. Apply SL0
+            case 5: {
+                try {
+                    timer.start();
+                    kl1p::TSL0Solver<klab::DoubleReal> sl0(tolerance);
+                    sl0.solve(y, A, x);
+                    timer.stop();
+
+                    // Add result to Vector
+                    runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                    mseTemp[j] = kl1p::CalcMSE(x, x0);
+                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    break;
+                }
+                catch(klab::KZeroNormLeastSquareException) {
+                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;
+                    runTimeTemp[j] = 0;
+                    mseTemp[j] = 1;
+                    successTemp[j] = 0;
+                    break;
+                }
+            }
+
+            // 6. Apply AMP
+            case 6: {
+                try {
+                    timer.start();
+                    kl1p::TAMPSolver<klab::DoubleReal> amp(tolerance);
+                    amp.solve(y, A, x);
+                    timer.stop();
+
+                    // Add result to Vector
+                    runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                    mseTemp[j] = kl1p::CalcMSE(x, x0);
+                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    break;
+                }
+                catch(klab::KZeroNormLeastSquareException) {
+                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;
+                    runTimeTemp[j] = 0;
+                    mseTemp[j] = 1;
+                    successTemp[j] = 0;
+                    break;
+                }
+            }
+
+            // 7. Apply EMBP
+            case 7: {
+                try {
+                    timer.start();
+                    kl1p::TEMBPSolver<klab::DoubleReal> embp(tolerance);
+                    embp.enableHomogeneous(true);
+                    embp.solve(y, A, k, x);
+
+                    // Add result to Vector
+                    runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                    mseTemp[j] = kl1p::CalcMSE(x, x0);
+                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    break;
+                }
+                catch(klab::KZeroNormLeastSquareException) {
+                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;
+                    runTimeTemp[j] = 0;
+                    mseTemp[j] = 1;
+                    successTemp[j] = 0;
+                    break;
+                }
+            }
+
         }  // End switch
     }  // End round loop
 

@@ -167,23 +167,23 @@ void kl1p::RunExample()
 		// Compute CoSaMP.
 		// std::cout<<"------------------------------"<<std::endl;
 		// std::cout<<"[CoSaMP] Start."<<std::endl;
-		// timer.start();
-		// kl1p::TCoSaMPSolver<klab::DoubleReal> cosamp(tolerance);
-		// cosamp.solve(y, A, k, x);
-		// timer.stop();
-		// std::cout<<"[CoSaMP] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
-				  // <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
-				  // <<"Iterations="<<cosamp.iterations()<<std::endl;
+        timer.start();
+        kl1p::TCoSaMPSolver<klab::DoubleReal> cosamp(tolerance);
+        cosamp.solve(y, A, k, x);
+        timer.stop();
+        std::cout<<"[CoSaMP] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
+                  <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
+                  <<"Iterations="<<cosamp.iterations()<<std::endl;
 		// if(bWrite)
 			// kl1p::WriteToCSVFile(x, "CoSaMP-Signal.csv");	// Write solution to a file.
 
 		// Compute Subspace-Pursuit.
 		// std::cout<<"------------------------------"<<std::endl;
 		// std::cout<<"[SubspacePursuit] Start."<<std::endl;
-		// timer.start();
-		// kl1p::TSubspacePursuitSolver<klab::DoubleReal> sp(tolerance);
-		// sp.solve(y, A, k, x);
-		// timer.stop();
+        timer.start();
+        kl1p::TSubspacePursuitSolver<klab::DoubleReal> sp(tolerance);
+        sp.solve(y, A, k, x);
+        timer.stop();
 		// std::cout<<"[SubspacePursuit] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
 				  // <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
 				  // <<"Iterations="<<sp.iterations()<<std::endl;
@@ -193,10 +193,10 @@ void kl1p::RunExample()
 		// Compute SL0.
 		// std::cout<<"------------------------------"<<std::endl;
 		// std::cout<<"[SL0] Start."<<std::endl;
-		// timer.start();
-		// kl1p::TSL0Solver<klab::DoubleReal> sl0(tolerance);
-		// sl0.solve(y, A, x);
-		// timer.stop();
+        timer.start();
+        kl1p::TSL0Solver<klab::DoubleReal> sl0(tolerance);
+        sl0.solve(y, A, x);
+        timer.stop();
 		// std::cout<<"[SL0] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
 				  // <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
 				  // <<"Iterations="<<sl0.iterations()<<std::endl;
@@ -206,10 +206,10 @@ void kl1p::RunExample()
 		// Compute AMP.
 		// std::cout<<"------------------------------"<<std::endl;
 		// std::cout<<"[AMP] Start."<<std::endl;
-		// timer.start();
-		// kl1p::TAMPSolver<klab::DoubleReal> amp(tolerance);
-		// amp.solve(y, A, x);
-		// timer.stop();
+        timer.start();
+        kl1p::TAMPSolver<klab::DoubleReal> amp(tolerance);
+        amp.solve(y, A, x);
+        timer.stop();
 		// std::cout<<"[AMP] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
 				  // <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
 				  // <<"Iterations="<<amp.iterations()<<std::endl;
@@ -219,10 +219,10 @@ void kl1p::RunExample()
 		// Compute EMBP.
 		// std::cout<<"------------------------------"<<std::endl;
 		// std::cout<<"[EMBP] Start."<<std::endl;
-		// timer.start();
-		// kl1p::TEMBPSolver<klab::DoubleReal> embp(tolerance);
-		// embp.enableHomogeneous(true);
-		// embp.solve(y, A, k, x);
+        timer.start();
+        kl1p::TEMBPSolver<klab::DoubleReal> embp(tolerance);
+        embp.enableHomogeneous(true);
+        embp.solve(y, A, k, x);
 		// timer.stop();
 		// std::cout<<"[EMBP] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
 				  // <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
