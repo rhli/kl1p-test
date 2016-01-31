@@ -1,49 +1,71 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # #########################################################
+# About  : Run CS Test using cpp programm csTest
 # Author : Xiang,Zuo
 # E-Mail : xianglinks@gmail.com
-# Date   : 2016-01-27 19:08:26
-# About  : Run CS Test and data Proc with Pause
+# Date   : 2016-01-31 17:20:14
 # #########################################################
 
 import os
 import sys
 
-# init file paths
-src_file_path = ["./csv_matrix/MSEMean_OMP.csv", "./csv_matrix/MSEStd_OMP.csv", "./csv_matrix/RunTimeMean_OMP.csv", "./csv_matrix/RunTimeStd_OMP.csv",
-                 "./csv_matrix/SuccessMean_OMP.csv", "./csv_matrix/SuccessStd_OMP.csv"]
+# ---------------------------------------------------------------------------------------
+# test algorithms
+algorithms = ['OMP', 'ROMP']
 
-dst_file_path = ["./results_matrix/MSEMean_OMP.csv", "./results_matrix/MSEStd_OMP.csv", "./results_matrix/RunTimeMean_OMP.csv", "./results_matrix/RunTimeStd_OMP.csv",
-                 "./results_matrix/SuccessMean_OMP.csv", "./results_matrix/SuccessStd_OMP.csv"]
+# init basic file paths
+src_file_path = ["./csv_matrix/MSEMean_", "./csv_matrix/MSEStd_", "./csv_matrix/RunTimeMean_", "./csv_matrix/RunTimeStd_",
+                 "./csv_matrix/SuccessMean_", "./csv_matrix/SuccessStd_"]
+
+dst_file_path = ["./results_matrix/MSEMean_", "./results_matrix/MSEStd_", "./results_matrix/RunTimeMean_", "./results_matrix/RunTimeStd_",
+                 "./results_matrix/SuccessMean_", "./results_matrix/SuccessStd_"]
 
 src_file = [None] * len(src_file_path)
 dst_file = [None] * len(src_file_path)
+# ---------------------------------------------------------------------------------------
 
 
 # main fuction
 # ---------------------------------------------------------------------------------------
 def main():
     try:
+        print('============================================')
+        print('cs algorithms testing programm started...\n')
 
+        # get parameters
+        m_min = int(input("input m_min: "))
+        m_max = int(input("input m_max: "))
+        k_min = int(input("input k_min: "))
+        k_max = int(input("input k_max: "))
+        num_rounds = int(input("input num_rounds: "))
+
+        for i in range(len(algorithms)):
+            print('[%d] ' %(i + 1) + algorithms[i])
+
+        algo_num = int(input("choose algorithm(type number): "))
+
+        # get src and dst files
+        algo_name = algorithms[algo_num - 1]
+
+        for i in range(len(src_file_path)):
+            src_file_path[i] += algo_name + '.csv'
+
+        for i in range(len(dst_file_path)):
+            dst_file_path[i] += algo_name + '.csv'
+
+        # if clean dst_file for new test
         choose = input("Do you want to clear file(y/n)? ")
         if choose == 'y':
             for file_path in dst_file_path:
                 with open(file_path, 'w+') as file:
                     file.write('')
                     file.close()
+        print('============================================')
 
-        # init parameters
-        m_min = int(input("input m_min: "))
-        m_max = int(input("input m_max: "))
-        k_min = int(input("input k_min: "))
-        k_max = int(input("input k_max: "))
-        run_time = int(input("input run_time: "))
-        algo_num = int(input("choose algorithm_num: "))
-
-        # run test programm
+        # --- run test programm ---
         for m in range(m_min, m_max + 1, 1):
-            exec = "./csTest %d %d %d %d %d %d" %(m, m, k_min, k_max, run_time, algo_num)
+            exec = "./csTest %d %d %d %d %d %d" %(m, m, k_min, k_max, num_rounds, algo_num)
             print(exec)
             os.system(exec)
 
