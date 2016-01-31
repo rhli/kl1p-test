@@ -12,7 +12,7 @@ import sys
 
 # ---------------------------------------------------------------------------------------
 # test algorithms
-algorithms = ['OMP', 'ROMP']
+algorithms = ['OMP', 'ROMP', 'CoSaMP', 'Subspace-Pursuit', 'SL0', 'AMP', 'EMBP']
 
 # init basic file paths
 src_file_path = ["./csv_matrix/MSEMean_", "./csv_matrix/MSEStd_", "./csv_matrix/RunTimeMean_", "./csv_matrix/RunTimeStd_",
@@ -40,10 +40,11 @@ def main():
         k_max = int(input("input k_max: "))
         num_rounds = int(input("input num_rounds: "))
 
+        print('cs-algorithms list: ')
         for i in range(len(algorithms)):
             print('[%d] ' %(i + 1) + algorithms[i])
 
-        algo_num = int(input("choose algorithm(type number): "))
+        algo_num = int(input("choose cs-algorithm(type number): "))
 
         # get src and dst files
         algo_name = algorithms[algo_num - 1]

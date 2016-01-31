@@ -48,20 +48,22 @@ int main(int argc, char* argv[])
         }
 
         else {
-            std::cout<<"Input Parameters: "<<std::endl;
-            std::cout<<"Number of measurements -> m_min and m_max(split with space): "; std::cin>>m_min>>m_max;
+            std::cout<<"---------------------------------------------"<<std::endl;
+            std::cout<<"init parameters: "<<std::endl;
+            std::cout<<"number of measurements -> m_min and m_max(split with space): "; std::cin>>m_min>>m_max;
             std::cout<<"sparsity of signal -> k_min and k_max(split with space): "; std::cin>>k_min>>k_max;
             std::cout<<"rounds for each simulation -> i = "; std::cin>>i;
 
-            std::cout<<"algorithms list: "<<std::endl;
+            std::cout<<"cs-algorithms list: "<<std::endl;
             klab::UInt32 numberOfList = sizeof(algorithms) / sizeof(algorithms[0]);
             for(klab::UInt32 index_algo=0; index_algo<numberOfList; index_algo++) {
                 std::cout<<"["<<index_algo + 1<<"] "<<algorithms[index_algo] + "  ";
             }
-            std::cout<<std::endl<<"Choose algorithm to test(input number): "; std::cin>>flag;
+            std::cout<<std::endl<<"choose cs-algorithm to test(type number): "; std::cin>>flag;
         }
 
-        std::cout<<"Using algorithm: "<<algorithms[flag-1]<<std::endl;
+        std::cout<<"using cs-algorithm: "<<algorithms[flag-1]<<std::endl;
+        std::cout<<"---------------------------------------------"<<std::endl;
 
         // Init struct and matrix for results
         resultStruct resultArray;
@@ -93,11 +95,11 @@ int main(int argc, char* argv[])
 
         // Print signal informations
 		std::cout<<"=============================="<<std::endl;
-		std::cout<<"N="<<n<<" (signal size)"<<std::endl;
-        std::cout<<"M_min="<<m_min<<", "<<"M_max="<<m_max<<" (number of measurements)"<<std::endl;
-        std::cout<<"K_min="<<k_min<<", "<<"K_max="<<k_max<<" (sparsity of signal)"<<std::endl;
-		std::cout<<"Random Seed="<<klab::KRandom::Instance().seed()<<std::endl;
-        std::cout<<"Number of rounds="<<i<<std::endl;
+		std::cout<<"n="<<n<<" (signal size)"<<std::endl;
+        std::cout<<"m_min="<<m_min<<", "<<"m_max="<<m_max<<" (number of measurements)"<<std::endl;
+        std::cout<<"k_min="<<k_min<<", "<<"k_max="<<k_max<<" (sparsity of signal)"<<std::endl;
+		std::cout<<"random seed="<<klab::KRandom::Instance().seed()<<std::endl;
+        std::cout<<"number of rounds="<<i<<std::endl;
 		std::cout<<"=============================="<<std::endl;
 
         // Init loop index
