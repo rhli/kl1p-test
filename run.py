@@ -21,6 +21,7 @@ def main():
         print('cs-algorithms testing programm started.')
 
         # get parameters from cli
+        n = int(input("input n: "))
         m_min = int(input("input m_min: "))
         m_max = int(input("input m_max: "))
         k_min = int(input("input k_min: "))
@@ -42,10 +43,10 @@ def main():
         if algo_num_list[0] == 0:
             # testing all algorithms
             for i in range(len(algo_num_list)):
-                testCSAlgorithm(i + 1, m_min, m_max, k_min, k_max, num_rounds)
+                testCSAlgorithm(i + 1, n, m_min, m_max, k_min, k_max, num_rounds)
         else:
             for algo_num in algo_num_list:
-                testCSAlgorithm(algo_num, m_min, m_max, k_min, k_max, num_rounds)
+                testCSAlgorithm(algo_num, n, m_min, m_max, k_min, k_max, num_rounds)
 
     except KeyboardInterrupt:
         print("get keyboardInterrupt! exit ...")
@@ -57,6 +58,7 @@ def main():
 # @brief testCSAlgorithm
 #
 # @param algo_num
+# @param n
 # @param m_min
 # @param m_max
 # @param k_min
@@ -64,7 +66,7 @@ def main():
 # @param num_rounds
 #
 # @return
-def testCSAlgorithm(algo_num, m_min, m_max, k_min, k_max, num_rounds):
+def testCSAlgorithm(algo_num, n, m_min, m_max, k_min, k_max, num_rounds):
 
     # init basic file paths
     src_file_path = ["./csv_matrix/MSEMean_", "./csv_matrix/MSEStd_", "./csv_matrix/RunTimeMean_", "./csv_matrix/RunTimeStd_",
@@ -95,7 +97,7 @@ def testCSAlgorithm(algo_num, m_min, m_max, k_min, k_max, num_rounds):
 
     # --- run test programm ---
     for m in range(m_min, m_max + 1, 1):
-        exec = "./csTest %d %d %d %d %d %d" %(m, m, k_min, k_max, num_rounds, algo_num)
+        exec = "./csTest %d %d %d %d %d %d %d" %(n, m, m, k_min, k_max, num_rounds, algo_num)
         print(exec)
         os.system(exec)
 

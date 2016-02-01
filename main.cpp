@@ -39,17 +39,19 @@ int main(int argc, char* argv[])
     try {
         // Get parameters
         if(argc > 1) {
-            m_min = atoi(argv[1]);
-            m_max = atoi(argv[2]);
-            k_min = atoi(argv[3]);
-            k_max = atoi(argv[4]);
-            i = atoi(argv[5]);
-            flag = atoi(argv[6]);
+            n = atoi(argv[1]);
+            m_min = atoi(argv[2]);
+            m_max = atoi(argv[3]);
+            k_min = atoi(argv[4]);
+            k_max = atoi(argv[5]);
+            i = atoi(argv[6]);
+            flag = atoi(argv[7]);
         }
 
         else {
             std::cout<<"---------------------------------------------"<<std::endl;
             std::cout<<"init parameters: "<<std::endl;
+            std::cout<<"length of original signal -> n:"; std::cin>>n;
             std::cout<<"number of measurements -> m_min and m_max(split with space): "; std::cin>>m_min>>m_max;
             std::cout<<"sparsity of signal -> k_min and k_max(split with space): "; std::cin>>k_min>>k_max;
             std::cout<<"rounds for each simulation -> i = "; std::cin>>i;
@@ -91,16 +93,16 @@ int main(int argc, char* argv[])
         klab::KTimer programmTimer;
         programmTimer.start();
 
-        std::cout<<"Start compressed algorithm test..."<<std::endl;
+        std::cout<<"start cs-algorithm test with following parameters"<<std::endl;
 
         // Print signal informations
-		std::cout<<"=============================="<<std::endl;
+		std::cout<<"================================================="<<std::endl;
 		std::cout<<"n="<<n<<" (signal size)"<<std::endl;
         std::cout<<"m_min="<<m_min<<", "<<"m_max="<<m_max<<" (number of measurements)"<<std::endl;
         std::cout<<"k_min="<<k_min<<", "<<"k_max="<<k_max<<" (sparsity of signal)"<<std::endl;
 		std::cout<<"random seed="<<klab::KRandom::Instance().seed()<<std::endl;
         std::cout<<"number of rounds="<<i<<std::endl;
-		std::cout<<"=============================="<<std::endl;
+		std::cout<<"================================================="<<std::endl;
 
         // Init loop index
         klab::UInt32 a;
@@ -110,6 +112,7 @@ int main(int argc, char* argv[])
         for(a=k_min; a<=k_max; a++) {
             for(b=m_min; b<=m_max; b++) {
                 // Run test functions
+                // with b -> m and a-> k
                 resultArray = kl1p::testCSAlgorithm(flag, i, b, n, a, seed);
 
                 // Add result in results matrix

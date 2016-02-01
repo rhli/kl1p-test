@@ -86,8 +86,8 @@ klab::DoubleReal CalcDiscreteEnergie(arma::Col<klab::DoubleReal> vector)
 
     klab::UInt32 num_element = vector.n_rows;
 
-    for(klab::UInt32 i=0; i<num_elementl; i++) {
-        energie += vector.at(i) * vector.at(i)
+    for(klab::UInt32 i=0; i<num_element; i++) {
+        energie += vector.at(i) * vector.at(i);
     }
 
     return energie;
