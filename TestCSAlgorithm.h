@@ -66,6 +66,8 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
         // Create original gauss random signal with mean=0, sigma=1 and sparsity=k, length=n
         kl1p::CreateGaussianSignal(n, k, 0.0, 1.0, x0);
 
+        // TODO Add noise(AWGN)
+
         // Get sensing matrix from CSV file
         // --------------------------------------------------------------------------------
         // 1. resize the original sensingMatrix

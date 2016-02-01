@@ -15,6 +15,7 @@
 namespace kl1p
 {
 void CreateGaussianSignal(klab::UInt32 size, klab::UInt32 sparsity, klab::DoubleReal mean, klab::DoubleReal sigma, arma::Col<klab::DoubleReal>& out);
+void CreateAWGN();
 }
 
 // ---------------------------------------------------------------------------------------------------- //

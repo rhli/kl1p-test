@@ -123,7 +123,7 @@ int main(int argc, char* argv[])
                 successStdMat.at(b-1, a-1) = resultArray.success_std;
 
                 // Print debug information
-                std::cout<<"end loop with m="<<b<<", k="<<a<<std::endl;
+                std::cout<<"test for "<<algorithms[flag - 1]<<" end loop with m="<<b<<", k="<<a<<std::endl;
             }  // end m loop
             // Write temp-results matrix to CSV file
             kl1p::WriteMatrixToCSVFile(runTimeMeanMat, RunTimeMeanMatrixFile);
