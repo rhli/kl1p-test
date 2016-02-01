@@ -1,7 +1,7 @@
 // KL1p - A portable C++ compressed sensing library.
 // Copyright (c) 2011-2012 René Gebel
 // --------------------------------------------------------------------------------------
-// About  : Main function for tests
+// About  : Main function for cs-algorithms testing
 // Date   : 2016-01-22 09:10:38
 // Author : Xiang,Zuo
 // Email  : xianglinks@gmail.com

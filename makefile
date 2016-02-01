@@ -1,6 +1,6 @@
 # The compiler to use g++ or clang++
 # CC = g++
-CC = clang++-3.6
+CC = clang++
 
 # Compiling options
 # ---------------------------------------------------------
