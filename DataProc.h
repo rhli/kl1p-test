@@ -15,6 +15,7 @@ namespace kl1p
 {
     klab::DoubleReal CalcMSE(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB);
     klab::DoubleReal CalcSuccess(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB);
+    klab::DoubleReal CalcDiscreteEnergie(arma::Col<klab::DoubleReal> vector);
 }
 
 // ---------------------------------------------------------------------------------------------------- //
@@ -68,6 +69,28 @@ klab::DoubleReal kl1p::CalcSuccess(arma::Col<klab::DoubleReal> vectorA, arma::Co
     }
 
     return success;
+}
+
+// ---------------------------------------------------------------------------------------------------- //
+
+/**
+ * @brief Calculate the energie of a discrete vector
+ *
+ * @param vector
+ *
+ * @return
+ */
+klab::DoubleReal CalcDiscreteEnergie(arma::Col<klab::DoubleReal> vector)
+{
+    klab::DoubleReal energie = 0;
+
+    klab::UInt32 num_element = vector.n_rows;
+
+    for(klab::UInt32 i=0; i<num_elementl; i++) {
+        energie += vector.at(i) * vector.at(i)
+    }
+
+    return energie;
 }
 
 // ---------------------------------------------------------------------------------------------------- //

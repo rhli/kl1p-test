@@ -10,7 +10,7 @@
 import os
 import sys
 
-# cs-algorithms list
+# testing cs-algorithms list
 algorithms = ['OMP', 'ROMP', 'CoSaMP', 'Subspace-Pursuit', 'SL0', 'AMP', 'EMBP']
 
 
@@ -18,7 +18,7 @@ algorithms = ['OMP', 'ROMP', 'CoSaMP', 'Subspace-Pursuit', 'SL0', 'AMP', 'EMBP']
 # ---------------------------------------------------------------------------------------
 def main():
     try:
-        print('cs algorithms testing programm started...\n')
+        print('cs-algorithms testing programm started.')
 
         # get parameters from cli
         m_min = int(input("input m_min: "))
@@ -27,21 +27,28 @@ def main():
         k_max = int(input("input k_max: "))
         num_rounds = int(input("input num_rounds: "))
 
+        # choose cs-algorithms for testing
+        print('--------------------------------------------')
         print('cs-algorithms list: ')
         for i in range(len(algorithms)):
             print('[%d] ' %(i + 1) + algorithms[i])
+        print('--------------------------------------------')
 
-        algo_num = int(input("choose cs-algorithm(type number) type 0 for testing all algorithms: "))
+        algo_num_list = input('choose testing cs-algorithms(number splitted with space) type 0 for all algorithms: ')
+        algo_num_list = algo_num_list.split(' ')
+        algo_num_list = list(map(int, algo_num_list))
+        print(algo_num_list)
 
-        if algo_num != 0:
-            testCSAlgorithm(algo_num, m_min, m_max, k_min, k_max, num_rounds)
-        # test all cs-algorithms
-        if algo_num == 0:
-            for i in range(len(algorithms)):
+        if algo_num_list[0] == 0:
+            # testing all algorithms
+            for i in range(len(algo_num_list)):
                 testCSAlgorithm(i + 1, m_min, m_max, k_min, k_max, num_rounds)
+        else:
+            for algo_num in algo_num_list:
+                testCSAlgorithm(algo_num, m_min, m_max, k_min, k_max, num_rounds)
 
     except KeyboardInterrupt:
-        print("Get KeyboardInterrupt")
+        print("get keyboardInterrupt! exit ...")
         sys.exit(0)
 # ---------------------------------------------------------------------------------------
 
