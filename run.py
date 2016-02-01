@@ -27,6 +27,7 @@ def main():
         k_min = int(input("input k_min: "))
         k_max = int(input("input k_max: "))
         num_rounds = int(input("input num_rounds: "))
+        snr = float(input('input SNR for testing with AWGN: '))
 
         # choose cs-algorithms for testing
         print('--------------------------------------------')
@@ -38,15 +39,23 @@ def main():
         algo_num_list = input('choose testing cs-algorithms(number splitted with space) type 0 for all algorithms: ')
         algo_num_list = algo_num_list.split(' ')
         algo_num_list = list(map(int, algo_num_list))
-        print(algo_num_list)
+
+        # print signal infos
+        print('--------------------------------------------')
+        print('length of original signal is %d' % n)
+        print('number of measurements is from %d to %d' % (m_min, m_max))
+        print('sparcity of signal is from %d to %d' % (k_min, k_max))
+        print('number of rounds is  %d' % i)
+        print('the SNR for testing with AWGN is %.2f' % snr)
+        print('--------------------------------------------')
 
         if algo_num_list[0] == 0:
             # testing all algorithms
             for i in range(len(algo_num_list)):
-                testCSAlgorithm(i + 1, n, m_min, m_max, k_min, k_max, num_rounds)
+                testCSAlgorithm(i + 1, n, m_min, m_max, k_min, k_max, num_rounds, snr)
         else:
             for algo_num in algo_num_list:
-                testCSAlgorithm(algo_num, n, m_min, m_max, k_min, k_max, num_rounds)
+                testCSAlgorithm(algo_num, n, m_min, m_max, k_min, k_max, num_rounds, snr)
 
     except KeyboardInterrupt:
         print("get keyboardInterrupt! exit ...")
@@ -66,7 +75,7 @@ def main():
 # @param num_rounds
 #
 # @return
-def testCSAlgorithm(algo_num, n, m_min, m_max, k_min, k_max, num_rounds):
+def testCSAlgorithm(algo_num, n, m_min, m_max, k_min, k_max, num_rounds, snr):
 
     # init basic file paths
     src_file_path = ["./csv_matrix/MSEMean_", "./csv_matrix/MSEStd_", "./csv_matrix/RunTimeMean_", "./csv_matrix/RunTimeStd_",
@@ -97,7 +106,7 @@ def testCSAlgorithm(algo_num, n, m_min, m_max, k_min, k_max, num_rounds):
 
     # --- run test programm ---
     for m in range(m_min, m_max + 1, 1):
-        exec = "./csTest %d %d %d %d %d %d %d" %(n, m, m, k_min, k_max, num_rounds, algo_num)
+        exec = "./csTest %d %d %d %d %d %d %d %d" %(n, m, m, k_min, k_max, num_rounds, algo_num, snr)
         print(exec)
         os.system(exec)
 

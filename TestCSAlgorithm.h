@@ -29,7 +29,7 @@ struct resultStruct {
 
 namespace kl1p
 {
-    resultStruct testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt32 m, klab::UInt32 n, klab::UInt32 k, klab::UInt64 seed);
+    resultStruct testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt32 m, klab::UInt32 n, klab::UInt32 k, klab::UInt64 seed, klab::DoubleReal snr);
 }
 
 // ---------------------------------------------------------------------------------------------------- //
@@ -44,7 +44,7 @@ namespace kl1p
  * @param k
  * @param seed
  */
-resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt32 m, klab::UInt32 n, klab::UInt32 k, klab::UInt64 seed)
+resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt32 m, klab::UInt32 n, klab::UInt32 k, klab::UInt64 seed, klab::DoubleReal snr)
 {
 
     // Initialize random seed if needed.
@@ -66,8 +66,6 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
         // Create original gauss random signal with mean=0, sigma=1 and sparsity=k, length=n
         kl1p::CreateGaussianSignal(n, k, 0.0, 1.0, x0);
 
-        // TODO Add noise(AWGN)
-
         // Get sensing matrix from CSV file
         // --------------------------------------------------------------------------------
         // 1. resize the original sensingMatrix
@@ -84,6 +82,14 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
         // Perform CS-measurements of size m.
         arma::Col<klab::DoubleReal> y;      // y is the result after compressed sensing
         A->apply(x0, y);
+
+        // TODO Add noise(AWGN)
+
+        // Generate vector with normal distribution
+        arma::Col<klab::DoubleReal> noise(y.n_rows);
+        noise.randn();
+
+        // TODO Correct SNR
 
         klab::DoubleReal tolerance = 1e-6;	// Tolerance of the solution. Default: 1e-6
         arma::Col<klab::DoubleReal> x;		// the solution of the reconstruction.
