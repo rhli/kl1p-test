@@ -1,0 +1,2 @@
+m: 1 - 125, k: 1 - 125, i = 100
+Without noise -> OMP: 23h50min
