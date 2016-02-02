@@ -81,7 +81,7 @@ klab::DoubleReal kl1p::CalcSuccess(arma::Col<klab::DoubleReal> vectorA, arma::Co
  *
  * @return
  */
-klab::DoubleReal CalcDiscreteSignalPower(arma::Col<klab::DoubleReal> vector)
+klab::DoubleReal kl1p::CalcDiscreteSignalPower(arma::Col<klab::DoubleReal> vector)
 {
     klab::DoubleReal power = 0.0;
     klab::DoubleReal energie = 0.0;
@@ -106,25 +106,29 @@ klab::DoubleReal CalcDiscreteSignalPower(arma::Col<klab::DoubleReal> vector)
  *
  * @return
  */
-klab::DoubleReal CalcDiscreteSNR(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB)
+klab::DoubleReal kl1p::CalcDiscreteSNR(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB)
 {
     klab::UInt32 num_elementA = vectorA.n_rows;
     klab::UInt32 num_elementB = vectorB.n_rows;
 
+    // hier len(vectorA) should be same with len(vectorB)
     if(num_elementA != num_elementB) {
-        std::cout<<"the length of two vectors is different!"<<std:endl;
+        std::cout<<"the length of two vectors is different!"<<std::endl;
         return 1;
     }
+
     else {
         klab::DoubleReal snr = 0.0;
         klab::DoubleReal energieA = 0.0;
         klab::DoubleReal energieB = 0.0;
 
-
         for(klab::UInt32 i=0; i<num_elementA; i++) {
-            energieA = vectorA.at(i) * vectorA.at(i);
-            energieB = vectorB.at(i) * vectorB.at(i);
+            energieA += vectorA.at(i) * vectorA.at(i);
+            energieB += vectorB.at(i) * vectorB.at(i);
         }
+        snr = energieA / energieB;
+        snr = 10 * log10(snr);  // convert snr to dB
+        return snr;
     }
 }
 
