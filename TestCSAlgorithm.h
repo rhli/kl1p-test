@@ -49,7 +49,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
 
     // --- Init variables ---
     // ------------------------------------------
-    // random seed if needed.
+    // set random seed if needed.
     if(seed > 0)
         klab::KRandom::Instance().setSeed(seed);
 
@@ -102,14 +102,19 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
 
             k_factor = sqrt(pow(10, (snr_before - snr) / 10.0));
 
-            for(klab::UInt32 i=0; i<noise.n_rows; i++) {
-                noise.at(i) = noise.at(i) * k_factor;
-            }
-            // Test for SNR correction
+            // --- Test for SNR correction ---
+            // for(klab::UInt32 i=0; i<noise.n_rows; i++) {
+                // noise.at(i) = noise.at(i) * k_factor;
+            // }
             // snr_after = kl1p::CalcDiscreteSNR(y, noise);
             // std::cout<<"SNR after: "<<snr_after<<std::endl;
 
-        }
+            // SNR correction and add noise
+            for(klab::UInt32 i=0; i<noise.n_rows; i++) {
+                noise.at(i) = noise.at(i) * k_factor;
+                y.at(i) = y.at(i) + noise.at(i);  // add noise to measured signal
+            }
+        }  // end if(snr != 0)
 
         klab::DoubleReal tolerance = 1e-6;	// Tolerance of the solution. Default: 1e-6
         arma::Col<klab::DoubleReal> x;		// the solution of the reconstruction.

@@ -53,11 +53,11 @@ int main(int argc, char* argv[])
         else {
             std::cout<<"---------------------------------------------"<<std::endl;
             std::cout<<"init parameters: "<<std::endl;
-            std::cout<<"length of original signal -> n:"; std::cin>>n;
+            std::cout<<"length of original signal -> n: "; std::cin>>n;
             std::cout<<"number of measurements -> m_min and m_max(split with space): "; std::cin>>m_min>>m_max;
             std::cout<<"sparsity of signal -> k_min and k_max(split with space): "; std::cin>>k_min>>k_max;
             std::cout<<"rounds for each simulation -> i = "; std::cin>>i;
-            std::cout<<"SNR for testing with AWGN -> snr = "; std::cin>>snr;
+            std::cout<<"SNR for testing with AWGN -> SNR(dB) = "; std::cin>>snr;
 
             std::cout<<"cs-algorithms list: "<<std::endl;
             klab::UInt32 numberOfList = sizeof(algorithms) / sizeof(algorithms[0]);
@@ -100,12 +100,14 @@ int main(int argc, char* argv[])
 
         // Print signal informations
 		std::cout<<"================================================="<<std::endl;
-		std::cout<<"n="<<n<<" (signal size)"<<std::endl;
-        std::cout<<"m_min="<<m_min<<", "<<"m_max="<<m_max<<" (number of measurements)"<<std::endl;
-        std::cout<<"k_min="<<k_min<<", "<<"k_max="<<k_max<<" (sparsity of signal)"<<std::endl;
-		std::cout<<"random seed="<<klab::KRandom::Instance().seed()<<std::endl;
-        std::cout<<"number of rounds="<<i<<std::endl;
-        std::cout<<"SNR for testing with AWGN="<<snr<<std::endl;
+		std::cout<<"n = "<<n<<" (signal size)"<<std::endl;
+        std::cout<<"m_min = "<<m_min<<", "<<"m_max = "<<m_max<<" (number of measurements)"<<std::endl;
+        std::cout<<"k_min = "<<k_min<<", "<<"k_max = "<<k_max<<" (sparsity of signal)"<<std::endl;
+        std::cout<<"number of rounds = "<<i<<std::endl;
+        if(snr != 0)
+            std::cout<<"testing with AWGN SNR = "<<snr<<"dB"<<std::endl;
+        else
+            std::cout<<"testing without noise"<<std::endl;
 		std::cout<<"================================================="<<std::endl;
 
         // Init loop index

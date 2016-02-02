@@ -27,7 +27,7 @@ def main():
         k_min = int(input("input k_min: "))
         k_max = int(input("input k_max: "))
         num_rounds = int(input("input num_rounds: "))
-        snr = float(input('input SNR for testing with AWGN: '))
+        snr = float(input('input SNR(dB) for testing with AWGN: '))
 
         # choose cs-algorithms for testing
         print('--------------------------------------------')
@@ -46,7 +46,7 @@ def main():
         print('number of measurements is from %d to %d' % (m_min, m_max))
         print('sparcity of signal is from %d to %d' % (k_min, k_max))
         print('number of rounds is  %d' % i)
-        print('the SNR for testing with AWGN is %.2f' % snr)
+        print('SNR for testing with AWGN is %.2fdB' % snr)
         print('--------------------------------------------')
 
         if algo_num_list[0] == 0:
