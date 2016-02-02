@@ -29,7 +29,7 @@ struct resultStruct {
 
 namespace kl1p
 {
-    resultStruct testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt32 m, klab::UInt32 n, klab::UInt32 k, klab::UInt64 seed);
+    resultStruct testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt32 m, klab::UInt32 n, klab::UInt32 k, klab::UInt64 seed, klab::DoubleReal snr);
 }
 
 // ---------------------------------------------------------------------------------------------------- //
@@ -44,20 +44,27 @@ namespace kl1p
  * @param k
  * @param seed
  */
-resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt32 m, klab::UInt32 n, klab::UInt32 k, klab::UInt64 seed)
+resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt32 m, klab::UInt32 n, klab::UInt32 k, klab::UInt64 seed, klab::DoubleReal snr)
 {
 
-    // Initialize random seed if needed.
+    // --- Init variables ---
+    // ------------------------------------------
+    // random seed if needed.
     if(seed > 0)
         klab::KRandom::Instance().setSeed(seed);
 
-    // Init struct for results
+    // struct for return results
     resultStruct resultArray;
 
-    // Init vector for saving temp result
+    // vector for saving temp result
     arma::Col<klab::DoubleReal> runTimeTemp(i);
     arma::Col<klab::DoubleReal> mseTemp(i);
     arma::Col<klab::DoubleReal> successTemp(i);
+
+    // snr and correct factor
+    klab::DoubleReal snr_before, snr_after;
+    klab::DoubleReal k_factor;
+    // ------------------------------------------
 
     // Round Loop: j as round-index
     for(klab::UInt32 j=0 ; j<i ; j++) {
@@ -65,8 +72,6 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
         arma::Col<klab::DoubleReal> x0;
         // Create original gauss random signal with mean=0, sigma=1 and sparsity=k, length=n
         kl1p::CreateGaussianSignal(n, k, 0.0, 1.0, x0);
-
-        // TODO Add noise(AWGN)
 
         // Get sensing matrix from CSV file
         // --------------------------------------------------------------------------------
@@ -84,6 +89,27 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
         // Perform CS-measurements of size m.
         arma::Col<klab::DoubleReal> y;      // y is the result after compressed sensing
         A->apply(x0, y);
+
+        // Add noise(AWGN) -> using normal random number generator in lib armadillo
+        if(snr != 0) {
+            // Generate vector with normal distribution
+            arma::Col<klab::DoubleReal> noise(y.n_rows);
+            noise.randn();  // normal distribution with mean = 0 and sigma = 1
+
+            // Correct noise to given SNR mit k_factor
+            snr_before = kl1p::CalcDiscreteSNR(y, noise);  // calc the snr before correction
+            // std::cout<<"SNR before: "<<snr_before<<std::endl;
+
+            k_factor = sqrt(pow(10, (snr_before - snr) / 10.0));
+
+            for(klab::UInt32 i=0; i<noise.n_rows; i++) {
+                noise.at(i) = noise.at(i) * k_factor;
+            }
+            // Test for SNR correction
+            // snr_after = kl1p::CalcDiscreteSNR(y, noise);
+            // std::cout<<"SNR after: "<<snr_after<<std::endl;
+
+        }
 
         klab::DoubleReal tolerance = 1e-6;	// Tolerance of the solution. Default: 1e-6
         arma::Col<klab::DoubleReal> x;		// the solution of the reconstruction.
