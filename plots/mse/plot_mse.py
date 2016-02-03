@@ -12,9 +12,9 @@ import csv
 import numpy as np
 from matplotlib import pyplot as plt
 
-# Read data from a CSV file
-mse_mean_array = np.array(list(csv.reader(open("../results_matrix/MSEMean_OMP.csv", "r"), delimiter=','))).astype('float')
-mse_std_array= np.array(list(csv.reader(open("../results_matrix/MSEStd_OMP.csv", "r"), delimiter=','))).astype('float')
+# get mse data
+mse_mean_array = np.array(list(csv.reader(open("../../test_results/without_noise/MSEMean_OMP.csv", "r"), delimiter=','))).astype('float')
+mse_std_array= np.array(list(csv.reader(open("../../test_results/without_noise/MSEStd_OMP.csv", "r"), delimiter=','))).astype('float')
 
 #  print(success_mean_array)
 
@@ -31,20 +31,17 @@ if choose == 'm':
     sel_col = mse_mean_array[:, sel_col_num - 1]
     x_axis = np.arange(1, row_num + 1, 1)
     y_axis = sel_col
-    plt.plot(x_axis, y_axis, color='black', label='', lw=1, ls='-', marker='s', markerfacecolor='None', markeredgewidth=1, markeredgecolor='black')
-    plt.show()
+    #  plt.plot(x_axis, y_axis, color='black', label='', lw=1, ls='-', marker='s', markerfacecolor='None', markeredgewidth=1, markeredgecolor='black')
+    plt.plot(x_axis, y_axis, color='black', label='', lw=1, ls='-')
 
     # settings for the figure
-    #  plt.title("")
-    plt.xlabel("")
-    plt.ylabel("Anzahl der Pakten")
-    # set extrem value on x and y axis
-    #  plt.ylim(0, 2200)
-    #  plt.xlim(30, 70)
+    plt.title("MSE with K = " + str(sel_col_num))
+    plt.xlabel("number of mesurament -> k")
+    plt.ylabel("MSE")
     plt.legend(loc='upper left', prop={'size': 12})
     plt.grid()
 
-    plt.savefig('./fig5(90).png', dpi=500)
+    plt.savefig('./k' + str(sel_col_num) + '.png', dpi=1000)
 
 if choose == 'k':
     sel_row_num = input("\nInput row number to plot: ")
@@ -79,4 +76,4 @@ if choose == 'k':
     #  plt.legend(loc='upper left', prop={'size': 12})
     plt.grid()
 
-    plt.savefig('./m' + str(sel_row_num) + '.png', dpi=500)
+    plt.savefig('./m' + str(sel_row_num) + '.png', dpi=1000)
