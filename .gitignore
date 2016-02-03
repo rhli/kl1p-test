@@ -25,7 +25,7 @@
 # Executables
 *.exe
 *.out
-csTest
+./csTest
 
 # Temp dirs
 /csv_matrix
