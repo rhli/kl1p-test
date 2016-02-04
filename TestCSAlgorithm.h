@@ -276,6 +276,31 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     kl1p::TEMBPSolver<klab::DoubleReal> embp(tolerance);
                     embp.enableHomogeneous(true);
                     embp.solve(y, A, k, x);
+                    timer.stop();
+                    // Add result to temp vector
+                    runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                    mseTemp[j] = kl1p::CalcMSE(x, x0);
+                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    break;
+                }
+                catch(klab::KZeroNormLeastSquareException) {
+                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;  // print exception
+                    timer.stop();
+                    // Add result to temp vector
+                    runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                    mseTemp[j] = kl1p::CalcMSE(x, x0);
+                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    break;
+                }
+            }
+
+            // 8. Apply Basis-Pursuit
+            case 8: {
+                try {
+        timer.start();
+        kl1p::TBasisPursuitSolver<klab::DoubleReal> bp(tolerance);
+        bp.solve(y, A, x);
+        timer.stop();
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
