@@ -1,2 +1,6 @@
+# Parameter
 m: 1 - 125, k: 1 - 125, i = 100
-Without noise -> OMP: 23h50min
+# Runtime of test programm
+Without noise -> OMP: 23h 50min
+Without noise -> CoSaMP: 26h 33min
+Without noise -> AMP:
