@@ -17,7 +17,7 @@
 #include <KL1pInclude.h>
 
 // Array of algorithms
-string algorithms [] = {"OMP", "ROMP", "CoSaMP", "Subspace-Pursuit", "SL0", "AMP", "EMBP"};
+string algorithms [] = {"OMP", "ROMP", "CoSaMP", "Subspace-Pursuit", "SL0", "AMP", "EMBP", "Basis-Pursuit"};
 
 // File path for sensing matrix and statistish results
 

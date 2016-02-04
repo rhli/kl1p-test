@@ -11,7 +11,7 @@ import os
 import sys
 
 # testing cs-algorithms list
-algorithms = ['OMP', 'ROMP', 'CoSaMP', 'Subspace-Pursuit', 'SL0', 'AMP', 'EMBP']
+algorithms = ['OMP', 'ROMP', 'CoSaMP', 'Subspace-Pursuit', 'SL0', 'AMP', 'EMBP', 'Basis-Pursuit']
 
 
 # main fuction

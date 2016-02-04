@@ -127,10 +127,10 @@ void kl1p::RunExample()
 
 		// Compute Basis-Pursuit.
 		// std::cout<<"[BasisPursuit] Start."<<std::endl;
-		// timer.start();
-		// kl1p::TBasisPursuitSolver<klab::DoubleReal> bp(tolerance);
-		// bp.solve(y, A, x);
-		// timer.stop();
+        timer.start();
+        kl1p::TBasisPursuitSolver<klab::DoubleReal> bp(tolerance);
+        bp.solve(y, A, x);
+        timer.stop();
 		// std::cout<<"[BasisPursuit] Done - SNR="<<std::setprecision(5)<<klab::SNR(x, x0)<<" - "
 				  // <<"Time="<<klab::UInt32(timer.durationInMilliseconds())<<"ms"<<" - "
 				  // <<"Iterations="<<bp.iterations()<<std::endl;
