@@ -27,7 +27,11 @@ def main():
         k_min = int(input("input k_min: "))
         k_max = int(input("input k_max: "))
         num_rounds = int(input("input num_rounds: "))
-        snr = float(input('input SNR(dB) for testing with AWGN: '))
+        noise_flag = int(input("add noise or not(0 for not, 1 for yes): "))
+        if(noise_flag == 0):
+            print("testing without noise")
+        if(noise_flag == 1):
+            snr = float(input('input SNR(dB) for testing with AWGN: '))
 
         # choose cs-algorithms for testing
         print('--------------------------------------------')
@@ -52,10 +56,10 @@ def main():
         if algo_num_list[0] == 0:
             # testing all algorithms
             for i in range(len(algo_num_list)):
-                testCSAlgorithm(i + 1, n, m_min, m_max, k_min, k_max, num_rounds, snr)
+                testCSAlgorithm(i + 1, n, m_min, m_max, k_min, k_max, num_rounds, noise_flag, snr)
         else:
             for algo_num in algo_num_list:
-                testCSAlgorithm(algo_num, n, m_min, m_max, k_min, k_max, num_rounds, snr)
+                testCSAlgorithm(algo_num, n, m_min, m_max, k_min, k_max, num_rounds, noise_flag, snr)
 
     except KeyboardInterrupt:
         print("get keyboardInterrupt! exit ...")
@@ -75,7 +79,7 @@ def main():
 # @param num_rounds
 #
 # @return
-def testCSAlgorithm(algo_num, n, m_min, m_max, k_min, k_max, num_rounds, snr):
+def testCSAlgorithm(algo_num, n, m_min, m_max, k_min, k_max, num_rounds, noise_flag, snr):
 
     # init basic file paths
     src_file_path = ["./csv_matrix/MSEMean_", "./csv_matrix/MSEStd_", "./csv_matrix/RunTimeMean_", "./csv_matrix/RunTimeStd_",
@@ -106,7 +110,7 @@ def testCSAlgorithm(algo_num, n, m_min, m_max, k_min, k_max, num_rounds, snr):
 
     # --- run test programm ---
     for m in range(m_min, m_max + 1, 1):
-        exec = "./csTest %d %d %d %d %d %d %d %d" %(n, m, m, k_min, k_max, num_rounds, algo_num, snr)
+        exec = "./csTest %d %d %d %d %d %d %d %d %d" %(n, m, m, k_min, k_max, num_rounds, algo_num, noise_flag, snr)
         print(exec)
         os.system(exec)
 

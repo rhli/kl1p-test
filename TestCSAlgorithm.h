@@ -29,13 +29,13 @@ struct resultStruct {
 
 namespace kl1p
 {
-    resultStruct testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt32 m, klab::UInt32 n, klab::UInt32 k, klab::UInt64 seed, klab::DoubleReal snr);
+    resultStruct testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt32 m, klab::UInt32 n, klab::UInt32 k, klab::UInt64 seed, klab::UInt32 noise_flag, klab::DoubleReal snr);
 }
 
 // ---------------------------------------------------------------------------------------------------- //
 
 /**
- * @brief Test different CS Algorithms using different parameters
+ * @brief test different cs-algorithms using user defined parameters
  *
  * @param flag
  * @param i
@@ -43,8 +43,12 @@ namespace kl1p
  * @param n
  * @param k
  * @param seed
+ * @param noise_flag
+ * @param snr
+ *
+ * @return
  */
-resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt32 m, klab::UInt32 n, klab::UInt32 k, klab::UInt64 seed, klab::DoubleReal snr)
+resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt32 m, klab::UInt32 n, klab::UInt32 k, klab::UInt64 seed, klab::UInt32 noise_flag, klab::DoubleReal snr)
 {
 
     // --- Init variables ---
@@ -91,7 +95,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
         A->apply(x0, y);
 
         // Add noise(AWGN) -> using normal random number generator in lib armadillo
-        if(snr != 0) {
+        if( noise_flag == 1) {
             // Generate vector with normal distribution
             arma::Col<klab::DoubleReal> noise(y.n_rows);
             noise.randn();  // normal distribution with mean = 0 and sigma = 1
@@ -114,7 +118,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                 noise.at(i) = noise.at(i) * k_factor;
                 y.at(i) = y.at(i) + noise.at(i);  // add noise to measured signal
             }
-        }  // end if(snr != 0)
+        }  // end if( noise_flag == 1 )
 
         klab::DoubleReal tolerance = 1e-6;	// Tolerance of the solution. Default: 1e-6
         arma::Col<klab::DoubleReal> x;		// the solution of the reconstruction.
