@@ -29,6 +29,7 @@ def main():
         num_rounds = int(input("input num_rounds: "))
         noise_flag = int(input("add noise or not(0 for not, 1 for yes): "))
         if(noise_flag == 0):
+            snr = 0  # value is irrelevant
             print("testing without noise")
         if(noise_flag == 1):
             snr = float(input('input SNR(dB) for testing with AWGN: '))
