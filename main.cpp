@@ -28,9 +28,10 @@ klab::UInt32 k_min = 1;      // Sparsity of the signal x0 (number of non-zero el
 klab::UInt32 k_max = 30;     // Sparsity of the signal x0 (number of non-zero elements) maximum
 klab::UInt64 seed = 0;	     // Seed used for random number generation (0 if regenerate random numbers on each launch).
 klab::UInt32 i = 1;          // number of simulation for each round
-klab::DoubleReal snr = 0;    // SNR for testing with AWGN
 klab::UInt32 flag = 1;       // Flag for using different Algorithms, default: OMP
                              // 1 -> OMP, 2 -> ROMP
+klab::UInt32 noise_flag;     // Flag for adding noise
+klab::DoubleReal snr = 0;    // SNR for testing with AWGN
 
 // Main function
 // -------------------------------------------------------------------------------------- //
@@ -47,7 +48,8 @@ int main(int argc, char* argv[])
             k_max = atoi(argv[5]);
             i = atoi(argv[6]);
             flag = atoi(argv[7]);
-            snr = atoi(argv[8]);
+            noise_flag = atoi(argv[8]);
+            snr = atoi(argv[9]);
         }
 
         else {
@@ -57,7 +59,14 @@ int main(int argc, char* argv[])
             std::cout<<"number of measurements -> m_min and m_max(split with space): "; std::cin>>m_min>>m_max;
             std::cout<<"sparsity of signal -> k_min and k_max(split with space): "; std::cin>>k_min>>k_max;
             std::cout<<"rounds for each simulation -> i = "; std::cin>>i;
-            std::cout<<"SNR for testing with AWGN -> SNR(dB) = "; std::cin>>snr;
+            std::cout<<"add noise or not(0 for not, 1 for yes) -> noise_flag = "; std::cin>>noise_flag;
+
+            if(noise_flag == 1) {
+                std::cout<<"SNR for testing with AWGN -> SNR(dB) = "; std::cin>>snr;
+            }
+            if(noise_flag == 0) {
+                std::cout<<"testing without noise"<<std::endl;
+            }
 
             std::cout<<"cs-algorithms list: "<<std::endl;
             klab::UInt32 numberOfList = sizeof(algorithms) / sizeof(algorithms[0]);
@@ -104,7 +113,7 @@ int main(int argc, char* argv[])
         std::cout<<"m_min = "<<m_min<<", "<<"m_max = "<<m_max<<" (number of measurements)"<<std::endl;
         std::cout<<"k_min = "<<k_min<<", "<<"k_max = "<<k_max<<" (sparsity of signal)"<<std::endl;
         std::cout<<"number of rounds = "<<i<<std::endl;
-        if(snr != 0)
+        if(noise_flag == 1)
             std::cout<<"testing with AWGN SNR = "<<snr<<"dB"<<std::endl;
         else
             std::cout<<"testing without noise"<<std::endl;
@@ -119,7 +128,7 @@ int main(int argc, char* argv[])
             for(b=m_min; b<=m_max; b++) {
                 // Run test functions
                 // with b -> m and a-> k
-                resultArray = kl1p::testCSAlgorithm(flag, i, b, n, a, seed, snr);
+                resultArray = kl1p::testCSAlgorithm(flag, i, b, n, a, seed, noise_flag, snr);
 
                 // Add result in results matrix
                 runTimeMeanMat.at(b-1, a-1) = resultArray.run_time_mean;
