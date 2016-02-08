@@ -88,6 +88,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
         originalSenMatrix.save(sensingMatrixResizedFile, arma::csv_ascii);
         // 2. load matrix using TMatrixFromCSV(rows, cols, resizedMatrixFile)
         klab::TSmartPointer<kl1p::TOperator<klab::DoubleReal> > A = new kl1p::TMatrixFromCSV<klab::DoubleReal>(m, n, sensingMatrixResizedFile);
+		A  = new kl1p::TScalingOperator<klab::DoubleReal>(A, 1.0/klab::Sqrt(klab::DoubleReal(m)));  // Pseudo-normalization of the matrix (required for AMP and EMBP solvers).
         // --------------------------------------------------------------------------------
 
         // Perform CS-measurements of size m.
