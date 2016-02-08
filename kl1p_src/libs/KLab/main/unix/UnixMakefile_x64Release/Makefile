@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main
+CMAKE_SOURCE_DIR = /home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/main
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release
+CMAKE_BINARY_DIR = /home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles /home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/main/unix/UnixMakefile_x64Release/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,194 +123,194 @@ KLab64/fast:
 	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/build
 .PHONY : KLab64/fast
 
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.o: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.o
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.o: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.cpp.o
 
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.o
-
-# target to build an object file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.o:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.o
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.o
-
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.i: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.i
-
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.i
-
-# target to preprocess a source file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.i:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.i
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.i
-
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.s: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.s
-
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.s
-
-# target to generate assembly for a file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.s:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.s
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.cpp.s
-
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.o: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.o
-
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.o
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.o
 
 # target to build an object file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.o:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.o
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.o
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.cpp.o:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.cpp.o
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.cpp.o
 
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.i: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.i
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.i: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.cpp.i
 
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.i
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.i
 
 # target to preprocess a source file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.i:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.i
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.i
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.cpp.i:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.cpp.i
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.cpp.i
 
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.s: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.s
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.s: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.cpp.s
 
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.s
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.s
 
 # target to generate assembly for a file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.s:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.s
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.cpp.s
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.cpp.s:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.cpp.s
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.cpp.s
 
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.o: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.o
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.o: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.cpp.o
 
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.o
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.o
 
 # target to build an object file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.o:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.o
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.o
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.cpp.o:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.cpp.o
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.cpp.o
 
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.i: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.i
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.i: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.cpp.i
 
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.i
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.i
 
 # target to preprocess a source file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.i:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.i
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.i
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.cpp.i:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.cpp.i
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.cpp.i
 
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.s: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.s
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.s: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.cpp.s
 
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.s
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.s
 
 # target to generate assembly for a file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.s:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.s
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.cpp.s
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.cpp.s:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.cpp.s
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.cpp.s
 
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.o: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.o
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.o: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.cpp.o
 
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.o
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.o
 
 # target to build an object file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.o:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.o
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.o
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.cpp.o:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.cpp.o
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.cpp.o
 
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.i: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.i
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.i: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.cpp.i
 
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.i
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.i
 
 # target to preprocess a source file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.i:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.i
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.i
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.cpp.i:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.cpp.i
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.cpp.i
 
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.s: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.s
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.s: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.cpp.s
 
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.s
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.s
 
 # target to generate assembly for a file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.s:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.s
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.cpp.s
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.cpp.s:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.cpp.s
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.cpp.s
 
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.o: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.o
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.o: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.cpp.o
 
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.o
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.o
 
 # target to build an object file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.o:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.o
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.o
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.cpp.o:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.cpp.o
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.cpp.o
 
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.i: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.i
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.i: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.cpp.i
 
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.i
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.i
 
 # target to preprocess a source file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.i:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.i
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.i
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.cpp.i:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.cpp.i
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.cpp.i
 
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.s: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.s
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.s: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.cpp.s
 
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.s
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.s
 
 # target to generate assembly for a file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.s:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.s
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.cpp.s
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.cpp.s:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.cpp.s
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.cpp.s
 
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.o: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.o
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.o: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.cpp.o
 
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.o
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.o
 
 # target to build an object file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.o:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.o
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.o
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.cpp.o:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.cpp.o
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.cpp.o
 
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.i: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.i
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.i: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.cpp.i
 
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.i
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.i
 
 # target to preprocess a source file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.i:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.i
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.i
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.cpp.i:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.cpp.i
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.cpp.i
 
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.s: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.s
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.s: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.cpp.s
 
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.s
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.s
 
 # target to generate assembly for a file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.s:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.s
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.cpp.s
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.cpp.s:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.cpp.s
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.cpp.s
 
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.o: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.o
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.o: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.cpp.o
 
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.o
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.o
 
 # target to build an object file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.o:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.o
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.o
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.cpp.o:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.cpp.o
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.cpp.o
 
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.i: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.i
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.i: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.cpp.i
 
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.i
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.i
 
 # target to preprocess a source file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.i:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.i
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.i
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.cpp.i:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.cpp.i
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.cpp.i
 
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.s: home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.s
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.s: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.cpp.s
 
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.s
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.s
 
 # target to generate assembly for a file
-home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.s:
-	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.s
-.PHONY : home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.cpp.s
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.cpp.s:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.cpp.s
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.cpp.s
+
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.o: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.cpp.o
+
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.o
+
+# target to build an object file
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.cpp.o:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.cpp.o
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.cpp.o
+
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.i: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.cpp.i
+
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.i
+
+# target to preprocess a source file
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.cpp.i:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.cpp.i
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.cpp.i
+
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.s: home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.cpp.s
+
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.s
+
+# target to generate assembly for a file
+home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.cpp.s:
+	$(MAKE) -f CMakeFiles/KLab64.dir/build.make CMakeFiles/KLab64.dir/home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.cpp.s
+.PHONY : home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.cpp.s
 
 # Help Target
 help:
@@ -321,27 +321,27 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... KLab64"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.o"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.i"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/BitArray.s"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.o"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.i"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/DateTime.s"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.o"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.i"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Exception.s"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.o"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.i"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Random.s"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.o"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.i"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/StringUtil.s"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.o"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.i"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/Timer.s"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.o"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.i"
-	@echo "... home/steve/src/cpp_src/kl1p_dev/kl1p_src/libs/KLab/src/TypeUtil.s"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.o"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.i"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/BitArray.s"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.o"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.i"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/DateTime.s"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.o"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.i"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Exception.s"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.o"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.i"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Random.s"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.o"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.i"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/StringUtil.s"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.o"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.i"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/Timer.s"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.o"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.i"
+	@echo "... home/steve/src/cpp_src/kl1p-test/kl1p_src/libs/KLab/src/TypeUtil.s"
 .PHONY : help
 
 

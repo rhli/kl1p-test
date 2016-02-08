@@ -1,6 +1,6 @@
 # The compiler to use g++ or clang++
 # CC = g++
-CC = clang++-3.6
+CC = clang++
 
 # Compiling options
 # ---------------------------------------------------------
@@ -19,7 +19,7 @@ endif
 all: csTest
 
 csTest: main.o
-		$(CC) main.o -L. -lKLab -lpthread -ldl -larmadillo -o csTest
+		$(CC) main.o -L. -lKLab64 -lpthread -ldl -larmadillo -o csTest
 
 main.o: main.cpp TestCSAlgorithm.h MatrixIO.h DataProc.h CreatSignal.h Constants.h
 		$(CC) $(CFLAGS) -I./include main.cpp
