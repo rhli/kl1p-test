@@ -50,7 +50,7 @@ def main():
         print('length of original signal is %d' % n)
         print('number of measurements is from %d to %d' % (m_min, m_max))
         print('sparcity of signal is from %d to %d' % (k_min, k_max))
-        print('number of rounds is  %d' % i)
+        print('number of rounds is  %d' % num_rounds)
         print('SNR for testing with AWGN is %.2fdB' % snr)
         print('--------------------------------------------')
 

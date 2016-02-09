@@ -58,16 +58,14 @@ klab::DoubleReal kl1p::CalcMSE(arma::Col<klab::DoubleReal> vectorA, arma::Col<kl
  */
 klab::DoubleReal kl1p::CalcSuccess(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB)
 {
-    // init
+    // init success = 1
     klab::DoubleReal success = 1;
     klab::UInt32 num_element = vectorA.n_rows;
 
     // due to the accuracy of computing, the value should be worked with tolerance(here as epsilon)
     for(klab::UInt32 i=0; i<num_element; i++) {
-        if( abs( vectorA.at(i) - vectorB.at(i) ) <= epsilon )
-            success = 1;
-        else
-            success = 0;
+        if( abs( vectorA.at(i) - vectorB.at(i) ) > epsilon )
+            success = 0;  // when there is a significant difference
     }
 
     return success;
