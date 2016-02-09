@@ -12,8 +12,10 @@
 
 /* Initialize Constants */
 
+#include <cmath>
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 #include <KL1pInclude.h>
 
 // --- Array of algorithms ---
@@ -21,7 +23,8 @@ string algorithms [] = {"OMP", "ROMP", "CoSaMP", "Subspace-Pursuit", "SL0", "AMP
 
 // --- Some constant value ---
 
-klab::DoubleReal tolerance = 1e-10;
+klab::DoubleReal tolerance = 1e-6;
+klab::DoubleReal epsilon = 5e-8;
 
 // --- File path for sensing matrix and statistish results ---
 
