@@ -97,6 +97,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
         A->apply(x0, y);
 
         // Add noise(AWGN) -> using normal random number generator in lib armadillo
+        // --------------------------------------------------------------------------------
         if( noise_flag == 1) {
             // Generate vector with normal distribution
             arma::Col<klab::DoubleReal> noise(y.n_rows);
@@ -121,13 +122,15 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                 y.at(i) = y.at(i) + noise.at(i);  // add noise to measured signal
             }
         }  // end if( noise_flag == 1 )
+        // --------------------------------------------------------------------------------
 
-        klab::DoubleReal tolerance = 1e-6;	// Tolerance of the solution. Default: 1e-6
+        // Start cs-algorithms testing(with results of MSE, Runtime and Success)
+        // --------------------------------------------------------------------------------
+        // --- Init variables ---
         arma::Col<klab::DoubleReal> x;		// the solution of the reconstruction.
-
         klab::KTimer timer;                 // Timer to get run time
 
-        // Use flag to test different Algorithms
+        // --- Use flag to test different Algorithms ---
         switch(flag) {
 
             // 1. Apply OMP
@@ -185,6 +188,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
             case 3: {
                 try {
                     timer.start();
+                    // Create a Solver to get the result of CoSaMP(giving tolerance)
                     kl1p::TCoSaMPSolver<klab::DoubleReal> cosamp(tolerance);
                     cosamp.solve(y, A, k, x);
                     timer.stop();
@@ -210,6 +214,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
             case 4: {
                 try {
                      timer.start();
+                    // Create a Solver to get the result of Subspace-Pursuit(giving tolerance)
                      kl1p::TSubspacePursuitSolver<klab::DoubleReal> sp(tolerance);
                      sp.solve(y, A, k, x);
                      timer.stop();
@@ -234,6 +239,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
             case 5: {
                 try {
                     timer.start();
+                    // Create a Solver to get the result of SL0(giving tolerance)
                     kl1p::TSL0Solver<klab::DoubleReal> sl0(tolerance);
                     sl0.solve(y, A, x);
                     timer.stop();
@@ -258,6 +264,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
             case 6: {
                 try {
                     timer.start();
+                    // Create a Solver to get the result of AMP(giving tolerance)
                     kl1p::TAMPSolver<klab::DoubleReal> amp(tolerance);
                     // A should be pseudo-normalized
                     amp.solve(y, A, x);
@@ -284,6 +291,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
             case 7: {
                 try {
                     timer.start();
+                    // Create a Solver to get the result of EMBP(giving tolerance)
                     kl1p::TEMBPSolver<klab::DoubleReal> embp(tolerance);
                     // A should be pseudo-normalized
                     embp.enableHomogeneous(true);
@@ -311,6 +319,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
             case 8: {
                 try {
                     timer.start();
+                    // Create a Solver to get the result of Basis-Pursuit(giving tolerance)
                     kl1p::TBasisPursuitSolver<klab::DoubleReal> bp(tolerance);
                     bp.solve(y, A, x);
                     timer.stop();

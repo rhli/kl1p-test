@@ -21,7 +21,7 @@ string algorithms [] = {"OMP", "ROMP", "CoSaMP", "Subspace-Pursuit", "SL0", "AMP
 
 // --- Some constant value ---
 
-klab::DoubleReal tolerance = 1e-6;
+klab::DoubleReal tolerance = 1e-10;
 
 // --- File path for sensing matrix and statistish results ---
 
