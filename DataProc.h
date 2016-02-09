@@ -10,6 +10,7 @@
 
 #include <cmath>
 #include <KL1pInclude.h>
+#include "Constants.h"
 
 namespace kl1p
 {
@@ -63,6 +64,10 @@ klab::DoubleReal kl1p::CalcSuccess(arma::Col<klab::DoubleReal> vectorA, arma::Co
     klab::UInt32 num_element = vectorA.n_rows;
 
     for(klab::UInt32 i=0; i<num_element; i++) {
+
+        // if the absolute value is smaller as tolerance, than should as 0
+        // if vectorA.at(i) <=
+
         if(vectorA.at(i) != 0 && vectorB.at(i) == 0)
             success = 0;
         if(vectorA.at(i) == 0 && vectorB.at(i) !=0 )

@@ -16,10 +16,14 @@
 #include <string>
 #include <KL1pInclude.h>
 
-// Array of algorithms
+// --- Array of algorithms ---
 string algorithms [] = {"OMP", "ROMP", "CoSaMP", "Subspace-Pursuit", "SL0", "AMP", "EMBP", "Basis-Pursuit"};
 
-// File path for sensing matrix and statistish results
+// --- Some constant value ---
+
+klab::DoubleReal tolerance = 1e-6;
+
+// --- File path for sensing matrix and statistish results ---
 
 // sensing matrix
 string sensingMatrixOriginalFile("./csv_matrix/sensingMatrixOriginal.csv");

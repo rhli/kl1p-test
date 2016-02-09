@@ -127,10 +127,10 @@ int main(int argc, char* argv[])
         for(a=k_min; a<=k_max; a++) {
             for(b=m_min; b<=m_max; b++) {
                 // Run test functions
-                // with b -> m and a-> k
+                    // with b -> m and a-> k
                 resultArray = kl1p::testCSAlgorithm(flag, i, b, n, a, seed, noise_flag, snr);
 
-                // Add result in results matrix
+                // Save testing results in results matrix
                 runTimeMeanMat.at(b-1, a-1) = resultArray.run_time_mean;
                 runTimeStdMat.at(b-1, a-1) = resultArray.run_time_std;
 
@@ -139,28 +139,28 @@ int main(int argc, char* argv[])
 
                 successMeanMat.at(b-1, a-1) = resultArray.success_mean;
                 successStdMat.at(b-1, a-1) = resultArray.success_std;
-
-                // Print debug information
-                std::cout<<"test for "<<algorithms[flag - 1]<<" end loop with m="<<b<<", k="<<a<<std::endl;
             }  // end m loop
+
             // Write temp-results matrix to CSV file
             kl1p::WriteMatrixToCSVFile(runTimeMeanMat, RunTimeMeanMatrixFile);
             kl1p::WriteMatrixToCSVFile(runTimeStdMat, RunTimeStdMatrixFile);
-
             kl1p::WriteMatrixToCSVFile(mseMeanMat, MSEMeanMatrixFile);
             kl1p::WriteMatrixToCSVFile(mseStdMat, MSEStdMatrixFile);
-
             kl1p::WriteMatrixToCSVFile(successMeanMat, SuccessMeanMatrixFile);
             kl1p::WriteMatrixToCSVFile(successStdMat, SuccessStdMatrixFile);
+
+            // Print debug information
+            // std::cout<<"test for "<<algorithms[flag - 1]<<" end loop with m="<<b<<", k="<<a<<std::endl;
+
         }  //end k loop
+
+        // --- After testing loop ---
 
         // Write final-results matrix to CSV file
         kl1p::WriteMatrixToCSVFile(runTimeMeanMat, RunTimeMeanMatrixFile);
         kl1p::WriteMatrixToCSVFile(runTimeStdMat, RunTimeStdMatrixFile);
-
         kl1p::WriteMatrixToCSVFile(mseMeanMat, MSEMeanMatrixFile);
         kl1p::WriteMatrixToCSVFile(mseStdMat, MSEStdMatrixFile);
-
         kl1p::WriteMatrixToCSVFile(successMeanMat, SuccessMeanMatrixFile);
         kl1p::WriteMatrixToCSVFile(successStdMat, SuccessStdMatrixFile);
 

@@ -76,6 +76,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
         arma::Col<klab::DoubleReal> x0;
         // Create original gauss random signal with mean=0, sigma=1 and sparsity=k, length=n
         kl1p::CreateGaussianSignal(n, k, 0.0, 1.0, x0);
+        kl1p::WriteColToCSVFile(x0, "./original_signal.csv");
 
         // Get sensing matrix from CSV file
         // --------------------------------------------------------------------------------
@@ -88,7 +89,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
         originalSenMatrix.save(sensingMatrixResizedFile, arma::csv_ascii);
         // 2. load matrix using TMatrixFromCSV(rows, cols, resizedMatrixFile)
         klab::TSmartPointer<kl1p::TOperator<klab::DoubleReal> > A = new kl1p::TMatrixFromCSV<klab::DoubleReal>(m, n, sensingMatrixResizedFile);
-		A  = new kl1p::TScalingOperator<klab::DoubleReal>(A, 1.0/klab::Sqrt(klab::DoubleReal(m)));  // Pseudo-normalization of the matrix (required for AMP and EMBP solvers).
+		A  = new kl1p::TScalingOperator<klab::DoubleReal>(A, 1.0/klab::Sqrt(klab::DoubleReal(m)));  // pseudo-normalization of the matrix (required for AMP and EMBP solvers).
         // --------------------------------------------------------------------------------
 
         // Perform CS-measurements of size m.
@@ -126,7 +127,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
 
         klab::KTimer timer;                 // Timer to get run time
 
-        // Use flag to run different Algorithms
+        // Use flag to test different Algorithms
         switch(flag) {
 
             // 1. Apply OMP
@@ -188,6 +189,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     cosamp.solve(y, A, k, x);
                     timer.stop();
                     // Add result to temp vector
+                    kl1p::WriteColToCSVFile(x, "./reconstruct_signal.csv");
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
                     successTemp[j] = kl1p::CalcSuccess(x, x0);
@@ -257,19 +259,23 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                 try {
                     timer.start();
                     kl1p::TAMPSolver<klab::DoubleReal> amp(tolerance);
+                    // A should be pseudo-normalized
                     amp.solve(y, A, x);
                     timer.stop();
                     // Add result to temp vector
+                    kl1p::WriteColToCSVFile(x, "./reconstruct_signal.csv");
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
                     successTemp[j] = kl1p::CalcSuccess(x, x0);
                     break;
                 }
                 catch(klab::KZeroNormLeastSquareException) {
-                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;
-                    runTimeTemp[j] = 0;
-                    mseTemp[j] = 1;
-                    successTemp[j] = 0;
+                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;  // print exception
+                    timer.stop();
+                    // Add result to temp vector
+                    runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                    mseTemp[j] = kl1p::CalcMSE(x, x0);
+                    successTemp[j] = kl1p::CalcSuccess(x, x0);
                     break;
                 }
             }
@@ -279,8 +285,10 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                 try {
                     timer.start();
                     kl1p::TEMBPSolver<klab::DoubleReal> embp(tolerance);
+                    // A should be pseudo-normalized
                     embp.enableHomogeneous(true);
                     embp.solve(y, A, k, x);
+                    kl1p::WriteColToCSVFile(x, "./reconstruct_signal.csv");
                     timer.stop();
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
@@ -302,10 +310,11 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
             // 8. Apply Basis-Pursuit
             case 8: {
                 try {
-        timer.start();
-        kl1p::TBasisPursuitSolver<klab::DoubleReal> bp(tolerance);
-        bp.solve(y, A, x);
-        timer.stop();
+                    timer.start();
+                    kl1p::TBasisPursuitSolver<klab::DoubleReal> bp(tolerance);
+                    bp.solve(y, A, x);
+                    timer.stop();
+                    kl1p::WriteColToCSVFile(x, "./reconstruct_signal.csv");
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
@@ -337,6 +346,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
     klab::DoubleReal mseStd = arma::stddev(mseTemp);
 
     // success
+    kl1p::WriteColToCSVFile(successTemp, "./successTemp.csv");
     klab::DoubleReal successMean = arma::mean(successTemp);
     klab::DoubleReal successStd = arma::stddev(successTemp);
     // ----------------------------------------------------------------------------------

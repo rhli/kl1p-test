@@ -112,8 +112,9 @@ def testCSAlgorithm(algo_num, n, m_min, m_max, k_min, k_max, num_rounds, noise_f
     # --- run test programm ---
     for m in range(m_min, m_max + 1, 1):
         exec = "./csTest %d %d %d %d %d %d %d %d %d" %(n, m, m, k_min, k_max, num_rounds, algo_num, noise_flag, snr)
-        print(exec)
+        #  print(exec)
         os.system(exec)
+        print("end test with m=%d" % m)
 
         # file operations
         for j in range(len(src_file_path)):
