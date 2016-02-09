@@ -8,7 +8,6 @@
 #ifndef DATAPROC_H
 #define DATAPROC_H
 
-#include <cmath>
 #include <KL1pInclude.h>
 #include "Constants.h"
 
@@ -50,7 +49,7 @@ klab::DoubleReal kl1p::CalcMSE(arma::Col<klab::DoubleReal> vectorA, arma::Col<kl
 // ---------------------------------------------------------------------------------------------------- //
 
 /**
- * @brief Calculate the success rate between two vectors
+ * @brief Calculate the success rate between two vectors(using a tolerance as epsilon)
  *
  * @param vectorA
  * @param vectorB
@@ -59,18 +58,15 @@ klab::DoubleReal kl1p::CalcMSE(arma::Col<klab::DoubleReal> vectorA, arma::Col<kl
  */
 klab::DoubleReal kl1p::CalcSuccess(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB)
 {
-    klab::DoubleReal success = 1;  // init success as 1
-
+    // init
+    klab::DoubleReal success = 1;
     klab::UInt32 num_element = vectorA.n_rows;
 
+    // due to the accuracy of computing, the value should be worked with tolerance(here as epsilon)
     for(klab::UInt32 i=0; i<num_element; i++) {
-
-        // if the absolute value is smaller as tolerance, than should as 0
-        // if vectorA.at(i) <=
-
-        if(vectorA.at(i) != 0 && vectorB.at(i) == 0)
-            success = 0;
-        if(vectorA.at(i) == 0 && vectorB.at(i) !=0 )
+        if( abs( vectorA.at(i) - vectorB.at(i) ) <= epsilon )
+            success = 1;
+        else
             success = 0;
     }
 
