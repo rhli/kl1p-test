@@ -1,12 +1,12 @@
 // KL1p - A portable C++ compressed sensing library.
 // Copyright (c) 2011-2012 René Gebel
-// 
-// This file is part of the KL1p C++ library.
-// This library is distributed in the hope that it will be useful, 
-// but WITHOUT ANY WARRANTY of fitness for any purpose. 
 //
-// This library is free software; You can redistribute it and/or modify it 
-// under the terms of the GNU Lesser General Public License (LGPL) 
+// This file is part of the KL1p C++ library.
+// This library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY of fitness for any purpose.
+//
+// This library is free software; You can redistribute it and/or modify it
+// under the terms of the GNU Lesser General Public License (LGPL)
 // as published by the Free Software Foundation, either version 3 of the License,
 // or (at your option) any later version.
 // See http://www.opensource.org/licenses for more info.
@@ -48,8 +48,8 @@ public:
 
     TAMPSolver<T, TCol, TOp>&  operator=(const TAMPSolver<T, TCol, TOp>& solver);
 
-    void                        setTolerance(const T& tolerance);  
-    void                        setIterationLimit(klab::UInt32 iterationLimit);  
+    void                        setTolerance(const T& tolerance);
+    void                        setIterationLimit(klab::UInt32 iterationLimit);
 
     const T&                    tolerance() const;
     klab::UInt32         iterationLimit() const;
@@ -60,8 +60,8 @@ public:
     void                                    enableHistory(bool enable);
     bool                                    isHistoryEnabled() const;
     const THistory<TAMPHistoryElement<T> >& history() const;
-    
-    void        solve(const arma::Col<TCol>& y, klab::TSmartPointer<TOp> phi, arma::Col<TCol>& x);  // Implicit use of phi' (adjoint matrix of phi) as backward matrix.     
+
+    void        solve(const arma::Col<TCol>& y, klab::TSmartPointer<TOp> phi, arma::Col<TCol>& x);  // Implicit use of phi' (adjoint matrix of phi) as backward matrix.
     void        solve(const arma::Col<TCol>& y, klab::TSmartPointer<TOp> phi, klab::TSmartPointer<TOp> phiT, arma::Col<TCol>& x);   // Explicit definition of backward matrix (phiT) to use.
 
 
@@ -82,26 +82,8 @@ private:
 // ---------------------------------------------------------------------------------------------------- //
 
 template<class T, class TCol, class TOp>
-inline TAMPSolver<T, TCol, TOp>::TAMPSolver() : 
+inline TAMPSolver<T, TCol, TOp>::TAMPSolver() :
 _tolerance(static_cast<T>(1e-6)), _iterationLimit(1000),
-_residualNorm(klab::TTypeInfo<T>::ZERO), _relativeResidualNorm(klab::TTypeInfo<T>::ZERO), _iterations(0), 
-_isHistoryEnabled(false), _history()
-{}
-
-// ---------------------------------------------------------------------------------------------------- //
-
-template<class T, class TCol, class TOp>
-inline TAMPSolver<T, TCol, TOp>::TAMPSolver(const T& tolerance) : 
-_tolerance(tolerance), _iterationLimit(1000), 
-_residualNorm(klab::TTypeInfo<T>::ZERO), _relativeResidualNorm(klab::TTypeInfo<T>::ZERO), _iterations(0), 
-_isHistoryEnabled(false), _history()
-{}
-
-// ---------------------------------------------------------------------------------------------------- //
-
-template<class T, class TCol, class TOp>
-inline TAMPSolver<T, TCol, TOp>::TAMPSolver(const T& tolerance, klab::UInt32 iterationLimit) : 
-_tolerance(tolerance), _iterationLimit(iterationLimit), 
 _residualNorm(klab::TTypeInfo<T>::ZERO), _relativeResidualNorm(klab::TTypeInfo<T>::ZERO), _iterations(0),
 _isHistoryEnabled(false), _history()
 {}
@@ -109,9 +91,27 @@ _isHistoryEnabled(false), _history()
 // ---------------------------------------------------------------------------------------------------- //
 
 template<class T, class TCol, class TOp>
-inline TAMPSolver<T, TCol, TOp>::TAMPSolver(const TAMPSolver<T, TCol, TOp>& solver) : 
-_tolerance(solver._tolerance), _iterationLimit(solver._iterationLimit), 
-_residualNorm(solver._residualNorm), _relativeResidualNorm(solver._relativeResidualNorm), _iterations(solver._iterations), 
+inline TAMPSolver<T, TCol, TOp>::TAMPSolver(const T& tolerance) :
+_tolerance(tolerance), _iterationLimit(1000),
+_residualNorm(klab::TTypeInfo<T>::ZERO), _relativeResidualNorm(klab::TTypeInfo<T>::ZERO), _iterations(0),
+_isHistoryEnabled(false), _history()
+{}
+
+// ---------------------------------------------------------------------------------------------------- //
+
+template<class T, class TCol, class TOp>
+inline TAMPSolver<T, TCol, TOp>::TAMPSolver(const T& tolerance, klab::UInt32 iterationLimit) :
+_tolerance(tolerance), _iterationLimit(iterationLimit),
+_residualNorm(klab::TTypeInfo<T>::ZERO), _relativeResidualNorm(klab::TTypeInfo<T>::ZERO), _iterations(0),
+_isHistoryEnabled(false), _history()
+{}
+
+// ---------------------------------------------------------------------------------------------------- //
+
+template<class T, class TCol, class TOp>
+inline TAMPSolver<T, TCol, TOp>::TAMPSolver(const TAMPSolver<T, TCol, TOp>& solver) :
+_tolerance(solver._tolerance), _iterationLimit(solver._iterationLimit),
+_residualNorm(solver._residualNorm), _relativeResidualNorm(solver._relativeResidualNorm), _iterations(solver._iterations),
 _isHistoryEnabled(solver._isHistoryEnabled), _history(solver._history)
 {}
 
@@ -226,7 +226,7 @@ inline const THistory<TAMPHistoryElement<T> >& TAMPSolver<T, TCol, TOp>::history
 
 template<class T, class TCol, class TOp>
 inline void TAMPSolver<T, TCol, TOp>::solve(const arma::Col<TCol>& y, klab::TSmartPointer<TOp> phi, arma::Col<TCol>& x)
-{ 
+{
     this->solve(y, phi, klab::TSmartPointer<TOp>(new TAdjointOperator<TCol>(phi)), x);
 }
 
@@ -234,22 +234,22 @@ inline void TAMPSolver<T, TCol, TOp>::solve(const arma::Col<TCol>& y, klab::TSma
 
 template<class T, class TCol, class TOp>
 inline void TAMPSolver<T, TCol, TOp>::solve(const arma::Col<TCol>& y, klab::TSmartPointer<TOp> phi, klab::TSmartPointer<TOp> phiT, arma::Col<TCol>& x)
-{   
+{
     _residualNorm  = klab::TTypeInfo<T>::ZERO;
     _relativeResidualNorm = klab::TTypeInfo<T>::ZERO;
     _iterations = 0;
     _history.clear();
 
     ThrowTraceExceptionIf(KNullVectorAMPSolverException, y.n_rows==0);
-    ThrowTraceExceptionIf(KNullOperatorAMPSolverException, phi==0 || phi->m()==0 || phi->n()==0);    
-    ThrowTraceExceptionIf(KNullOperatorAMPSolverException, phiT==0 || phiT->m()==0 || phiT->n()==0);     
+    ThrowTraceExceptionIf(KNullOperatorAMPSolverException, phi==0 || phi->m()==0 || phi->n()==0);
+    ThrowTraceExceptionIf(KNullOperatorAMPSolverException, phiT==0 || phiT->m()==0 || phiT->n()==0);
 
-    klab::UInt32 m = y.n_rows;   
+    klab::UInt32 m = y.n_rows;
     klab::UInt32 n = phi->n();
     T invM = klab::TTypeInfo<T>::UNIT / static_cast<T>(m);
 
     if(n > 0)
-    {         
+    {
         x.set_size(n);
         x.fill(klab::TTypeInfo<TCol>::ZERO);
 
@@ -269,7 +269,7 @@ inline void TAMPSolver<T, TCol, TOp>::solve(const arma::Col<TCol>& y, klab::TSma
             _history.push(TAMPHistoryElement<T>(residualNorm));
 
         while(_iterations<_iterationLimit && _residualNorm>_tolerance)
-        {           
+        {
             // Pre-threshold value.
             arma::Col<TCol> u; 
             phiT->apply(residual, u);
@@ -287,7 +287,7 @@ inline void TAMPSolver<T, TCol, TOp>::solve(const arma::Col<TCol>& y, klab::TSma
 			x1.fill(klab::TTypeInfo<TCol>::ZERO);
             klab::UInt32 sparsity = 0;
             for(; sparsity<m-1 && absGamma[sparsity].value()>klab::TTypeInfo<T>::ZERO && absGamma[sparsity].value()>threshold; ++sparsity)
-            {                
+            {
 				klab::UInt32 index = absGamma[sparsity].i();
                 x1[index] = gamma[index] * (klab::TTypeInfo<T>::UNIT - (threshold/absGamma[sparsity].value()));
             }
@@ -300,10 +300,10 @@ inline void TAMPSolver<T, TCol, TOp>::solve(const arma::Col<TCol>& y, klab::TSma
             arma::Col<TCol> res = y - y2;
 
             residual *= static_cast<TCol>(sparsityInvM);
-            residual  = res + residual;   
+            residual  = res + residual;
 
             residualNorm         = static_cast<T>(arma::norm(res, 2));
-            relativeResidualNorm = residualNorm * invYNorm;            
+            relativeResidualNorm = residualNorm * invYNorm;
 
             ++_iterations;
 
@@ -311,7 +311,7 @@ inline void TAMPSolver<T, TCol, TOp>::solve(const arma::Col<TCol>& y, klab::TSma
             {
                 x = x1;
                 _residualNorm         = residualNorm;
-                _relativeResidualNorm = relativeResidualNorm; 
+                _relativeResidualNorm = relativeResidualNorm;
             }
 
             if(_isHistoryEnabled)
