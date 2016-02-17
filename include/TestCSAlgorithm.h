@@ -76,26 +76,27 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
         arma::Col<klab::DoubleReal> x0;
         // Create original gauss random signal with mean=0, sigma=1 and sparsity=k, length=n
         kl1p::CreateGaussianSignal(n, k, 0.0, 1.0, x0);
-        kl1p::WriteColToCSVFile(x0, "./original_signal.csv");
+        // kl1p::WriteColToCSVFile(x0, "./original_signal.csv");
 
         // (a) Get sensing matrix from CSV file
         // --------------------------------------------------------------------------------
         // 1. resize the original sensingMatrix
         // get orginal sensing matrix
-        // arma::Mat<klab::DoubleReal> originalSenMatrix;
-        // originalSenMatrix.load(sensingMatrixOriginalFile, arma::csv_ascii);
+        arma::Mat<klab::DoubleReal> originalSenMatrix;
+        originalSenMatrix.load(sensingMatrixOriginalFile, arma::csv_ascii);
         // resize matrix and save as resized matrix
-        // originalSenMatrix.resize(m, n);
-        // originalSenMatrix.save(sensingMatrixResizedFile, arma::csv_ascii);
+        originalSenMatrix.resize(m, n);
+        originalSenMatrix.save(sensingMatrixResizedFile, arma::csv_ascii);
         // 2. load matrix using TMatrixFromCSV(rows, cols, resizedMatrixFile)
-        // klab::TSmartPointer<kl1p::TOperator<klab::DoubleReal> > A = new kl1p::TMatrixFromCSV<klab::DoubleReal>(m, n, sensingMatrixResizedFile);
-		// A  = new kl1p::TScalingOperator<klab::DoubleReal>(A, 1.0/klab::Sqrt(klab::DoubleReal(m)));  // pseudo-normalization of the matrix (required for AMP and EMBP solvers).
+        klab::TSmartPointer<kl1p::TOperator<klab::DoubleReal> > A = new kl1p::TMatrixFromCSV<klab::DoubleReal>(m, n, sensingMatrixResizedFile);
+        A  = new kl1p::TScalingOperator<klab::DoubleReal>(A, 1.0/klab::Sqrt(klab::DoubleReal(m)));  // pseudo-normalization of the matrix (required for AMP and EMBP solvers).
         // --------------------------------------------------------------------------------
 
 		// (b) Create random gaussian i.i.d matrix A of size (m,n).
         // --------------------------------------------------------------------------------
-		klab::TSmartPointer<kl1p::TOperator<klab::DoubleReal> > A = new kl1p::TNormalRandomMatrixOperator<klab::DoubleReal>(m, n, 0.0, 1.0);
-		A  = new kl1p::TScalingOperator<klab::DoubleReal>(A, 1.0/klab::Sqrt(klab::DoubleReal(m)));	// Pseudo-normalization of the matrix (required for AMP and EMBP solvers).
+		// klab::TSmartPointer<kl1p::TOperator<klab::DoubleReal> > A = new kl1p::TNormalRandomMatrixOperator<klab::DoubleReal>(m, n, 0.0, 1.0);
+		// A  = new kl1p::TScalingOperator<klab::DoubleReal>(A, 1.0/klab::Sqrt(klab::DoubleReal(m)));	// Pseudo-normalization of the matrix (required for AMP and EMBP solvers).
+        // A.save("./ses.csv", arma::csv_ascii);
         // --------------------------------------------------------------------------------
 
         // Perform CS-measurements of size m.
@@ -295,7 +296,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // A should be pseudo-normalized
                     amp.solve(y, A, x);
                     timer.stop();
-                    WriteColToCSVFile(x, "./amp_signal.csv");
+                    // WriteColToCSVFile(x, "./amp_signal.csv");
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
@@ -305,7 +306,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                 catch(klab::KZeroNormLeastSquareException) {
                     std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;  // print exception
                     timer.stop();
-                    WriteColToCSVFile(x, "./amp_signal.csv");
+                    // WriteColToCSVFile(x, "./amp_signal.csv");
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
