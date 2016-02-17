@@ -27,16 +27,16 @@ namespace kl1p
 /// @param mean		[in] Mean of the gaussian of the signal.
 /// @param sigma	[in] Sigma (=sqrt(variance)) of the gaussian of the signal.
 /// @param out		[out] Created signal.
-void	CreateGaussianSignal(klab::UInt32 size, klab::UInt32 sparsity, klab::DoubleReal mean, klab::DoubleReal sigma, arma::Col<klab::DoubleReal>& out);
+void CreateGaussianSignal(klab::UInt32 size, klab::UInt32 sparsity, klab::DoubleReal mean, klab::DoubleReal sigma, arma::Col<klab::DoubleReal>& out);
 
 /// Write a signal to a csv file.
 /// @param signal	[in] Signal to write.
 /// @param filePath	[in] Path to the file to create.
-void	WriteToCSVFile(const arma::Col<klab::DoubleReal>& signal, const std::string& filePath);
+void WriteToCSVFile(const arma::Col<klab::DoubleReal>& signal, const std::string& filePath);
 
 /// Main example function.
 /// Run each implemented CS-algorithmes reconstruction on the same random generated signal.
-void	RunExample();
+void RunExample();
 
 // ---------------------------------------------------------------------------------------------------- //
 
