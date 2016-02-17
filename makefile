@@ -1,5 +1,5 @@
 # Compiler
-CC = clang++
+CC = clang++-3.6
 
 # Compiling options
 CFLAGS = -c -Wall
