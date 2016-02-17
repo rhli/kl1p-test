@@ -99,7 +99,7 @@ _mean(mean), _deviation(deviation)
             mat(i, j) = TNormalRandomMatrixOperatorSpecialisation<T>::GenerateNormalRandomNumber(klab::KRandom::Instance(), mean, deviation);
     }
 
-    mat.save("./ses.csv", arma::csv_ascii);
+    // mat.save("./sensingMatrix.csv", arma::csv_ascii);
 
     this->resize(m, n);
 
