@@ -29,4 +29,4 @@ test-cs
 
 # Temp dirs
 /csv_matrix
-/results_matrix
+/tmp_results
