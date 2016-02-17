@@ -86,8 +86,8 @@ def testCSAlgorithm(algo_num, n, m_min, m_max, k_min, k_max, num_rounds, noise_f
     src_file_path = ["./csv_matrix/MSEMean_", "./csv_matrix/MSEStd_", "./csv_matrix/RunTimeMean_", "./csv_matrix/RunTimeStd_",
                      "./csv_matrix/SuccessMean_", "./csv_matrix/SuccessStd_"]
 
-    dst_file_path = ["./results_matrix/MSEMean_", "./results_matrix/MSEStd_", "./results_matrix/RunTimeMean_", "./results_matrix/RunTimeStd_",
-                     "./results_matrix/SuccessMean_", "./results_matrix/SuccessStd_"]
+    dst_file_path = ["./tmp_results/MSEMean_", "./tmp_results/MSEStd_", "./tmp_results/RunTimeMean_", "./tmp_results/RunTimeStd_",
+                     "./tmp_results/SuccessMean_", "./tmp_results/SuccessStd_"]
 
     src_file = [None] * len(src_file_path)
     dst_file = [None] * len(src_file_path)
@@ -111,7 +111,7 @@ def testCSAlgorithm(algo_num, n, m_min, m_max, k_min, k_max, num_rounds, noise_f
 
     # --- run test programm ---
     for m in range(m_min, m_max + 1, 1):
-        exec = "./csTest %d %d %d %d %d %d %d %d %d" %(n, m, m, k_min, k_max, num_rounds, algo_num, noise_flag, snr)
+        exec = "./test-cs %d %d %d %d %d %d %d %d %d" %(n, m, m, k_min, k_max, num_rounds, algo_num, noise_flag, snr)
         #  print(exec)
         os.system(exec)
         print("end test with m=%d" % m)
