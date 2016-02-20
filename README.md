@@ -1,5 +1,5 @@
 ## kl1p-test
-Some tests of compressed sensing algorithm using KL1p: a portable C++ framework for CS
+
 A test/evalution Programm for a portable c++ compressed sensing library: [kl1p-0.4.2](http://kl1p.sourceforge.net/home.html) 
 
 ## Motivation
