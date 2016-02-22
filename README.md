@@ -12,8 +12,8 @@ In this evalution programm, the library kl1p is used for testing three commen co
 
 ### required packages and libraries
 * [cmake](https://cmake.org/): build static libraries of kl1p
-* [armadillo](http://arma.sourceforge.net/): C++ linear algebra library used in kl1p
-* compiler: g++ or clang++(default in this  makefile)
+* [armadillo](http://arma.sourceforge.net/): c++ linear algebra library used in kl1p
+* compiler: g++ or clang++(default in this makefile)
 
 ### steps for building
 
@@ -21,13 +21,13 @@ In this evalution programm, the library kl1p is used for testing three commen co
 
 2. build kl1p static libraries(.a files), details is in REAME.txt in ./kl1p_0.4.2
 
-**Notice**: some codes is added or modified in the source code of kl1p, so i put ./kl1p_0.4.2 dir in the repository(for rebuilding static libs). So if you want
-to use original library or the latest version, you should get library from its [homepage](http://kl1p.sourceforge.net/home.html)
-
 3. use make to build the programm
     * put static libraries in the root dir of programm(default in makefile)
     * edit makefile: choose compiler, edit libname(like -lKLab for x86 platforms)
     * use `make BUILD=Debug` for debug or `make` for release version
+
+**Notice**: some codes is added or modified in the source code of kl1p, so i put ./kl1p_0.4.2 dir in the repository(for rebuilding static libs). So if you want
+to use original library or the latest version, you should get library from its [homepage](http://kl1p.sourceforge.net/home.html)
 
 ## Contributors
 

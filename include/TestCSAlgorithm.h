@@ -296,7 +296,6 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // A should be pseudo-normalized
                     amp.solve(y, A, x);
                     timer.stop();
-                    // WriteColToCSVFile(x, "./amp_signal.csv");
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
@@ -306,7 +305,15 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                 catch(klab::KZeroNormLeastSquareException) {
                     std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;  // print exception
                     timer.stop();
-                    // WriteColToCSVFile(x, "./amp_signal.csv");
+                    // Add result to temp vector
+                    runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                    mseTemp[j] = kl1p::CalcMSE(x, x0);
+                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    break;
+                }
+                catch(KZeroNormVectorAMPSolverException) {
+                    std::cout<<"KZeroNormVectorAMPSolverException catched..."<<std::endl;  // print exception
+                    timer.stop();
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
