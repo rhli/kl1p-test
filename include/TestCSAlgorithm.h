@@ -373,6 +373,15 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     successTemp[j] = kl1p::CalcSuccess(x, x0);
                     break;
                 }
+                catch(KZeroNormVectorBasisPursuitSolverException) {
+                    std::cout<<"KZeroNormLeastSquareException catched..."<<std::endl;  // print exception
+                    timer.stop();
+                    // Add result to temp vector
+                    runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
+                    mseTemp[j] = kl1p::CalcMSE(x, x0);
+                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    break;
+                }
             }
 
         }  // End switch
