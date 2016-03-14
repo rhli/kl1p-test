@@ -32,7 +32,9 @@ klab::DoubleReal epsilon = 5e-8;
 string sensingMatrixOriginalFile("./rsc/sensingMatrixOriginal.csv");
 string sensingMatrixResizedFile("./rsc/sensingMatrixResized.csv");
 
-// results files
+// results dir and files
+const char* MatrixRootDir = "./csv_matrix";
+
 string RunTimeMeanMatrixFile("./csv_matrix/RunTimeMean_");
 string RunTimeStdMatrixFile("./csv_matrix/RunTimeStd_");
 

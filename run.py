@@ -9,6 +9,8 @@
 
 import os
 import sys
+from os import mkdir
+from os.path import isdir
 
 # testing cs-algorithms list
 algorithms = ['OMP', 'ROMP', 'CoSaMP', 'Subspace-Pursuit', 'SL0', 'AMP', 'EMBP', 'Basis-Pursuit']
@@ -18,6 +20,15 @@ algorithms = ['OMP', 'ROMP', 'CoSaMP', 'Subspace-Pursuit', 'SL0', 'AMP', 'EMBP',
 # ---------------------------------------------------------------------------------------
 def main():
     try:
+        # check if results dir exits
+        results_root_dir = './tmp_results'
+        if isdir(results_root_dir):
+            print('the test results will be saved in %s' % results_root_dir)
+        else:
+            mkdir(results_root_dir)
+            print('the test results will be saved in %s' % results_root_dir)
+        print('------------------------------------------------------')
+
         print('cs-algorithms testing programm started.')
 
         # get parameters from cli

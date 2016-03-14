@@ -32,3 +32,6 @@ test-cs
 /tmp_results
 /rsc/sensingMatrixResized.csv
 /scripts
+
+# Temp files
+*.png

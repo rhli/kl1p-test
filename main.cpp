@@ -10,6 +10,7 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
+#include <sys/stat.h>
 
 #include "Constants.h"
 #include "CreatSignal.h"
@@ -39,6 +40,24 @@ klab::DoubleReal snr = 0;    // SNR for testing with AWGN
 int main(int argc, char* argv[])
 {
     try {
+        // Check if MatrixRootDir exists
+        struct stat sb;
+        if (stat(MatrixRootDir, &sb) == 0 && S_ISDIR(sb.st_mode)) {
+            // if dir exists
+            printf("the test results will be saved in %s\n", MatrixRootDir);
+        }
+        else {
+            // mkdir if dir not exists
+            const int dir_err = mkdir(MatrixRootDir, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+            if (-1 == dir_err) {
+                printf("Error creating directory!n");
+                exit(1);
+            }
+            else {
+                printf("the test results will be saved in %s\n", MatrixRootDir);
+            }
+        }
+
         // Get parameters
         if(argc > 1) {
             n = atoi(argv[1]);
