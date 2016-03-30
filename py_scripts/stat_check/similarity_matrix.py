@@ -10,6 +10,7 @@
 import csv
 
 import numpy as np
+from scipy.stats.mstats import kruskalwallis
 
 # get csv data
 mean_array_amp = np.array(list(csv.reader(open("../../test_results/sensing_matrix_kl1p/pc/snr_10db/SuccessMean_AMP_10db.csv", "r"), delimiter=','))).astype('float')
@@ -29,6 +30,20 @@ mean_vector_bp = np.reshape(mean_array_bp, (1, num_elements))
 
 mean_vector_omp = np.reshape(mean_array_omp, (1, num_elements))
 mean_vector_cosamp = np.reshape(mean_array_cosamp, (1, num_elements))
+
+# plot the sse between two vectors
+# -------------------------------------------------------------------
+#  diff_array = np.square(mean_vector_amp - mean_vector_bp)
+#  diff_vector = diff_array[0]
+
+#  x_axis = np.arange(1, num_elements + 1, 1)
+#  y_axis = diff_vector
+
+#  plt.plot(x_axis, y_axis, color='black', label='', lw=1, ls='-',
+#  marker='o', markerfacecolor='None', markeredgewidth=1, markeredgecolor='black', markevery=10)
+#  plt.show()
+
+# -------------------------------------------------------------------
 
 # use some criterion for the simularity of two vectors
 # -------------------------------------------------------------------
@@ -50,7 +65,14 @@ ratio = float(counter) / num_elements
 print('the ratio is %.2f%%' % (ratio * 100))
 
 # 3.caculate the correlation between two vectors
-#  cocoef_matrix = np.corrcoef(mean_array_amp, mean_array_bp)
-#  cocoef = cocoef_matrix[0, 1]
-#  print('the correlation coefficient is %0.3f' % cocoef)
+cocoef_matrix = np.corrcoef(mean_array_amp, mean_array_bp)
+cocoef = cocoef_matrix[0, 1]
+print('the correlation coefficient is %0.3f' % cocoef)
+
+# 4.kruskalwallis test for median difference between two distribution
+H, pvalue = kruskalwallis(mean_vector_amp[0], mean_vector_bp[0])
+print('the p-value is %.2f' % pvalue)
+
+if pvalue > 0.05:
+    print("accept null hypothesis: no significant difference between two groups")
 # -------------------------------------------------------------------

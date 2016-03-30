@@ -34,4 +34,6 @@ test-cs
 /scripts
 
 # Temp files
-*.png
+/py_scripts/plots/mse/*.png
+/py_scripts/plots/success/*.png
+/py_scripts/plots/runtime/*.png
