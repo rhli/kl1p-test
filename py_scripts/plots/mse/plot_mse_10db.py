@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
+# About  : Plot MSE with SNR=10db
 # Author : Xiang,Zuo
 # E-Mail : xianglinks@gmail.com
 # Date   : 2016-03-13
-# About  : Plot MSE results from a CSV file
 """
 
 import csv
