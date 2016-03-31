@@ -37,12 +37,14 @@ print(row_num, col_num)
 plt.suptitle("MSE with SNR=20db")
 
 # adjust subplots
-plt.subplots_adjust(hspace=0.3, wspace=0.3)
+plt.subplots_adjust(hspace=0.35, wspace=0.3)
 
 # subplot 1: OMP 20db
 # -----------------------------------------------------------------------------
 ax1 = plt.subplot(2, 2, 1)
 plt.title("OMP", fontsize=10)
+plt.xlabel("m", fontsize=10)
+plt.ylabel("MSE", fontsize=10)
 plt.grid()
 
 k_10 = mean_array_omp[:, 9]
@@ -68,6 +70,8 @@ ax1.legend(handles, labels, fontsize=8)
 # -----------------------------------------------------------------------------
 ax2 = plt.subplot(2, 2, 2)
 plt.title("CoSaMP", fontsize=10)
+plt.xlabel("m", fontsize=10)
+plt.ylabel("MSE", fontsize=10)
 plt.grid()
 
 k_10 = mean_array_cosamp[:, 9]
@@ -93,6 +97,8 @@ ax2.legend(handles, labels, fontsize=8)
 # -----------------------------------------------------------------------------
 ax3 = plt.subplot(2, 2, 3)
 plt.title("AMP", fontsize=10)
+plt.xlabel("m", fontsize=10)
+plt.ylabel("MSE", fontsize=10)
 plt.grid()
 
 k_10 = mean_array_amp[:, 9]
@@ -118,6 +124,8 @@ ax3.legend(handles, labels, fontsize=8)
 # -----------------------------------------------------------------------------
 ax4 = plt.subplot(2, 2, 4)
 plt.title("BP", fontsize=10)
+plt.xlabel("m", fontsize=10)
+plt.ylabel("MSE", fontsize=10)
 plt.grid()
 
 k_10 = mean_array_bp[:, 9]
