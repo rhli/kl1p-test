@@ -44,4 +44,4 @@ ax.view_init(elev=25, azim=-58)           # elevation and angle
 ax.dist=8.5
 
 # save picture
-plt.savefig('runtime_cosamp.png', dpi=1000)
+plt.savefig('runtime_cosamp.png', dpi=600)

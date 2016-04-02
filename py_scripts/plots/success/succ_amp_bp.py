@@ -25,7 +25,7 @@ row_num = len(succ_array_amp_10db)
 col_num = len(succ_array_amp_10db[1])
 
 # --- use contourf plot ---
-plt.suptitle("Success Ratio AMP BP")
+plt.suptitle("Success Rate AMP BP")
 
 # adjust subplots
 plt.subplots_adjust(hspace=0.35, wspace=0.3)
@@ -67,4 +67,4 @@ plt.ylabel("m", rotation=0, fontsize=10)
 ct4 = plt.contourf(succ_array_bp_20db, origin='lower')
 
 # save picture
-plt.savefig('succ_amp_bp.png', dpi=1000)
+plt.savefig('succ_amp_bp.png', dpi=600)

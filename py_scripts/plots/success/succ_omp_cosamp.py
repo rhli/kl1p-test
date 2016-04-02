@@ -26,7 +26,7 @@ col_num = len(succ_array_omp_10db[1])
 
 # --- use contourf plot ---
 
-plt.suptitle("Success Ratio OMP CoSaMP")
+plt.suptitle("Success Rate OMP CoSaMP")
 
 # adjust subplots
 plt.subplots_adjust(hspace=0.35, wspace=0.3)
@@ -68,4 +68,4 @@ plt.ylabel("m", rotation=0, fontsize=10)
 ct4 = plt.contourf(succ_array_cosamp_20db, origin='lower')
 
 # save picture
-plt.savefig('succ_omp_cosamp.png', dpi=1000)
+plt.savefig('succ_omp_cosamp.png', dpi=600)

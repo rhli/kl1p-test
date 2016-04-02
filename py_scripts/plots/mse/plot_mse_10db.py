@@ -148,4 +148,4 @@ ax4.legend(handles, labels, fontsize=8)
 # -----------------------------------------------------------------------------
 
 # save picture
-plt.savefig('mse_10db.png', dpi=1000)
+plt.savefig('mse_10db.png', dpi=600)

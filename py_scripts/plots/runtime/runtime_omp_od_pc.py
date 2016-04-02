@@ -51,4 +51,4 @@ ax.dist=8.5
 fig.colorbar(surf, shrink=0.8, orientation="horizontal")
 
 # save picture
-plt.savefig('runtime_omp_od_pc.png', dpi=1000)
+plt.savefig('runtime_omp_od_pc.png', dpi=600)
