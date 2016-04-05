@@ -40,8 +40,9 @@ plt.title("CoSaMP", y=1.08)
 ax.set_xlabel("m")
 ax.set_ylabel("k")
 ax.set_zlabel("runtime(ms)")
+ax.set_zlim(0, 90)
 ax.view_init(elev=25, azim=-58)           # elevation and angle
 ax.dist=8.5
 
 # save picture
-plt.savefig('runtime_cosamp.png', dpi=600)
+plt.savefig('runtime_cosamp.png', dpi=300)

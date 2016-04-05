@@ -39,9 +39,10 @@ ax.plot_surface(X, Y, Z,
 plt.title("AMP", y=1.08)
 ax.set_xlabel("m")
 ax.set_ylabel("k")
+ax.set_zlim(0, 90)
 ax.set_zlabel("runtime(ms)")
 ax.view_init(elev=25, azim=-58)           # elevation and angle
 ax.dist=8.5
 
 # save picture
-plt.savefig('runtime_amp.png', dpi=600)
+plt.savefig('runtime_amp.png', dpi=300)
