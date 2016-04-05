@@ -45,6 +45,7 @@ ax1 = plt.subplot(2, 2, 1)
 plt.title("OMP", fontsize=10)
 plt.xlabel("m", fontsize=10)
 plt.ylabel("MSE", fontsize=10)
+plt.ylim(0, 0.5)
 plt.grid()
 
 k_10 = mean_array_omp[:, 9]
@@ -72,6 +73,7 @@ ax2 = plt.subplot(2, 2, 2)
 plt.title("CoSaMP", fontsize=10)
 plt.xlabel("m", fontsize=10)
 plt.ylabel("MSE", fontsize=10)
+plt.ylim(0, 0.5)
 plt.grid()
 
 k_10 = mean_array_cosamp[:, 9]
@@ -99,6 +101,7 @@ ax3 = plt.subplot(2, 2, 3)
 plt.title("AMP", fontsize=10)
 plt.xlabel("m", fontsize=10)
 plt.ylabel("MSE", fontsize=10)
+plt.ylim(0, 0.5)
 plt.grid()
 
 k_10 = mean_array_amp[:, 9]
@@ -126,6 +129,7 @@ ax4 = plt.subplot(2, 2, 4)
 plt.title("BP", fontsize=10)
 plt.xlabel("m", fontsize=10)
 plt.ylabel("MSE", fontsize=10)
+plt.ylim(0, 0.5)
 plt.grid()
 
 k_10 = mean_array_bp[:, 9]
@@ -148,4 +152,4 @@ ax4.legend(handles, labels, fontsize=8)
 # -----------------------------------------------------------------------------
 
 # save picture
-plt.savefig('mse_20db.png', dpi=600)
+plt.savefig('mse_20db.png', dpi=300)

@@ -43,6 +43,7 @@ surf = ax.plot_surface(X, Y, Z,
 plt.title("AMP-Odroid divided by PC", y=1.08)
 ax.set_xlabel("m")
 ax.set_ylabel("k")
+ax.set_zlim(0, 10)
 ax.set_zlabel("runtime(ms)")
 ax.view_init(elev=25, azim=-58)           # elevation and angle
 ax.dist=8.5
@@ -50,4 +51,4 @@ ax.dist=8.5
 fig.colorbar(surf, shrink=0.8, orientation="horizontal")
 
 # save picture
-plt.savefig('runtime_amp_od_pc.png', dpi=600)
+plt.savefig('runtime_amp_od_pc.png', dpi=300)

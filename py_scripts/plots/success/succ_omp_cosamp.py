@@ -68,4 +68,4 @@ plt.ylabel("m", rotation=0, fontsize=10)
 ct4 = plt.contourf(succ_array_cosamp_20db, origin='lower')
 
 # save picture
-plt.savefig('succ_omp_cosamp.png', dpi=600)
+plt.savefig('succ_omp_cosamp.png', dpi=300)
