@@ -29,7 +29,7 @@ klab::DoubleReal epsilon = 5e-8;
 // --- File path for sensing matrix and statistish results ---
 
 // sensing matrix
-string sensingMatrixOriginalFile("./rsc/sensingMatrixOriginal.csv");
+string sensingMatrixOriginalFile("./rsc/sensingMatrixKL1P.csv");
 string sensingMatrixResizedFile("./rsc/sensingMatrixResized.csv");
 
 // results dir and files
