@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------
-// About  : Functions to processing simulation results
-// Date   : 2016-01-19
+// About  : Functions for data processing
+// Date   : 2016-04-16
 // Author : Xiang,Zuo
 // Email  : xianglinks@gmail.com
 // --------------------------------------------------------------------------------------
@@ -9,12 +9,13 @@
 #define DATAPROC_H
 
 #include <KL1pInclude.h>
+#include <cmath>
 #include "Constants.h"
 
 namespace kl1p
 {
     klab::DoubleReal CalcMSE(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB);
-    klab::DoubleReal CalcSuccess(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB);
+    klab::UInt32 CalcSuccess(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB);
     klab::UInt32 CalcSuccessSupport(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB);
     klab::DoubleReal CalcDiscreteSignalPower(arma::Col<klab::DoubleReal> vector);
     klab::DoubleReal CalcDiscreteSNR(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB);
@@ -23,26 +24,30 @@ namespace kl1p
 // ---------------------------------------------------------------------------------------------------- //
 
 /**
- * @brief Calculate the MSE between two Vectors(arma::Col)
- *
+ * @brief Calculate the Mean Square Error between two vectors
+ *        MSE = sum_{i}(vectorA(i) - vectorB(i))^2
  * @param vectorA
  * @param vectorB
  *
- * @return
+ * @return mse
  */
 klab::DoubleReal kl1p::CalcMSE(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB)
 {
-    // MSE = 1/N * sum(N, (x1 - x2)^2)
-
     klab::DoubleReal mse = 0;
 
-    klab::UInt32 num_element = vectorA.n_rows;
+    klab::UInt32 num_element_A = vectorA.n_rows;
+    klab::UInt32 num_element_B = vectorB.n_rows;
 
-    for(klab::UInt32 i=0; i<num_element; i++) {
+    if (num_element_A != num_element_B) {
+        std::cout<<"two vectors should have same length"<<std::endl;
+        exit(1);
+    }
+
+    for(klab::UInt32 i = 0; i < num_element_A; i++) {
         mse = mse+ pow(vectorA.at(i) - vectorB.at(i), 2);
     }
 
-    mse = mse / num_element;
+    mse = mse / num_element_A;
 
     return mse;
 }
@@ -56,19 +61,26 @@ klab::DoubleReal kl1p::CalcMSE(arma::Col<klab::DoubleReal> vectorA, arma::Col<kl
  * @param vectorA
  * @param vectorB
  *
- * @return
+ * @return success
  */
-klab::DoubleReal kl1p::CalcSuccess(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB)
+klab::UInt32 kl1p::CalcSuccess(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB)
 {
-    // init success = 1
-    klab::DoubleReal success = 1;
-    klab::UInt32 num_element = vectorA.n_rows;
+    klab::UInt32 success = 1;  // init with success = 1
+
+    klab::UInt32 num_element_A = vectorA.n_rows;
+    klab::UInt32 num_element_B = vectorB.n_rows;
+
+    if (num_element_A != num_element_B) {
+        std::cout<<"two vectors should have same length"<<std::endl;
+        exit(1);
+    }
 
     // due to the accuracy of computing, the value should be worked with tolerance(here as epsilon)
-    for(klab::UInt32 i=0; i<num_element; i++) {
-        if( std::abs( vectorA.at(i) - vectorB.at(i) ) > epsilon )
+    for(klab::UInt32 i = 0; i < num_element_A; i++) {
+        if((vectorA.at(i) - vectorB.at(i) > epsilon) || (vectorA(i) - vectorB(i) < (-1 * epsilon))) {
             success = 0;  // when there is a significant difference
             break;
+        }
     }
 
     return success;
@@ -84,13 +96,15 @@ klab::DoubleReal kl1p::CalcSuccess(arma::Col<klab::DoubleReal> vectorA, arma::Co
  * @param vectorA
  * @param vectorB
  *
- * @return
+ * @return success
  */
 klab::UInt32 kl1p::CalcSuccessSupport(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB)
 {
     klab::UInt32 success = 1;  // init with success = 1
+
     klab::UInt32 num_element_A = vectorA.n_rows;
     klab::UInt32 num_element_B = vectorB.n_rows;
+
     if (num_element_A != num_element_B) {
         std::cout<<"two vectors should have same length"<<std::endl;
         exit(1);
@@ -99,9 +113,10 @@ klab::UInt32 kl1p::CalcSuccessSupport(arma::Col<klab::DoubleReal> vectorA, arma:
     // loop for all elements
     for (klab::UInt32 i = 0; i < num_element_A; ++i) {
         // if element with index i is non-zero
-        if(std::abs(vectorA(i) - 0) >= epsilon) {
-            if(std::abs(vectorB(i) - 0) <= epsilon) {
+        if(fabs(vectorA(i) - 0) >= epsilon) {
+            if(fabs(vectorB(i) - 0) <= epsilon) {
                 success = 0;  // if vectorB(i) is zero at the same position
+                break;
             }
         }
     }
@@ -112,10 +127,11 @@ klab::UInt32 kl1p::CalcSuccessSupport(arma::Col<klab::DoubleReal> vectorA, arma:
 
 /**
  * @brief Calculate the power of a discrete vector signal
- *
+ *        power = energie / num_element
+ *        energie = sum(vector.at(i)^2)
  * @param vector
  *
- * @return
+ * @return power
  */
 klab::DoubleReal kl1p::CalcDiscreteSignalPower(arma::Col<klab::DoubleReal> vector)
 {
@@ -129,6 +145,7 @@ klab::DoubleReal kl1p::CalcDiscreteSignalPower(arma::Col<klab::DoubleReal> vecto
     }
 
     power = energie / num_element;
+
     return power;
 }
 
@@ -140,7 +157,7 @@ klab::DoubleReal kl1p::CalcDiscreteSignalPower(arma::Col<klab::DoubleReal> vecto
  * @param vectorA
  * @param vectorB
  *
- * @return
+ * @return SNR
  */
 klab::DoubleReal kl1p::CalcDiscreteSNR(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB)
 {
@@ -158,12 +175,14 @@ klab::DoubleReal kl1p::CalcDiscreteSNR(arma::Col<klab::DoubleReal> vectorA, arma
         klab::DoubleReal energieA = 0.0;
         klab::DoubleReal energieB = 0.0;
 
-        for(klab::UInt32 i=0; i<num_elementA; i++) {
+        for(klab::UInt32 i = 0; i < num_elementA; i++) {
             energieA += vectorA.at(i) * vectorA.at(i);
             energieB += vectorB.at(i) * vectorB.at(i);
         }
+
         snr = energieA / energieB;
         snr = 10 * log10(snr);  // convert snr to dB
+
         return snr;
     }
 }

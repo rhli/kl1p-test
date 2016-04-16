@@ -20,11 +20,11 @@ LIBRA = -lpthread -ldl -larmadillo
 # Compiling rules
 all: test
 
-test: testCalcSuccess.o
-		$(CC) testCalcSuccess.o $(LIBB) $(LIBRA) -o test
+test: testDataProcFunc.o
+		$(CC) testDataProcFunc.o $(LIBB) $(LIBRA) -o test
 
-testCalcSuccess.o : testCalcSuccess.cpp
-		$(CC) $(CFLAGS) $(HEADER) testCalcSuccess.cpp
+testDataProcFunc.o: testDataProcFunc.cpp
+		$(CC) $(CFLAGS) $(HEADER) testDataProcFunc.cpp
 
 clean:
 		rm *.o
