@@ -135,7 +135,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
         // --------------------------------------------------------------------------------
         // --- Init variables ---
         arma::Col<klab::DoubleReal> x;		// the solution of the reconstruction.
-        klab::KTimer timer;                 // Timer to get run time
+        klab::KTimer timer;                 // timer to get run time
 
         // --- Use flag to test different Algorithms ---
         switch(flag) {
@@ -151,7 +151,9 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    // successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    // test if supp(x0) is a subset of supp(x)
+                    successTemp[j] = kl1p::CalcSuccessSupport(x0, x);
                     break;
                 }
                 // handle with exception when problem by solving matrix
@@ -161,17 +163,19 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    // successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    successTemp[j] = kl1p::CalcSuccessSupport(x0, x);
                     break;
                 }
-                // handle with exception by small snr
+                // handle with exception by relativ small snr
                 catch(KZeroNormVectorOMPSolverException) {
                     std::cout<<"KZeroNormVectorOMPSolverException catched..."<<std::endl;  // print exception
                     timer.stop();
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    // successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    successTemp[j] = kl1p::CalcSuccessSupport(x0, x);
                     break;
                 }
             }

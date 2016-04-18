@@ -33,8 +33,6 @@ namespace kl1p
  */
 klab::DoubleReal kl1p::CalcMSE(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB)
 {
-    klab::DoubleReal mse = 0;
-
     klab::UInt32 num_element_A = vectorA.n_rows;
     klab::UInt32 num_element_B = vectorB.n_rows;
 
@@ -42,6 +40,8 @@ klab::DoubleReal kl1p::CalcMSE(arma::Col<klab::DoubleReal> vectorA, arma::Col<kl
         std::cout<<"two vectors should have same length"<<std::endl;
         exit(1);
     }
+
+    klab::DoubleReal mse = 0;
 
     for(klab::UInt32 i = 0; i < num_element_A; i++) {
         mse = mse+ pow(vectorA.at(i) - vectorB.at(i), 2);
@@ -65,8 +65,6 @@ klab::DoubleReal kl1p::CalcMSE(arma::Col<klab::DoubleReal> vectorA, arma::Col<kl
  */
 klab::UInt32 kl1p::CalcSuccess(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB)
 {
-    klab::UInt32 success = 1;  // init with success = 1
-
     klab::UInt32 num_element_A = vectorA.n_rows;
     klab::UInt32 num_element_B = vectorB.n_rows;
 
@@ -75,9 +73,11 @@ klab::UInt32 kl1p::CalcSuccess(arma::Col<klab::DoubleReal> vectorA, arma::Col<kl
         exit(1);
     }
 
+    klab::UInt32 success = 1;  // init with success = 1
+
     // due to the accuracy of computing, the value should be worked with tolerance(here as epsilon)
     for(klab::UInt32 i = 0; i < num_element_A; i++) {
-        if((vectorA.at(i) - vectorB.at(i) > epsilon) || (vectorA(i) - vectorB(i) < (-1 * epsilon))) {
+        if(fabs(vectorA.at(i) - vectorB.at(i)) > epsilon) {
             success = 0;  // when there is a significant difference
             break;
         }
@@ -91,7 +91,7 @@ klab::UInt32 kl1p::CalcSuccess(arma::Col<klab::DoubleReal> vectorA, arma::Col<kl
 /**
  * @brief return success = 1 if supp(vectorA) is a subset of supp(vectorB)
  *        supp(vector) ist the positions of non-zero element in the vector
- *        due to the accuracy of computing, the value should be worked with tolerance
+ *        due to the accuracy of computing, the value should be worked with a epsilon-env
  *
  * @param vectorA
  * @param vectorB
@@ -100,8 +100,6 @@ klab::UInt32 kl1p::CalcSuccess(arma::Col<klab::DoubleReal> vectorA, arma::Col<kl
  */
 klab::UInt32 kl1p::CalcSuccessSupport(arma::Col<klab::DoubleReal> vectorA, arma::Col<klab::DoubleReal> vectorB)
 {
-    klab::UInt32 success = 1;  // init with success = 1
-
     klab::UInt32 num_element_A = vectorA.n_rows;
     klab::UInt32 num_element_B = vectorB.n_rows;
 
@@ -110,12 +108,15 @@ klab::UInt32 kl1p::CalcSuccessSupport(arma::Col<klab::DoubleReal> vectorA, arma:
         exit(1);
     }
 
+    klab::UInt32 success = 1;  // init with success = 1
+
     // loop for all elements
     for (klab::UInt32 i = 0; i < num_element_A; ++i) {
         // if element with index i is non-zero
-        if(fabs(vectorA(i) - 0) >= epsilon) {
-            if(fabs(vectorB(i) - 0) <= epsilon) {
-                success = 0;  // if vectorB(i) is zero at the same position
+        if(fabs(vectorA.at(i) - 0.0) > epsilon) {
+            // if vectorB(i) is zero at the same position
+            if(fabs(vectorB.at(i) - 0.0) <= epsilon) {
+                success = 0;
                 break;
             }
         }
