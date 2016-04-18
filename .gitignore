@@ -26,14 +26,14 @@
 *.exe
 *.out
 test-cs
+/tests/test
 
 # Temp dirs
 /csv_matrix
 /tmp_results
-/rsc/sensingMatrixResized.csv
-/scripts
 
 # Temp files
+/rsc/sensingMatrixResized.csv
 /py_scripts/plots/mse/*.png
 /py_scripts/plots/success/*.png
 /py_scripts/plots/runtime/*.png

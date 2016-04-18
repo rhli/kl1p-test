@@ -12,9 +12,9 @@
 int main(int argc, char *argv[])
 {
     arma::Col<klab::DoubleReal> A;
-    A << 1 << 0 << 1 << 0.5 << 1 << 0 << arma::endr;
+    A << 1 << 0 << 1 << 0.5 << 6e-8 << 0.5 << arma::endr;
     arma::Col<klab::DoubleReal> B;
-    B << 1 << 0 << 1 << 0 << 0 << 0 << arma::endr;
+    B << 1 << 0 << 1 << 0.5 << 5e-8 << 0.5 << arma::endr;
 
     // test mse
     klab::DoubleReal mse;

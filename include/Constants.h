@@ -24,6 +24,7 @@ string algorithms [] = {"OMP", "ROMP", "CoSaMP", "Subspace-Pursuit", "SL0", "AMP
 // --- Some constant value ---
 
 klab::DoubleReal tolerance = 1e-6;
+// threshold for differing a value from zero
 klab::DoubleReal epsilon = 5e-8;
 
 // --- File path for sensing matrix and statistish results ---
