@@ -31,6 +31,7 @@ test-cs
 # Temp dirs
 /csv_matrix
 /tmp_results
+/tests
 
 # Temp files
 /rsc/sensingMatrixResized.csv
