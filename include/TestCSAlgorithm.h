@@ -191,7 +191,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    successTemp[j] = kl1p::CalcSuccessSupport(x, x0);
                     break;
                 }
                 catch(klab::KZeroNormLeastSquareException) {
@@ -200,7 +200,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    successTemp[j] = kl1p::CalcSuccessSupport(x, x0);
                     break;
                 }
             }
@@ -216,7 +216,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    successTemp[j] = kl1p::CalcSuccessSupport(x0, x);
                     break;
                 }
                 catch(klab::KZeroNormLeastSquareException) {
@@ -225,7 +225,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    successTemp[j] = kl1p::CalcSuccessSupport(x0, x);
                     break;
                 }
 
@@ -236,7 +236,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    successTemp[j] = kl1p::CalcSuccessSupport(x0, x);
                     break;
                 }
             }
@@ -252,7 +252,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    successTemp[j] = kl1p::CalcSuccessSupport(x, x0);
                     break;
                 }
                 catch(klab::KZeroNormLeastSquareException) {
@@ -261,7 +261,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    successTemp[j] = kl1p::CalcSuccessSupport(x, x0);
                     break;
                 }
             }
@@ -277,7 +277,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    successTemp[j] = kl1p::CalcSuccessSupport(x, x0);
                     break;
                 }
                 catch(klab::KZeroNormLeastSquareException) {
@@ -286,7 +286,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    successTemp[j] = kl1p::CalcSuccessSupport(x, x0);
                     break;
                 }
             }
@@ -303,7 +303,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    successTemp[j] = kl1p::CalcSuccessSupport(x0, x);
                     break;
                 }
                 catch(klab::KZeroNormLeastSquareException) {
@@ -312,7 +312,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    successTemp[j] = kl1p::CalcSuccessSupport(x0, x);
                     break;
                 }
                 catch(KZeroNormVectorAMPSolverException) {
@@ -321,7 +321,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    successTemp[j] = kl1p::CalcSuccessSupport(x0, x);
                     break;
                 }
             }
@@ -339,7 +339,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    successTemp[j] = kl1p::CalcSuccessSupport(x, x0);
                     break;
                 }
                 catch(klab::KZeroNormLeastSquareException) {
@@ -348,7 +348,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    successTemp[j] = kl1p::CalcSuccessSupport(x, x0);
                     break;
                 }
             }
@@ -365,7 +365,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    successTemp[j] = kl1p::CalcSuccessSupport(x0, x);
                     break;
                 }
                 catch(klab::KZeroNormLeastSquareException) {
@@ -374,7 +374,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    successTemp[j] = kl1p::CalcSuccessSupport(x0, x);
                     break;
                 }
                 catch(KZeroNormVectorBasisPursuitSolverException) {
@@ -383,7 +383,7 @@ resultStruct kl1p::testCSAlgorithm(klab::UInt32 flag, klab::UInt32 i, klab::UInt
                     // Add result to temp vector
                     runTimeTemp[j] = klab::DoubleReal(timer.durationInMilliseconds());
                     mseTemp[j] = kl1p::CalcMSE(x, x0);
-                    successTemp[j] = kl1p::CalcSuccess(x, x0);
+                    successTemp[j] = kl1p::CalcSuccessSupport(x0, x);
                     break;
                 }
             }
